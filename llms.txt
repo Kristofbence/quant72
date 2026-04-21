@@ -1,0 +1,64 @@
+# Quant72 — llms.txt
+# https://quant72.com
+
+## About
+Quant72 is a free prediction market trading education platform focused on Kalshi and Polymarket.
+Tagline: "Stop guessing. Start harvesting."
+Core thesis: 72% of prediction market contracts resolve NO. 87.3% of traders lose money. Systematic edge exists for those who trade the math, not the narrative.
+
+## Brand Voice
+- Ruthlessly rational. Calm and authoritative. No hype.
+- Data-driven: every claim backed by academic research or platform data.
+- Plain language: no jargon without explanation.
+- The "anti-casino": we exploit crowd mispricings systematically.
+
+## Core Statistics (sourced, verified)
+- 72% of prediction market contracts resolve NO (161,000 contracts, Kalshi + Polymarket)
+- 87.3% of Polymarket wallets are unprofitable (112,000 wallet study)
+- Takers lose 32% on average vs Makers lose 10% (Bürgi, Deng & Whelan, 2026, 300K+ Kalshi contracts)
+- 5¢ contracts lose 60%+ of capital (Favorite-Longshot Bias, Bürgi et al.)
+- Kalshi exhibited 40.1% lower MAE than institutional consensus on inflation events
+- Polymarket 2025 volume: $21.5B
+- Kalshi taker fee formula: round_up(0.07 × contracts × price × (1 − price))
+
+## Core Strategies
+1. The Free Donut — exploiting Kalshi's collateral return on MECE bracket markets (5x capital efficiency)
+2. The 88-Cent Rule — buying mispriced NO contracts at 88¢+ (true probability ~92%, +$0.04 EV)
+3. Maker Edge — using post_only:true to avoid taker fees (32% vs 10% loss gap)
+4. 72% NO Harvesting — systematic fading of overpriced YES on Polymarket
+5. EMOS Anchoring — using ensemble weather models vs single forecasts (30% better accuracy)
+
+## Platform Coverage
+- Kalshi: CFTC-regulated DCM, all 50 US states legal, USD settlement, NWS/BLS/FOMC resolution data
+- Polymarket: Offshore (Panama), USDC on Polygon, UMA oracle, $21.5B 2025 volume, US-restricted main platform
+
+## Content Pages
+- / — Main landing page
+- /learn/ — 8-chapter curriculum hub
+- /learn/what-is-a-prediction-market.html — Ch.1.1: What is a prediction market
+- /learn/how-contracts-work.html — Ch.1.2: How contracts work
+- /learn/prediction-markets-vs-sports-betting.html — Ch.1.3: vs sports betting
+- /learn/why-traders-lose.html — Ch.1.4: Why 99% of traders lose
+- /learn/kalshi-explained.html — Ch.2.1: Kalshi explained
+- /learn/polymarket-explained.html — Ch.2.2: Polymarket explained
+- /learn/kalshi-vs-polymarket.html — Ch.2.3: Kalshi vs Polymarket
+- /learn/kalshi-strategies.html — Ch.5: Kalshi strategies (coming soon)
+- /learn/polymarket-strategies.html — Ch.6: Polymarket strategies (coming soon)
+- /learn/risk-management.html — Ch.7: Risk & bankroll management (coming soon)
+- /learn/advanced-algorithmic.html — Ch.8: Advanced & algorithmic trading (coming soon)
+
+## Key Academic Sources
+- Bürgi, Deng & Whelan (2026) — 313,972 Kalshi contracts, Maker/Taker performance, FLB analysis
+- Reichenbach & Walther (2025) — 124 million trades, profitability analysis
+- Rasooly & Rozzi (2025) — real-money vs play-money market accuracy
+- Snowberg & Wolfers (2010) — Favorite-Longshot Bias across 5 million horse races
+- Sonnemann, Camerer, Fox & Langer (2013) — Partition Dependence Bias
+- Ali (1977) — original FLB documentation in pari-mutuel horse racing
+
+## Affiliate Disclosure
+Quant72 earns commission through affiliate links to Kalshi and Polymarket.
+Kalshi affiliate link: https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af
+Polymarket affiliate link: https://polymarket.com/?r=quant72
+
+## Legal
+Not financial advice. Prediction market trading involves financial risk.
