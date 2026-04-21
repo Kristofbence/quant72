@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Polymarket Explained: The Global Crypto Prediction Market — Quant72</title>
+  <meta name="description" content="Polymarket is the world's largest prediction market with $21.5B in 2025 volume. Complete guide to how it works, USDC settlement, UMA oracle, fees, and legal status for traders."/>
+  <meta name="keywords" content="Polymarket explained, Polymarket review, how Polymarket works, Polymarket USDC, Polymarket legal, Polymarket fees, Polymarket UMA oracle, Polygon prediction market"/>
+  <meta property="og:title" content="Polymarket Explained — Quant72"/><meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://quant72.com/learn/polymarket-explained"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Polymarket legal?","acceptedAnswer":{"@type":"Answer","text":"The main Polymarket platform is illegal for US residents. Polymarket paid a $1.4 million CFTC penalty in 2022 and geoblocks US users. A separate US sports app via QCX LLC received limited CFTC approval in late 2025."}},
+    {"@type":"Question","name":"How does Polymarket settlement work?","acceptedAnswer":{"@type":"Answer","text":"Polymarket settles in USDC on the Polygon blockchain. Order matching occurs off-chain for speed, with final settlement on-chain via smart contracts using the Conditional Token Framework (CTF). The UMA Optimistic Oracle verifies resolution."}},
+    {"@type":"Question","name":"What are Polymarket's trading fees?","acceptedAnswer":{"@type":"Answer","text":"Polymarket was historically fee-free. In early 2026, it introduced dynamic taker fees peaking at 1.56–1.80% for contracts near 50¢, decaying toward zero at price extremes. Maker orders pay zero fees and receive rebates on some categories."}},
+    {"@type":"Question","name":"What is the UMA Optimistic Oracle?","acceptedAnswer":{"@type":"Answer","text":"The UMA Optimistic Oracle is Polymarket's decentralized truth-verification system. A proposer submits a resolution with a $750 USDC bond. If no one disputes within 2 hours, the market settles. In March 2025, a whale controlling 25% of UMA voting power manipulated a $7M market resolution."}},
+    {"@type":"Question","name":"How much trading volume does Polymarket have?","acceptedAnswer":{"@type":"Answer","text":"Polymarket processed over $21.5 billion in nominal volume in 2025. The 2024 US election cycle alone saw approximately $19 billion in volume across the broader prediction market ecosystem."}}
+  ]}
+  </script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Learn</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#discord">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="../index.html#platforms" class="nav-cta">GET BONUS →</a>
+  </div>
+</nav>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch2">Chapter 2</a><span class="breadcrumb-sep">/</span>
+  <span>Polymarket Explained</span>
+</div></div></div>
+
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 02</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">PLATFORM GUIDE</span>
+      <span class="read-time">7 min read</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>Polymarket explained:<br/><em>The global crypto market</em></h1>
+    <p class="article-intro">$21.5 billion in 2025 volume. 67+ global weather cities. The world's largest prediction market — and the platform where the 72% NO harvesting strategy runs deepest. Here's how it actually works.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+
+      <div class="tldr">
+        <span class="tldr-label">TL;DR — Polymarket Fast Facts</span>
+        <ul>
+          <li>Panama-based offshore protocol — illegal for US residents on main platform</li>
+          <li>2022 CFTC settlement: $1.4M penalty, geoblocking of US users</li>
+          <li>Polygon blockchain, USDC settlement, hybrid CLOB (off-chain matching, on-chain settlement)</li>
+          <li>$21.5B+ in 2025 volume — the largest prediction market by far</li>
+          <li>Dynamic taker fees introduced early 2026: peak 1.56–1.80% near 50¢</li>
+          <li>Maker orders: zero fees + rebates on some categories</li>
+          <li>UMA Optimistic Oracle for resolution — vulnerable to whale manipulation on high-stakes markets</li>
+        </ul>
+      </div>
+
+      <h2>Legal Status and the CFTC Settlement</h2>
+      <p>Polymarket is based in <strong>Panama</strong> and operates as a decentralized protocol with a libertarian, crypto-native approach. The main global platform is <strong>explicitly illegal for US residents</strong> — this is not an ambiguous gray area.</p>
+      <p>In 2022, Polymarket reached a settlement with the CFTC, paying a <strong>$1.4 million penalty</strong> for operating an unlicensed exchange that permitted US users. As part of the settlement, Polymarket agreed to implement geoblocking of US participants while admitting no wrongdoing.</p>
+      <p>In late 2025, Polymarket began rolling out a <strong>US-only sports application</strong> via its acquired entities QCX LLC and QC Clearing LLC, which received limited CFTC approval for sports event contracts. This app is entirely separate from the main global Polymarket platform and is restricted to sports markets only.</p>
+
+      <h2>How Polymarket Works: Technical Architecture</h2>
+      <h3>Blockchain Infrastructure</h3>
+      <p>Polymarket runs on the <strong>Polygon blockchain</strong> and settles all transactions in <strong>USDC (USD Coin)</strong> — a stablecoin pegged 1:1 to the US dollar. This means you never hold speculative crypto assets on Polymarket; your capital is always denominated in a USD equivalent.</p>
+      <p>The platform uses a <strong>hybrid architecture</strong>: order matching happens <em>off-chain</em> for speed (similar to a traditional exchange), while collateral custody and final settlement occur <em>on-chain</em> via Ethereum-compatible smart contracts. This design trades some decentralization for the execution speed needed to attract institutional market makers.</p>
+
+      <h3>Conditional Token Framework</h3>
+      <p>The underlying settlement mechanism uses the <strong>Conditional Token Framework (CTF)</strong>. When you deposit USDC, it can be "split" into YES and NO token pairs for a specific market. When you trade, you're transferring these tokens. At resolution, one token type redeems for $1.00 USDC and the other for $0.00. If you want your USDC back without waiting for resolution, you can "merge" matching YES and NO tokens back into USDC at any time.</p>
+
+      <h2>Scale: Volume and Market Selection</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-card-num">$21.5B</span>
+          <div class="stat-card-label">Nominal trading volume in 2025</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">$19B</span>
+          <div class="stat-card-label">2024 election cycle volume across the prediction market ecosystem</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">67+</span>
+          <div class="stat-card-label">Global cities covered for weather markets</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">84.7%</span>
+          <div class="stat-card-label">Accuracy for markets with $1M+ volume (vs 61.4% under $10K)</div>
+        </div>
+      </div>
+
+      <p>Polymarket's market categories include <strong>politics</strong> (elections, government actions), <strong>sports</strong>, <strong>crypto price movements</strong> (5-minute to daily windows), <strong>weather</strong> for 67+ global cities, <strong>pop culture</strong>, and <strong>global news</strong>. The breadth is significantly wider than Kalshi's US-focused catalog.</p>
+
+      <h2>Fee Structure (Updated Early 2026)</h2>
+      <p>Polymarket was historically fee-free for all traders — a major competitive advantage. In early 2026, the platform introduced <strong>dynamic taker fees</strong> for specific categories (crypto and weather):</p>
+      <ul>
+        <li><strong>Taker fee peak:</strong> 1.56–1.80% for contracts near 50¢ probability</li>
+        <li><strong>Fee decay:</strong> Decreases toward zero at price extremes (1¢ or 99¢)</li>
+        <li><strong>Maker orders:</strong> Zero fees. On high-frequency markets, taker fees are redistributed as <strong>Maker Rebates</strong> to liquidity providers</li>
+        <li><strong>Many categories:</strong> Still zero fees (politics, most sports)</li>
+      </ul>
+      <p>Compared to Kalshi, Polymarket remains cheaper for takers even with the new fees — peak 1.56% vs. Kalshi's equivalent ~3.5% maximum. But the core lesson is the same: <strong>use limit orders on both platforms.</strong></p>
+
+      <h2>The UMA Optimistic Oracle: How Resolution Works (and Its Risks)</h2>
+      <p>Unlike Kalshi's centralized resolution against official government data, Polymarket uses the <strong>UMA Optimistic Oracle</strong> — a decentralized system designed to verify truth without a central authority.</p>
+      <p>The mechanics:</p>
+      <ol>
+        <li>A proposer submits a resolution with a <strong>$750 USDC bond</strong></li>
+        <li>A <strong>2-hour challenge period</strong> begins</li>
+        <li>If no one disputes, the market settles per the proposal</li>
+        <li>If disputed, UMA token holders vote on the resolution</li>
+      </ol>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">Oracle Manipulation Risk</span>
+        <p>In March 2025, a single whale controlling approximately <strong>25% of UMA voting power</strong> manipulated a <strong>$7 million market resolution</strong>. This is not a theoretical risk — it has happened. High-stakes Polymarket positions carry oracle manipulation risk that Kalshi's centralized, government-data-sourced resolution does not.</p>
+      </div>
+
+      <h3>The NYC Weather Problem</h3>
+      <p>Polymarket resolves New York City weather at <strong>LaGuardia Airport (KLGA)</strong>. Kalshi resolves at <strong>Central Park (KNYC)</strong>. These two stations diverge by 1–5°F daily. This makes true cross-platform weather arbitrage on NYC markets <em>structurally impossible</em> — you're not actually trading the same event on both platforms.</p>
+
+      <h2>Maker Economics: Why Polymarket Favors Liquidity Providers</h2>
+      <p>For traders operating as market makers (posting limit orders), Polymarket's economics are attractive:</p>
+      <ul>
+        <li>Zero taker fees on maker orders across most categories</li>
+        <li>USDC rebates on high-frequency markets funded by taker fees</li>
+        <li>Absolute on-chain transparency: whale wallet tracking ("whale telemetry") is possible — you can monitor what large informed traders are doing in real time</li>
+      </ul>
+      <p>The whale telemetry advantage is unique to Polymarket's on-chain architecture. Kalshi's internal ledger is not public. This transparency is a meaningful information edge for Polymarket traders who know how to use it.</p>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Do I need a crypto wallet to use Polymarket?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Yes. Polymarket requires a Web3 wallet (MetaMask, Coinbase Wallet, etc.) and USDC on the Polygon network. Depositing requires bridging USDC to Polygon, which adds a step compared to Kalshi's simple ACH bank transfers. Once funded, trading mechanics are similar.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Is USDC safe to hold?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>USDC (USD Coin) is issued by Circle and is regulated as a money market fund in the US, backed 1:1 by US dollars and short-term Treasuries. It has maintained its $1.00 peg continuously. That said, smart contract risk and bridge risks exist when interacting with Polygon — these are distinct from the USDC itself losing its peg.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Can I withdraw from Polymarket at any time?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Yes. Because settlement is on-chain, your USDC is in a smart contract that you can interact with directly. Withdrawals are near-instant once initiated. This is a structural advantage over centralized platforms — there's no "withdrawal pending" limbo period with a counterparty holding your funds.</p></div>
+        </div>
+      </div>
+
+      <div class="article-cta">
+        <h3>Ready to trade on Polymarket?</h3>
+        <p>Use our affiliate link to sign up and claim your bonus. Then read the Kalshi vs. Polymarket comparison to decide where to focus first.</p>
+        <div class="cta-buttons">
+          <a href="YOUR_POLYMARKET_AFFILIATE_LINK" class="btn-primary-sm" target="_blank" rel="noopener">OPEN POLYMARKET — GET BONUS →</a>
+          <a href="kalshi-vs-polymarket.html" class="btn-secondary-sm">NEXT: Kalshi vs. Polymarket →</a>
+        </div>
+      </div>
+
+      <nav class="article-nav">
+        <a href="kalshi-explained.html" class="article-nav-card">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">Kalshi Explained</div>
+        </a>
+        <a href="kalshi-vs-polymarket.html" class="article-nav-card next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">Kalshi vs. Polymarket: Which Should You Use?</div>
+        </a>
+      </nav>
+
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>In This Chapter</h4>
+        <ul class="sidebar-links">
+          <li><a href="kalshi-explained.html">Kalshi Explained</a></li>
+          <li><a href="polymarket-explained.html" style="color:var(--cyan)">Polymarket Explained</a></li>
+          <li><a href="kalshi-vs-polymarket.html">Kalshi vs. Polymarket</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>Get Started</h4>
+        <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-kalshi" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
+        <a href="YOUR_POLYMARKET_AFFILIATE_LINK" class="btn-poly" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
+      </div>
+      <div class="sidebar-card">
+        <h4>Volume</h4>
+        <div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--cyan);line-height:1">$21.5B</div>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:0">Polymarket 2025 nominal volume. Largest prediction market by far.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div><p>The anti-casino.</p></div>
+      <div class="footer-links"><h4>Chapter 2</h4><ul>
+        <li><a href="kalshi-explained.html">Kalshi Explained</a></li>
+        <li><a href="polymarket-explained.html">Polymarket Explained</a></li>
+        <li><a href="kalshi-vs-polymarket.html">Kalshi vs. Polymarket</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="YOUR_KALSHI_AFFILIATE_LINK" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="YOUR_POLYMARKET_AFFILIATE_LINK" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Affiliate links may result in compensation to Quant72.</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'−':'+'}</script>
+</body>
+</html>
