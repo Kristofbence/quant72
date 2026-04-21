@@ -364,7 +364,7 @@ nav {
 /* Sidebar buttons — consistent blue system */
 .btn-kalshi {
   display: flex; align-items: center; justify-content: center;
-  background: var(--blue); color: #fff;
+  background: var(--blue) !important; color: #fff !important;
   font-family: var(--mono); font-size: 12px; font-weight: 700;
   letter-spacing: 0.05em; padding: 11px; border-radius: 8px;
   transition: opacity 0.15s; margin-bottom: 10px;
@@ -372,7 +372,7 @@ nav {
 .btn-kalshi:hover { opacity: 0.88; text-decoration: none; }
 .btn-poly {
   display: flex; align-items: center; justify-content: center;
-  background: #fff; color: var(--blue);
+  background: #fff !important; color: var(--blue) !important;
   font-family: var(--mono); font-size: 12px; font-weight: 700;
   letter-spacing: 0.05em; padding: 11px; border-radius: 8px;
   border: 1.5px solid var(--blue); transition: background 0.15s; margin-bottom: 10px;
@@ -389,14 +389,14 @@ nav {
 
 /* ── ARTICLE CTA ── */
 .article-cta {
-  background: var(--bg); border: 1.5px solid var(--border);
+  background: var(--white); border: 1.5px solid var(--border);
   border-radius: 14px; padding: 36px; margin: 56px 0 0;
 }
 .article-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
 .article-cta p { font-size: 14px; color: var(--muted); margin-bottom: 22px; max-width: 480px; line-height: 1.6; }
 .cta-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn-primary-sm {
-  background: var(--blue); color: #fff;
+  background: var(--blue) !important; color: #fff !important;
   font-family: var(--mono); font-size: 12px; font-weight: 700;
   letter-spacing: 0.05em; padding: 11px 18px; border-radius: 7px;
   transition: opacity 0.15s; display: inline-block;
