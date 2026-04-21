@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What Is a Prediction Market? A Plain-Language Explainer — Quant72</title>
+  <meta name="description" content="A prediction market is an exchange where traders buy and sell contracts on the outcome of real-world events. Learn how they work, why they beat polls, and how to use them for profit."/>
+  <meta name="keywords" content="what is a prediction market, prediction market explained, how prediction markets work, Kalshi, Polymarket, event contracts"/>
+  <meta property="og:title" content="What Is a Prediction Market? — Quant72"/>
+  <meta property="og:description" content="Prediction markets aggregate decentralized information into actionable probabilities. 72% of contracts resolve NO. Here's everything you need to know."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://quant72.com/learn/what-is-a-prediction-market"/>
+  <link rel="canonical" href="https://quant72.com/learn/what-is-a-prediction-market"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"What Is a Prediction Market? A Plain-Language Explainer",
+    "description":"A prediction market is an exchange where traders buy and sell contracts on the outcome of real-world events. Learn how they work, why they beat polls, and how to use them systematically.",
+    "author":{"@type":"Organization","name":"Quant72"},
+    "publisher":{"@type":"Organization","name":"Quant72","url":"https://quant72.com"},
+    "datePublished":"2025-01-01",
+    "dateModified":"2026-04-01",
+    "mainEntityOfPage":"https://quant72.com/learn/what-is-a-prediction-market"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is a prediction market?","acceptedAnswer":{"@type":"Answer","text":"A prediction market is an exchange where participants trade contracts on the outcomes of real-world events. Prices float between $0.01 and $0.99, where the price directly represents the market's implied probability of that event occurring."}},
+      {"@type":"Question","name":"Are prediction markets legal in the US?","acceptedAnswer":{"@type":"Answer","text":"Kalshi is a CFTC-regulated Designated Contract Market (DCM) that is fully legal for US participants in all 50 states. Polymarket is an offshore platform that restricts US users, though it is launching a sports-only US app in 2025-2026."}},
+      {"@type":"Question","name":"How accurate are prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Kalshi exhibited a 40.1% lower Mean Absolute Error (MAE) than traditional institutional consensus estimates during inflation shocks. Polymarket claims 94% one-month accuracy across all categories. The 2024 US election was called by prediction markets well before TV networks."}},
+      {"@type":"Question","name":"What percentage of prediction market contracts resolve NO?","acceptedAnswer":{"@type":"Answer","text":"Analysis of 161,000 contracts across major platforms shows that 72% of contracts resolve as NO. A calibration study of 8,476 Kalshi markets reported a YES rate of only 28.7%, confirming the 72% NO baseline."}},
+      {"@type":"Question","name":"What is the difference between real-money and play-money prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Real-money markets like Kalshi and Polymarket use actual capital and are generally more accurate because 'skin in the game' filters out casual noise. Play-money platforms like Manifold use virtual tokens and are more prone to price noise."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>
+      QUANT72
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Learn</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#discord">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="../index.html#platforms" class="nav-cta">GET BONUS →</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Learn</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="index.html#ch1">Chapter 1: Prediction Markets 101</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>What Is a Prediction Market?</span>
+    </div>
+  </div>
+</div>
+
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 01</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">BEGINNER</span>
+      <span class="read-time">6 min read</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>What is a<br/><em>prediction market?</em></h1>
+    <p class="article-intro">A prediction market is an exchange where traders buy and sell contracts on the outcomes of real-world events. Prices represent probability. And 72% of all contracts resolve NO — which is where the systematic edge begins.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+
+    <main class="article-body">
+
+      <div class="tldr">
+        <span class="tldr-label">TL;DR — Key Facts</span>
+        <ul>
+          <li>A prediction market contract is a binary option priced between 1¢ and 99¢, representing implied probability</li>
+          <li>The Iowa Electronic Markets (IEM) launched in 1988 and predicted US election winners 100% of the time on Election Day from 1889–1940</li>
+          <li>Kalshi exhibited 40.1% lower forecasting error than institutional consensus during inflation shocks</li>
+          <li>72% of all contracts across major platforms resolve as NO — the structural basis of every Quant72 strategy</li>
+          <li>Real-money markets are more accurate than play-money because financial stakes filter casual noise</li>
+        </ul>
+      </div>
+
+      <h2>The One-Sentence Definition</h2>
+      <p>A <strong>prediction market</strong> is a financial exchange where participants trade contracts on the outcomes of real-world events, and the price of each contract represents the collective market probability of that event occurring.</p>
+      <p>That last part is important. When a contract trades at 30¢, the market is not saying "someone thinks this will happen." It is saying: "the aggregate of all available information, incentivized by real money, suggests a 30% probability of this event resolving YES."</p>
+      <p>That distinction — between opinion and incentivized probability — is what separates prediction markets from polls, punditry, and sports betting.</p>
+
+      <div class="key-term">
+        <span class="key-term-word">Prediction Market</span>
+        <p>A platform where participants trade binary contracts on real-world event outcomes. Prices float between $0.01 and $0.99 and are mathematically equivalent to the market's implied probability of the event occurring. At resolution, YES contracts pay $1.00 and NO contracts pay $0.00 (or vice versa).</p>
+      </div>
+
+      <h2>The Origin: Iowa, 1988</h2>
+      <p>The modern prediction market concept was formalized with the launch of the <strong>Iowa Electronic Markets (IEM)</strong> in 1988 by economists at the University of Iowa. Originally designed as an academic experiment, the IEM allowed students and faculty to trade contracts on US election outcomes using real money — a radical idea at the time.</p>
+      <p>The results were striking. Historical records show that election betting markets correctly predicted US presidential winners <strong>100% of the time on Election Day from 1889 to 1940</strong> — a forecasting record that no poll has matched. The IEM's early success demonstrated that aggregated financial incentives could produce remarkably accurate probabilities on uncertain events.</p>
+      <p>The theoretical framework underpinning this is the <strong>Wisdom of Crowds</strong> hypothesis: a diverse group of people with genuine stakes in their predictions produces more accurate aggregate forecasts than individual experts or panels, because the market forces participants to put money behind their beliefs and continuously update as new information emerges.</p>
+
+      <h2>Real-Money vs. Play-Money Markets</h2>
+      <p>Not all prediction markets are equal. The key variable is whether participants risk real capital.</p>
+      <ul>
+        <li><strong>Real-money markets</strong> (Kalshi, Polymarket): Participants trade with actual USD or USDC. The financial stakes filter out casual noise — a trader who doesn't have genuine conviction will not bet their own money on a position. Research consistently shows these markets produce superior calibration.</li>
+        <li><strong>Play-money markets</strong> (Manifold Markets): Participants trade with virtual tokens. While useful as social forecasting tools, academic experiments have found play-money market prices are more prone to noise and only partially mean-revert after artificial price shocks.</li>
+      </ul>
+      <p>Academic research from Rasooly & Rozzi (2025) confirmed that real-money markets exhibit stronger price correction dynamics following manipulation attempts, while play-money markets remain partially distorted. <strong>Skin in the game is not optional — it is the mechanism.</strong></p>
+
+      <h2>How Accurate Are Prediction Markets?</h2>
+      <p>The empirical case for prediction market accuracy is strong. Multiple independent studies across different event types confirm they outperform traditional forecasting tools:</p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-card-num">40.1%</span>
+          <div class="stat-card-label">Lower forecasting error than institutional consensus (Kalshi, inflation shocks)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">94%</span>
+          <div class="stat-card-label">One-month accuracy across all market categories (Polymarket)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">84.7%</span>
+          <div class="stat-card-label">Accuracy for markets exceeding $1M in volume (vs. 61.4% under $10K)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">2024</span>
+          <div class="stat-card-label">US election called by Kalshi/Polymarket well before TV networks</div>
+        </div>
+      </div>
+
+      <p>Research from the Federal Reserve confirms that Kalshi's macroeconomic market data is at least as accurate as professional forecaster consensus. During the 2024 inflation shocks, Kalshi markets outperformed the institutional consensus by a 40.1% margin in Mean Absolute Error — meaning the crowd with financial stakes was dramatically more accurate than the paid experts.</p>
+      <p>Importantly, prediction market accuracy <strong>scales with volume</strong>. Polymarket data shows markets with over $1M in trading volume achieve 84.7% accuracy, compared to only 61.4% for markets under $10,000. This is a direct consequence of the information aggregation mechanism — deeper markets attract more informed participants.</p>
+
+      <h2>The Key Researchers</h2>
+      <p>Several economists have shaped the academic understanding of prediction markets:</p>
+      <ul>
+        <li><strong>Justin Wolfers & Eric Zitzewitz</strong> — foundational work on prediction market efficiency and the Favorite-Longshot Bias in these markets</li>
+        <li><strong>Karl Whelan</strong> — extensive research on Kalshi's microstructure and optimal execution strategies for multi-outcome markets</li>
+        <li><strong>Constantin Bürgi</strong> — lead author of the 2026 landmark study on Maker/Taker performance gaps across 300,000+ Kalshi contracts</li>
+        <li><strong>Robin Hanson</strong> — theoretical development of prediction markets and futarchy (using prediction markets for governance)</li>
+      </ul>
+
+      <h2>The Limits of Market Efficiency</h2>
+      <p>Prediction markets are built on the Efficient Markets Hypothesis: the idea that prices reflect all available information. In practice, several documented inefficiencies create exploitable edges:</p>
+      <ul>
+        <li><strong>Favorite-Longshot Bias (FLB)</strong> — participants systematically overprice low-probability events. Contracts priced under 10¢ lose more than 60% of invested capital on average (Bürgi, Deng & Whelan, 2026).</li>
+        <li><strong>Panic Pricing</strong> — markets frequently overreact to sensationalized news, creating price spikes that are statistically unjustified by underlying probabilities.</li>
+        <li><strong>Partition Dependence</strong> — in markets with multiple outcome brackets, participants anchor to an equal-probability heuristic regardless of actual physics or base rates.</li>
+        <li><strong>Noise Trading</strong> — retail traders without informational edge can drive prices away from fundamentals, particularly in the final weeks before resolution.</li>
+      </ul>
+      <p>These inefficiencies are not bugs. From a Quant72 perspective, they are the structural source of our edge. The crowd creates the mispricing. We collect it systematically.</p>
+
+      <h2>The 72% Rule: The Most Important Number in Prediction Markets</h2>
+      <p>Analysis of <strong>161,000 contracts</strong> across major prediction market platforms reveals one statistic that underpins every strategy on this site:</p>
+
+      <div class="callout callout-stat">
+        <span class="callout-label">THE STRUCTURAL BASELINE</span>
+        <span class="callout-number">72%</span>
+        <p><strong>72% of all prediction market contracts resolve as NO.</strong> A separate calibration study of 8,476 Kalshi markets found a YES resolution rate of only 28.7%, confirming this baseline. Political contracts specifically show an identical 72% NO rate.</p>
+      </div>
+
+      <p>This is not a coincidence or a platform artifact. It is a reflection of base rates in the real world: most proposed events do not occur, most thresholds are not breached, and most dramatic outcomes are overpriced because of how human psychology processes probability.</p>
+      <p>The 72% NO baseline means that a systematic approach to buying NO contracts — properly sized and selected — operates with a structural probability advantage before any additional analysis. The crowd is consistently too optimistic about events happening. We are systematically, rationally, pessimistic.</p>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">What is the difference between a prediction market and sports betting?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">
+            <p>In sports betting, the house sets fixed odds with a built-in 4.5–5% edge that guarantees the bookmaker profits. In a prediction market, you trade against other participants, not a house. The platform collects a small fee (the taker fee), but there is no fixed house edge embedded in the odds. This means it is theoretically possible to trade prediction markets with a positive expected value — something that is structurally impossible in traditional sports betting over the long run.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">How do prediction markets aggregate information?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">
+            <p>Each participant brings their own private information to the market. When they trade based on that information, the price moves to reflect it. Because participants have financial incentives to trade only when they believe they have an edge, the price that emerges from thousands of trades represents a sophisticated aggregate of heterogeneous private information — far richer than any poll or expert panel.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Can a retail trader actually make money on prediction markets?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">
+            <p>Yes, but it requires a systematic approach. Academic data shows only 12.7%–17% of prediction market participants are net profitable. The profitable minority share common traits: they use limit orders (Maker execution), they size positions correctly using Kelly Criterion, they focus on structural inefficiencies rather than directional prediction, and they avoid the Favorite-Longshot Bias trap of buying cheap longshot contracts.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">What is the best prediction market platform for beginners?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">
+            <p>For US-based beginners, Kalshi is the clear starting point. It is CFTC-regulated, uses standard USD banking, and offers the structured weather markets where the core Quant72 strategies (Free Donut, 88-Cent Rule) are most applicable. Start with a small account, learn the mechanics, and use our affiliate link to claim your signup bonus before you risk your own capital.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-cta">
+        <h3>Ready to trade your first contract?</h3>
+        <p>Open your account on Kalshi or Polymarket through our affiliate links and collect your signup bonus before you risk a dollar of your own capital.</p>
+        <div class="cta-buttons">
+          <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-primary-sm" target="_blank" rel="noopener">OPEN KALSHI — GET BONUS →</a>
+          <a href="how-contracts-work.html" class="btn-secondary-sm">NEXT: How Contracts Work →</a>
+        </div>
+      </div>
+
+      <nav class="article-nav">
+        <div></div>
+        <a href="how-contracts-work.html" class="article-nav-card next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">How Contracts Work: YES, NO, and Resolution</div>
+        </a>
+      </nav>
+
+    </main>
+
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>In This Chapter</h4>
+        <ul class="sidebar-links">
+          <li><a href="what-is-a-prediction-market.html" style="color:var(--cyan)">What Is a Prediction Market?</a></li>
+          <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+          <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+          <li><a href="why-traders-lose.html">Why 99% of Traders Lose</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-kalshi" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
+        <a href="YOUR_POLYMARKET_AFFILIATE_LINK" class="btn-poly" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:12px;line-height:1.5">Affiliate links. Bonuses funded by the platforms, not Quant72.</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Key Stat</h4>
+        <div style="font-family:var(--mono);font-size:40px;font-weight:700;color:var(--cyan);line-height:1">72%</div>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:0">of all prediction market contracts resolve NO. 161,000 contracts analyzed.</p>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div>
+        <p>The anti-casino. Quantitative prediction market education.</p>
+      </div>
+      <div class="footer-links"><h4>Chapter 1</h4><ul>
+        <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+        <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+        <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+        <li><a href="why-traders-lose.html">Why 99% of Traders Lose</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="YOUR_KALSHI_AFFILIATE_LINK" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="YOUR_POLYMARKET_AFFILIATE_LINK" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Prediction market trading involves risk. Affiliate links may result in compensation to Quant72.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const toggle = el.querySelector('.faq-toggle');
+  answer.classList.toggle('open');
+  toggle.textContent = answer.classList.contains('open') ? '−' : '+';
+}
+</script>
+</body>
+</html>

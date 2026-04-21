@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalshi Explained: The Complete Guide to the Regulated US Prediction Market — Quant72</title>
+  <meta name="description" content="Kalshi is a CFTC-regulated prediction market covering weather, economics, politics, and crypto. Full guide to fees, API, collateral mechanics, and how to get started with a signup bonus."/>
+  <meta name="keywords" content="Kalshi explained, Kalshi review, Kalshi trading guide, Kalshi CFTC, Kalshi fees, Kalshi weather trading, Kalshi API, how to use Kalshi"/>
+  <meta property="og:title" content="Kalshi Explained: Complete Guide — Quant72"/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://quant72.com/learn/kalshi-explained"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Kalshi Explained: The Complete Guide to the Regulated US Prediction Market","description":"Everything you need to know about trading on Kalshi — regulatory status, market categories, fee structure, collateral mechanics, API capabilities, and getting started.","author":{"@type":"Organization","name":"Quant72"},"publisher":{"@type":"Organization","name":"Quant72","url":"https://quant72.com"},"datePublished":"2025-01-01","dateModified":"2026-04-01"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Kalshi regulated?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kalshi is a CFTC-regulated Designated Contract Market (DCM) operating under the Commodity Exchange Act. It received regulatory approval in 2020 and has been operational since 2021. It is legally compliant in all 50 US states."}},
+    {"@type":"Question","name":"What are Kalshi's trading fees?","acceptedAnswer":{"@type":"Answer","text":"Kalshi's taker fee formula is: round_up(0.07 × contracts × price × (1 − price)). Fees peak at roughly 1.75¢ per contract at 50/50 odds and decrease toward zero at price extremes. Maker fees are 1/4 of the taker rate. There are no fees for holding positions to settlement."}},
+    {"@type":"Question","name":"What is Kalshi's collateral return system?","acceptedAnswer":{"@type":"Answer","text":"For mutually exclusive market sets (like temperature brackets), Kalshi calculates the maximum theoretical loss across all your positions and immediately returns the guaranteed minimum payout to your available cash. This is the mechanical basis of the Free Donut strategy — you receive back the collateral difference before the event even resolves."}},
+    {"@type":"Question","name":"Does Kalshi support automated trading?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kalshi supports REST, WebSocket, and FIX 4.4 protocol APIs. It supports limit, market, GTC, FOK, and IOC order types. Crucially, it supports the post_only: true flag which ensures orders are always placed as Maker limit orders, never paying taker fees."}},
+    {"@type":"Question","name":"What markets does Kalshi offer?","acceptedAnswer":{"@type":"Answer","text":"Kalshi offers weather (daily temperature/rainfall), economics (CPI, NFP, FOMC, GDP), politics (US elections, government control), crypto (15-minute to hourly BTC/ETH/SOL price contracts), sports (NFL, NBA, MLB, NHL, NCAA, soccer), and cultural/mentions markets."}}
+  ]}
+  </script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Learn</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#discord">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="YOUR_KALSHI_AFFILIATE_LINK" class="nav-cta" target="_blank" rel="noopener">GET KALSHI BONUS →</a>
+  </div>
+</nav>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch2">Chapter 2: Platforms</a><span class="breadcrumb-sep">/</span>
+  <span>Kalshi Explained</span>
+</div></div></div>
+
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 02</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">PLATFORM GUIDE</span>
+      <span class="read-time">8 min read</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>Kalshi explained:<br/><em>The regulated US market</em></h1>
+    <p class="article-intro">The CFTC-regulated prediction market where the Free Donut strategy was born. Full guide to how it works, what it offers, what it costs, and why the collateral return system is the most underexploited mechanic in retail prediction trading.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+
+      <div class="tldr">
+        <span class="tldr-label">TL;DR — Kalshi Fast Facts</span>
+        <ul>
+          <li>CFTC-regulated DCM — fully legal for all US residents across all 50 states</li>
+          <li>Approved 2020, operational since 2021 — the first regulated US prediction market</li>
+          <li>Taker fee formula: 0.07 × contracts × price × (1-price) — peaks ~1.75¢/contract at 50¢</li>
+          <li>Maker fees are exactly 1/4 of taker rate — use limit orders exclusively</li>
+          <li>Collateral return on MECE sets: the Free Donut's structural foundation</li>
+          <li>API: REST + WebSocket + FIX 4.4, supports post_only: true for Maker-only execution</li>
+          <li>Weather markets often have only 10–20 contracts at the best ask — thin, requires limit orders</li>
+        </ul>
+      </div>
+
+      <h2>Regulatory Status: What "CFTC-Regulated" Actually Means</h2>
+      <p>Kalshi is a <strong>Designated Contract Market (DCM)</strong> — a formal regulatory classification under the US Commodity Exchange Act, overseen by the <strong>US Commodity Futures Trading Commission (CFTC)</strong>. It received this designation in 2020 and has been operational since 2021, making it the first regulated prediction market exchange in the United States.</p>
+      <p>The DCM classification has practical implications for traders:</p>
+      <ul>
+        <li><strong>Contract guarantee:</strong> Kalshi's event contracts are regulated financial instruments, not informal bets. Counterparty risk is managed by the exchange's compliance structure.</li>
+        <li><strong>Legal in all 50 states:</strong> Because Kalshi operates under federal commodity law, it is not subject to individual state gambling prohibitions that affect offshore platforms.</li>
+        <li><strong>Institutional compliance framework:</strong> Kalshi is required to publish settlement data to the CFTC daily, maintains AML/KYC procedures, and operates under exchange member obligations.</li>
+      </ul>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">Ongoing Legal Friction</span>
+        <p>In March 2026, Arizona filed criminal charges against Kalshi alleging state-law gambling violations. This does not affect Kalshi's federal CFTC authorization, which supersedes state gambling statutes in most interpretations — but the case highlights the ongoing regulatory ambiguity between federal exchange law and state gambling law. Kalshi continues to operate normally.</p>
+      </div>
+
+      <h2>Market Categories</h2>
+      <p>Kalshi offers standardized event contracts across six primary categories:</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Category</th><th>Examples</th><th>Strategy Relevance</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Weather</strong></td><td>Daily high/low temps, rainfall, snowfall for major US cities</td><td class="cyan">Core: Free Donut, 88¢ Rule, EMOS anchoring</td></tr>
+            <tr><td><strong>Economics</strong></td><td>CPI, NFP, FOMC rate decisions, GDP, TSA passenger volume</td><td>Bond harvesting, macro mean reversion</td></tr>
+            <tr><td><strong>Politics</strong></td><td>US elections, House/Senate control, cabinet nominations</td><td>NO harvesting, mean reversion</td></tr>
+            <tr><td><strong>Crypto</strong></td><td>15-min to hourly BTC/ETH/SOL price range contracts</td><td>High-frequency, requires speed advantage</td></tr>
+            <tr><td><strong>Sports</strong></td><td>NFL, NBA, MLB, NHL, NCAA, Serie A, Champions League</td><td>Limited structural edge for retail</td></tr>
+            <tr><td><strong>Cultural</strong></td><td>Word mentions in speeches, earnings call topics</td><td>Niche; highly illiquid</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>For Quant72 strategies, weather and economics markets are the primary focus.</strong> These categories have the best combination of predictable base rates, MECE bracket structures that enable the Free Donut, and sufficient liquidity for retail position sizes.</p>
+
+      <h2>The Fee Structure (Updated February 2026)</h2>
+      <p>Kalshi updated its fee schedule in February 2026. Understanding the fee math is non-negotiable for any systematic trader.</p>
+
+      <h3>Taker Fee Formula</h3>
+      <div class="callout callout-neutral">
+        <span class="callout-label">Exact Kalshi Taker Fee Formula</span>
+        <p style="font-family:var(--mono);font-size:14px;color:var(--cyan);margin-bottom:12px">Taker Fee = round_up( 0.07 × contracts × price × (1 − price) )</p>
+        <p>This formula produces fees that peak at 50/50 odds and decay toward zero at price extremes. <strong>Example calculations:</strong></p>
+        <ul style="margin-top:12px">
+          <li>50¢ contract, 1 unit: 0.07 × 1 × 0.50 × 0.50 = <strong>1.75¢</strong></li>
+          <li>15¢ contract, 1 unit: 0.07 × 1 × 0.15 × 0.85 = <strong>0.89¢</strong> (but ~6.6% of capital invested)</li>
+          <li>90¢ contract, 1 unit: 0.07 × 1 × 0.90 × 0.10 = <strong>0.63¢</strong></li>
+        </ul>
+      </div>
+
+      <h3>Maker Fee Formula</h3>
+      <p>Maker fees are exactly <strong>1/4 of the taker rate</strong>: <span style="font-family:var(--mono);color:var(--cyan)">round_up( 0.0175 × contracts × price × (1 − price) )</span></p>
+      <p>This means a trader using exclusively limit orders pays 75% less in fees than a market-order trader on every single trade. Over 100 trades at $10/trade, this compounds to roughly $52.50 in fee savings — a margin that separates profitable from unprofitable on borderline-edge strategies.</p>
+
+      <h3>What Is Free</h3>
+      <ul>
+        <li>Holding positions to settlement: <strong>zero fees</strong></li>
+        <li>ACH deposits: <strong>zero platform fees</strong> (3–5 day clearing)</li>
+        <li>Wire deposits: <strong>zero platform fees</strong> (1–5 business days)</li>
+      </ul>
+
+      <h2>The Collateral Return System (The Free Donut Foundation)</h2>
+      <p>This is the most structurally important feature of Kalshi for systematic traders, and the one least understood by retail participants.</p>
+      <p>For <strong>mutually exclusive market groups</strong> (MECE sets like temperature brackets), Kalshi calculates the maximum theoretical loss across all of your positions in that set. It then <strong>immediately returns the difference</strong> — the guaranteed minimum payout — to your available cash balance.</p>
+
+      <div class="callout callout-stat">
+        <span class="callout-label">How Collateral Return Works</span>
+        <p><strong>Example:</strong> You buy NO on the "below 60°F" bracket at 8¢ and NO on the "above 90°F" bracket at 8¢. Total cost: 16¢. In a MECE 5-bracket system, both your brackets cannot resolve YES simultaneously — at most one of them will. Kalshi returns the "excess" collateral immediately, effectively reducing your capital at risk. This is the mechanical basis of the <a href="free-donut.html">Free Donut strategy →</a></p>
+      </div>
+
+      <p>In March 2026, Kalshi also received CFTC approval for limited <strong>margin trading</strong> — the ability to hold positions with less than full collateral in certain circumstances. This is a new development that may affect strategy mechanics as it rolls out.</p>
+
+      <h2>API and Execution Capabilities</h2>
+      <p>For systematic and algorithmic traders, Kalshi's API infrastructure is institutional-grade:</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Protocol</th><th>Use Case</th></tr></thead>
+          <tbody>
+            <tr><td><strong>REST API</strong></td><td>Standard order management, position tracking, market data</td></tr>
+            <tr><td><strong>WebSocket</strong></td><td>Real-time market data streaming, live order book updates</td></tr>
+            <tr><td><strong>FIX 4.4</strong></td><td>Ultra-low latency institutional connectivity (same protocol as traditional exchanges)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Supported order types:</strong> Limit, Market, Good-Til-Cancelled (GTC), Fill-or-Kill (FOK), Immediate-or-Cancel (IOC)</p>
+      <p>The critical parameter for Quant72 traders: <strong><span style="font-family:var(--mono);color:var(--cyan)">post_only: true</span></strong> — ensures all orders are placed as Maker limit orders and will never accidentally execute as Taker market orders. This single flag is non-negotiable in any production bot or systematic execution setup.</p>
+
+      <h2>Known Limitations</h2>
+      <ul>
+        <li><strong>US-only:</strong> Strictly restricted to US participants. No international access.</li>
+        <li><strong>Thin weather markets:</strong> Most weather bracket markets have only 10–20 contracts available at the best ask. Position sizes above $50–100 often cause meaningful slippage. Always use limit orders.</li>
+        <li><strong>Narrower market selection:</strong> Compared to Polymarket, Kalshi covers fewer global events and cities (approximately 6–25 US cities for weather vs. Polymarket's 67+).</li>
+        <li><strong>ACH delay:</strong> Standard deposits take 3–5 business days to clear. Plan capital allocation accordingly.</li>
+      </ul>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">How do I sign up for Kalshi and claim my bonus?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Use our affiliate link below to sign up. Kalshi's signup bonus is funded by the platform — it's free starting capital for creating an account. After signing up, complete KYC verification, fund your account via ACH or wire, and the bonus will be credited according to Kalshi's current promotion terms.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Can I trade Kalshi on my phone?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Yes. Kalshi has both a web platform and mobile apps (iOS and Android). For systematic strategy execution, most serious traders use the API or desktop interface for precision limit order placement. Mobile is adequate for monitoring positions and manual trades.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">What happens to my money if Kalshi goes bankrupt?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>As a CFTC-regulated DCM, Kalshi is subject to capital requirements and customer fund segregation rules. Customer funds are required to be held separately from company operating funds. This is meaningfully different from offshore platforms where customer capital is commingled. That said, as with any financial platform, there is non-zero counterparty risk.</p></div>
+        </div>
+      </div>
+
+      <div class="article-cta">
+        <h3>Open your Kalshi account and claim your signup bonus.</h3>
+        <p>Free starting capital from the platform. No reason not to take it before you risk your own money.</p>
+        <div class="cta-buttons">
+          <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-primary-sm" target="_blank" rel="noopener">OPEN KALSHI — GET BONUS →</a>
+          <a href="polymarket-explained.html" class="btn-secondary-sm">NEXT: Polymarket Explained →</a>
+        </div>
+      </div>
+
+      <nav class="article-nav">
+        <a href="why-traders-lose.html" class="article-nav-card">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">Why 99% of Traders Lose</div>
+        </a>
+        <a href="polymarket-explained.html" class="article-nav-card next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">Polymarket Explained</div>
+        </a>
+      </nav>
+
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>In This Chapter</h4>
+        <ul class="sidebar-links">
+          <li><a href="kalshi-explained.html" style="color:var(--cyan)">Kalshi Explained</a></li>
+          <li><a href="polymarket-explained.html">Polymarket Explained</a></li>
+          <li><a href="kalshi-vs-polymarket.html">Kalshi vs. Polymarket</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>Get Started on Kalshi</h4>
+        <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-kalshi" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:10px">Affiliate link. Bonus funded by Kalshi.</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Fee Quick Calc</h4>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--cyan);line-height:1.7;margin-bottom:0">At 50¢:<br/>Taker: 1.75¢/contract<br/>Maker: 0.44¢/contract<br/><br/>At 90¢:<br/>Taker: 0.63¢/contract<br/>Maker: 0.16¢/contract</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div><p>The anti-casino.</p></div>
+      <div class="footer-links"><h4>Chapter 2</h4><ul>
+        <li><a href="kalshi-explained.html">Kalshi Explained</a></li>
+        <li><a href="polymarket-explained.html">Polymarket Explained</a></li>
+        <li><a href="kalshi-vs-polymarket.html">Kalshi vs. Polymarket</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="YOUR_KALSHI_AFFILIATE_LINK" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="YOUR_POLYMARKET_AFFILIATE_LINK" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Affiliate links may result in compensation to Quant72.</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'−':'+'}</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why 99% of Prediction Market Traders Lose Money — Quant72</title>
+  <meta name="description" content="Contracts under 10¢ lose 60%+ of invested capital. 87.3% of traders are unprofitable. Here's the data on the Favorite-Longshot Bias and why most participants are mathematically guaranteed to lose."/>
+  <meta name="keywords" content="why prediction market traders lose, favorite longshot bias prediction markets, Polymarket profitability, Kalshi taker vs maker, prediction market EV, behavioral biases trading"/>
+  <meta property="og:title" content="Why 99% of Prediction Market Traders Lose — Quant72"/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://quant72.com/learn/why-traders-lose"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Why 99% of Prediction Market Traders Lose Money","description":"The Favorite-Longshot Bias, taker fee destruction, and the zero-sum math that guarantees 87.3% of participants lose. Based on analysis of 300,000+ Kalshi contracts and 112,000 Polymarket wallets.","author":{"@type":"Organization","name":"Quant72"},"publisher":{"@type":"Organization","name":"Quant72","url":"https://quant72.com"},"datePublished":"2025-01-01","dateModified":"2026-04-01"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What percentage of prediction market traders are profitable?","acceptedAnswer":{"@type":"Answer","text":"Research across 112,000 Polymarket wallets found only 12.7% of users are net profitable. A separate analysis suggested 17% profitability. Reichenbach & Walther (2025), analyzing 124 million trades, found only 30% of traders generate positive profits. Only 0.5% of wallets clear more than 1,000 USDC in lifetime profits."}},
+    {"@type":"Question","name":"What is the Favorite-Longshot Bias in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"The Favorite-Longshot Bias (FLB) is the documented tendency for market participants to systematically overprice low-probability (longshot) contracts and underprice high-probability (favorite) contracts. In prediction markets, contracts priced under 10¢ lose more than 60% of invested capital on average (Bürgi, Deng & Whelan, 2026)."}},
+    {"@type":"Question","name":"What is the difference between Maker and Taker loss rates on Kalshi?","acceptedAnswer":{"@type":"Answer","text":"According to the Bürgi, Deng & Whelan (2026) study of 300,000+ Kalshi contracts, Takers (market order users) lose an average of 32% of their capital. Makers (limit order users) lose only 10%. Takers on 15¢ contracts immediately surrender 6.6% to execution fees — up to 56% of the trade's gross profit."}},
+    {"@type":"Question","name":"Why are cheap prediction market contracts a bad trade?","acceptedAnswer":{"@type":"Answer","text":"5¢ contracts have a historical payoff rate of only 4% despite their implied 5% probability, resulting in systematic negative ROI. Additionally, taker fees on low-price contracts consume a disproportionate percentage of capital. The Favorite-Longshot Bias means retail traders consistently overpay for the lottery-ticket excitement of cheap contracts with large multipliers."}},
+    {"@type":"Question","name":"Is it possible to be profitable in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Yes, but it requires a systematic approach. The profitable 12-30% share traits: they use Maker (limit) orders exclusively, apply Kelly Criterion sizing, focus on structural inefficiencies rather than directional prediction, and deliberately avoid low-probability longshot contracts that the Favorite-Longshot Bias causes to be systematically overpriced."}}
+  ]}
+  </script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Learn</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#discord">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="../index.html#platforms" class="nav-cta">GET BONUS →</a>
+  </div>
+</nav>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch1">Chapter 1</a><span class="breadcrumb-sep">/</span>
+  <span>Why 99% of Traders Lose</span>
+</div></div></div>
+
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 01</span>
+      <span class="tag tag-orange">VIDEO #1</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">BEGINNER</span>
+      <span class="read-time">8 min read</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>Why 99% of prediction<br/>market traders <em>lose money</em></h1>
+    <p class="article-intro">Based on 300,000+ Kalshi contracts and 112,000 Polymarket wallets. The Favorite-Longshot Bias, taker fee destruction, and the zero-sum math that makes most participants statistically guaranteed to lose — before they make a single mistake.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+
+      <div class="tldr">
+        <span class="tldr-label">TL;DR — The Data</span>
+        <ul>
+          <li><strong>87.3%</strong> of Polymarket wallets are net unprofitable (112,000 wallet analysis)</li>
+          <li><strong>60%+</strong> of invested capital lost on contracts priced under 10¢ (Bürgi, Deng & Whelan 2026)</li>
+          <li><strong>5¢ contracts</strong> have a historical payoff rate of only 4% — negative EV before fees</li>
+          <li><strong>Takers lose 32%</strong> on average vs. <strong>Makers lose only 10%</strong> (same study)</li>
+          <li>Taker fees consume <strong>up to 56%</strong> of gross profit on 15¢ contracts</li>
+          <li>Zero-sum math: total fees collected = guaranteed aggregate negative P&L for all participants</li>
+        </ul>
+      </div>
+
+      <h2>The Profitability Numbers Are Brutal</h2>
+      <p>Let's start with the data. Three independent analyses of prediction market participant performance converge on a consistent, uncomfortable picture:</p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-card-num">87.3%</span>
+          <div class="stat-card-label">of Polymarket wallets are net unprofitable (112,000 wallet study)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">17%</span>
+          <div class="stat-card-label">Alternative estimate of profitable Polymarket wallets (separate analysis)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">30%</span>
+          <div class="stat-card-label">Traders generating positive profits — 124M trade analysis (Reichenbach & Walther, 2025)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card-num">0.5%</span>
+          <div class="stat-card-label">Wallets with more than 1,000 USDC in lifetime profits</div>
+        </div>
+      </div>
+
+      <p>The range across studies (12.7% to 30% profitable) reflects different methodology, time periods, and how "profitable" is defined. The consistent signal: <strong>the vast majority of participants lose money, and the structural reasons are well-documented and avoidable.</strong></p>
+
+      <h2>The Favorite-Longshot Bias: The Primary Culprit</h2>
+      <p>The <strong>Favorite-Longshot Bias (FLB)</strong> is the single most studied and most consequential inefficiency in prediction markets. It was first documented in pari-mutuel horse racing by Ali (1977) and has since been confirmed across decades of sports betting data and, now, in granular prediction market data.</p>
+
+      <div class="key-term">
+        <span class="key-term-word">Favorite-Longshot Bias</span>
+        <p>The documented tendency for market participants to systematically <strong>overprice low-probability contracts</strong> (longshots) and <strong>underprice high-probability contracts</strong> (favorites). In prediction markets, this means cheap contracts are consistently the worst bets per dollar invested — and expensive contracts are systematically underpriced by the crowd.</p>
+      </div>
+
+      <p>The landmark 2026 study by Bürgi, Deng & Whelan analyzed over <strong>300,000 Kalshi contracts</strong> and quantified the FLB with precision:</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">THE DATA ON CHEAP CONTRACTS</span>
+        <span class="callout-number">−60%</span>
+        <p><strong>Retail investors purchasing "cheap" longshot contracts priced under 10¢ lose more than 60% of their invested capital.</strong> A 5¢ contract has a historical payoff rate of only 4% despite its implied 5% probability. That's systematic negative ROI before accounting for any fees.</p>
+      </div>
+
+      <h3>The Inverse: Favorites Are Underpriced</h3>
+      <p>The FLB works in both directions. The same research found that contracts priced <strong>above 88–95¢</strong> are systematically mispriced by approximately 4 cents in the pessimistic direction — the market assigns them lower probability than historical base rates justify.</p>
+      <p>This is the empirical foundation of Quant72's bond harvesting strategy: the crowd's bias toward dramatic outcomes means they undervalue boring, high-probability, "nothing-happens" contracts. We buy those.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Price Range</th><th>Implied Probability</th><th>Actual Resolution Rate</th><th>EV Signal</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Under 10¢</strong></td><td>Under 10%</td><td class="orange">~4% (for 5¢ contracts)</td><td><strong style="color:var(--orange)">Strongly Negative</strong></td></tr>
+            <tr><td><strong>10¢ – 50¢</strong></td><td>10% – 50%</td><td class="muted">Approximately accurate</td><td>Mixed — fees dominate</td></tr>
+            <tr><td><strong>50¢ – 85¢</strong></td><td>50% – 85%</td><td class="muted">Near accurate</td><td>Neutral to slightly positive</td></tr>
+            <tr><td><strong>88¢ – 95¢</strong></td><td>88% – 95%</td><td class="cyan">~4¢ higher than implied</td><td><strong style="color:var(--cyan)">Positive (underpriced)</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Why Traders Overpay for Longshots: The Psychology</h2>
+      <p>The FLB is not random — it emerges from specific, predictable cognitive failures:</p>
+
+      <h3>1. Probability Misperception (Prospect Theory)</h3>
+      <p>Humans are hardwired to overweight small probabilities when a large gain is on the table. A 5% chance of winning 20× your money feels more exciting than a 95% chance of winning 5¢. The perceived value of the lottery ticket outweighs its mathematical value — every time.</p>
+
+      <h3>2. Partition Dependence (The Ignorance Prior)</h3>
+      <p>When a market has multiple outcome brackets, traders anchor to an equal-probability baseline: "there are 6 options, so each must be roughly 16.7% likely." This ignores actual physics, base rates, and all relevant information. It pulls rare outcomes up to the average — systematically overpricing them.</p>
+
+      <h3>3. Salience Overreaction</h3>
+      <p>Dramatic, sensationalized news triggers disproportionate price spikes in related markets. When a news headline screams about an event, retail traders buy YES on dramatic-sounding contracts, pushing prices above any rational probability assessment. The crowd is buying the narrative, not the math.</p>
+
+      <h3>4. Hot/Cold Bias</h3>
+      <p>Recent dramatic events cause traders to over-extrapolate. After a surprise political event, the market over-prices similar surprise events for weeks. After a calm streak, the market under-prices the possibility of surprises. Neither is rational — both are exploitable.</p>
+
+      <h2>The Execution Layer: How Taker Fees Amplify Every Mistake</h2>
+      <p>The FLB is damaging enough on its own. Combined with taker fee exposure, cheap-contract buyers face a compounding disadvantage that can consume more than half of their theoretical gross profit.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">THE EXECUTION COST ON 15¢ CONTRACTS</span>
+        <span class="callout-number">56%</span>
+        <p><strong>On a 15¢ Kalshi contract, taker fees consume approximately 6.6% of invested capital and up to 56% of a winning trade's gross profit.</strong> This means a theoretically 50/50 trade at 15¢ is not 50/50 after execution — it is heavily negative EV the moment the order fills.</p>
+      </div>
+
+      <p>The Bürgi, Deng & Whelan (2026) study captured this starkly: <strong>Takers lose 32% on average. Makers lose only 10%.</strong> The 22-percentage-point gap between these groups is almost entirely attributable to fee exposure and adverse selection — not to differences in information or ability.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Trader Type</th><th>Order Type</th><th>Average Capital Loss</th><th>Primary Cost Driver</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Retail Taker</strong></td><td>Market orders</td><td class="orange">−32%</td><td>Taker fees + adverse selection</td></tr>
+            <tr><td><strong>Retail Maker</strong></td><td>Limit orders</td><td class="cyan">−10%</td><td>Mispricings, no fee drag</td></tr>
+            <tr><td><strong>Systematic Maker</strong></td><td>Limit orders, Kelly-sized</td><td class="cyan">Positive (top 12.7%)</td><td>Structural edges exploited</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Mathematical Proof: Why the Average Must Lose</h2>
+      <p>Regardless of skill, the mathematical structure of prediction markets guarantees that the average participant loses money. Here's the proof in three steps:</p>
+      <ol>
+        <li><strong>Zero-sum base:</strong> In any binary market, the sum of YES and NO probabilities equals exactly 100%. Every dollar won by a YES holder is exactly balanced by a dollar lost by a NO holder. Total aggregate P&L before fees = $0.</li>
+        <li><strong>The fee tax:</strong> Platforms collect taker fees on executed orders. This creates a net negative cash flow out of the participant pool.</li>
+        <li><strong>Conclusion:</strong> Because aggregate P&L = $0 before fees, and fees > $0, aggregate P&L after fees must be negative. <strong>The average participant is mathematically guaranteed to lose money.</strong></li>
+      </ol>
+      <p>This is not a statement about skill. It's a statement about the structure. The fee extraction means that for every dollar paid out in profits, less than a dollar was paid in. The market is a slightly negative-sum game — and retail Takers absorb the majority of the fee burden.</p>
+
+      <h2>The Path Out: What the 12.7% Do Differently</h2>
+      <p>The profitable minority is not random. The research identifies consistent behavioral differences:</p>
+      <ul>
+        <li><strong>They use limit orders (Maker execution).</strong> Zero taker fee exposure. On some categories, they collect rebates. This alone moves them from the 32% average loss bucket to the 10% bucket.</li>
+        <li><strong>They avoid low-price contracts.</strong> No 5¢ contracts. No longshot lottery tickets. They understand that the FLB makes cheap contracts the worst trades per dollar invested.</li>
+        <li><strong>They size positions correctly.</strong> Kelly Criterion or fractional Kelly. No flat betting, no gut-sizing. The math of survival is non-negotiable.</li>
+        <li><strong>They trade structural inefficiencies, not opinions.</strong> The Free Donut, the 88-Cent Rule, mean reversion after panic pricing — these are exploiting systematic crowd errors, not trying to predict outcomes better than the market.</li>
+      </ul>
+
+      <div class="callout callout-green">
+        <span class="callout-label">The Quant72 Thesis</span>
+        <p>The 87.3% who lose money are not losing to a house. <strong>They are losing to the 12.7% who operate systematically.</strong> The money flows from emotional, narrative-driven, market-order Takers to disciplined, data-anchored, limit-order Makers. Our job is to be in the right group — consistently, repeatably, without exception.</p>
+      </div>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Doesn't the 72% NO resolution rate mean I should just buy NO on everything?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Not blindly. The 72% NO baseline means that randomly selected NO contracts have a structural edge over YES, but the price of the NO contract must reflect the correct probability to give you positive EV. If a market has already priced NO at 75¢ (implying 75% probability of NO), but the true probability is 72%, that's a slightly negative EV trade. The edge comes from finding NO contracts that are mispriced — priced below their true probability — not from buying every NO contract indiscriminately.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">If taker fees are so damaging, why do so many traders use market orders?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Because market orders are immediate. A limit order might not fill — the price can move away before your order executes. Retail traders choose certainty of execution over fee efficiency, which is a classic short-term/long-term tradeoff error. Over 100+ trades, the taker fee drag ($70 per 100 trades at $10/trade vs. $0 for Makers) is the margin between profit and loss for borderline-edge strategies.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">What does "adverse selection" mean for a market order trader?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Adverse selection means that when you execute a market order, you are most likely to get filled when someone with superior information is on the other side of your trade. If a bot just received a model update showing the probability shifted dramatically, it immediately posts limit orders at the old price — and your market order hits those orders. You bought at the wrong price, the informed party sold at an advantageous price. This is the "Winner's Curse" in market microstructure theory.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">What research sources does this article draw from?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>The primary academic source is Bürgi, Deng & Whelan (2026) — a study of 300,000+ Kalshi contracts examining Maker/Taker performance gaps and the Favorite-Longshot Bias. Secondary sources include a wallet-level analysis of 112,000 Polymarket accounts, Reichenbach & Walther (2025) analyzing 124 million trades, and the foundational FLB paper by Ali (1977) from the horse racing context.</p></div>
+        </div>
+      </div>
+
+      <div class="article-cta">
+        <h3>Join the 12.7%. Start with the right platform.</h3>
+        <p>Open your Kalshi account, read Chapter 4 (Core Strategies), and place your first limit order with the structural edge on your side.</p>
+        <div class="cta-buttons">
+          <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-primary-sm" target="_blank" rel="noopener">OPEN KALSHI — GET BONUS →</a>
+          <a href="kalshi-explained.html" class="btn-secondary-sm">NEXT: Kalshi Explained →</a>
+        </div>
+      </div>
+
+      <nav class="article-nav">
+        <a href="prediction-markets-vs-sports-betting.html" class="article-nav-card">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">Prediction Markets vs. Sports Betting</div>
+        </a>
+        <a href="kalshi-explained.html" class="article-nav-card next">
+          <div class="nav-dir">Next → Chapter 2</div>
+          <div class="nav-title">Kalshi Explained: The Regulated US Market</div>
+        </a>
+      </nav>
+
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>In This Chapter</h4>
+        <ul class="sidebar-links">
+          <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+          <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+          <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+          <li><a href="why-traders-lose.html" style="color:var(--cyan)">Why 99% of Traders Lose</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-kalshi" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
+        <a href="YOUR_POLYMARKET_AFFILIATE_LINK" class="btn-poly" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
+      </div>
+      <div class="sidebar-card">
+        <h4>Taker vs Maker</h4>
+        <div style="display:flex;gap:12px;margin-bottom:8px">
+          <div style="flex:1;background:rgba(255,90,0,0.15);border:1px solid rgba(255,90,0,0.2);border-radius:8px;padding:12px;text-align:center">
+            <div style="font-family:var(--mono);font-size:24px;font-weight:700;color:var(--orange)">−32%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">Taker avg</div>
+          </div>
+          <div style="flex:1;background:var(--cyan-dim);border:1px solid var(--border-hi);border-radius:8px;padding:12px;text-align:center">
+            <div style="font-family:var(--mono);font-size:24px;font-weight:700;color:var(--cyan)">−10%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">Maker avg</div>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--dim);margin:0">Source: Bürgi, Deng & Whelan (2026), 300K+ Kalshi contracts</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div><p>The anti-casino.</p></div>
+      <div class="footer-links"><h4>Chapter 1</h4><ul>
+        <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+        <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+        <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+        <li><a href="why-traders-lose.html">Why 99% Lose</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Chapter 2</h4><ul>
+        <li><a href="kalshi-explained.html">Kalshi Explained</a></li>
+        <li><a href="polymarket-explained.html">Polymarket Explained</a></li>
+        <li><a href="kalshi-vs-polymarket.html">Kalshi vs. Polymarket</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="YOUR_KALSHI_AFFILIATE_LINK" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="YOUR_POLYMARKET_AFFILIATE_LINK" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Past performance does not guarantee future results.</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'−':'+'}</script>
+</body>
+</html>

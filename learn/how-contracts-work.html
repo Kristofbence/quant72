@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Prediction Market Contracts Work: YES, NO, and Resolution — Quant72</title>
+  <meta name="description" content="How prediction market contracts work from creation to settlement. Understanding YES/NO shares, resolution criteria, MECE market sets, bid-ask spreads, and slippage."/>
+  <meta name="keywords" content="how prediction market contracts work, YES NO contracts, prediction market resolution, Kalshi contracts, binary options prediction markets, bid ask spread"/>
+  <meta property="og:title" content="How Prediction Market Contracts Work — Quant72"/>
+  <meta property="og:description" content="The full lifecycle of a prediction market contract — from creation to settlement. Resolution criteria, MECE sets, and the hidden costs most traders miss."/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://quant72.com/learn/how-contracts-work"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How Prediction Market Contracts Work: YES, NO, and Resolution","description":"The full lifecycle of a prediction market contract from creation to settlement, including resolution criteria, MECE market structures, bid-ask spreads, and slippage.","author":{"@type":"Organization","name":"Quant72"},"publisher":{"@type":"Organization","name":"Quant72","url":"https://quant72.com"},"datePublished":"2025-01-01","dateModified":"2026-04-01"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What happens when a prediction market contract resolves?","acceptedAnswer":{"@type":"Answer","text":"At resolution, a YES contract pays exactly $1.00 if the event occurred, or $0.00 if it did not. A NO contract pays $1.00 if the event did NOT occur. The profit is the difference between the resolution price and your purchase price."}},
+    {"@type":"Question","name":"What is a MECE market set in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"A MECE (Mutually Exclusive and Collectively Exhaustive) market set contains outcomes where only one can be true and one must be true. The sum of all contract prices in a MECE set should equal exactly $1.00. Deviations from this create arbitrage opportunities."}},
+    {"@type":"Question","name":"What is the bid-ask spread in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"The bid-ask spread is the gap between the highest price a buyer will pay and the lowest price a seller will accept. Executing a market order immediately costs you half the spread — for example, buying at 51¢ when the fair value is 50¢ is an instant 1¢ loss before the event even begins."}},
+    {"@type":"Question","name":"What happens if a prediction market is cancelled or resolved N/A?","acceptedAnswer":{"@type":"Answer","text":"Kalshi has codified rules for cancellations, often settling at the last traded price. Polymarket uses the UMA Optimistic Oracle, which involves a challenge period. In some disputed cases, platforms have paid out differently — the 2024 government shutdown market resolved YES on Polymarket and NO on Kalshi simultaneously."}}
+  ]}
+  </script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Learn</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#discord">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="../index.html#platforms" class="nav-cta">GET BONUS →</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+      <a href="index.html#ch1">Chapter 1</a><span class="breadcrumb-sep">/</span>
+      <span>How Contracts Work</span>
+    </div>
+  </div>
+</div>
+
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 01</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">BEGINNER</span>
+      <span class="read-time">5 min read</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>How prediction market<br/><em>contracts work</em></h1>
+    <p class="article-intro">From the moment a market opens to the moment it pays out — the mechanics of YES/NO contracts, resolution criteria, MECE market structures, and the hidden costs most retail traders never account for.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+
+      <div class="tldr">
+        <span class="tldr-label">TL;DR — Key Facts</span>
+        <ul>
+          <li>A contract price is identical to implied probability: 30¢ = 30% chance of resolving YES</li>
+          <li>YES resolves to $1.00; NO resolves to $0.00. Profit = resolution price minus your purchase price</li>
+          <li>MECE market sets must sum to $1.00 — deviations are arbitrage opportunities</li>
+          <li>The bid-ask spread is a hidden cost: executing a market order immediately costs you the width of the spread</li>
+          <li>Slippage becomes material at $100+ market orders in thin weather markets — 10–20 contracts at the best ask is typical</li>
+          <li>Oracle divergence is real: NYC weather resolves at Central Park on Kalshi and LaGuardia on Polymarket — 1–5°F apart daily</li>
+        </ul>
+      </div>
+
+      <h2>The Lifecycle of a Contract</h2>
+      <p>Every prediction market contract follows a defined path from listing to payout. Understanding each stage removes hidden costs and prevents avoidable mistakes.</p>
+
+      <h3>Stage 1: Creation</h3>
+      <p>Prediction platforms organize their products in a hierarchy: <strong>Events</strong> (broad topics like "2026 US Midterms") contain <strong>Markets</strong> (specific tradeable questions like "Will Republicans win the House?") which contain <strong>Outcomes</strong> (the actual YES/NO shares you buy and sell).</p>
+      <p>At creation, each market is given <strong>resolution criteria</strong> — the precise rules that define how it settles. These are the most important words in any market listing and the first thing any systematic trader should read. Ambiguous resolution criteria have caused millions of dollars in disputed payouts.</p>
+
+      <h3>Stage 2: Trading</h3>
+      <p>Once live, contracts function as binary options trading between $0.01 and $0.99. The price floats continuously based on order flow. <strong>Makers</strong> post limit orders that sit on the book waiting to be filled; <strong>Takers</strong> execute market orders that immediately fill against existing resting orders.</p>
+      <p>This is where the first structural cost appears. Every time a Taker executes a market order, they pay the platform's taker fee — a percentage of the contract value that compounds dramatically over time. On Kalshi, this peaks at roughly 3.5¢ per contract at 50/50 odds.</p>
+
+      <h3>Stage 3: Resolution</h3>
+      <p>After the event occurs, the exchange consults its predefined <strong>resolution source</strong> to determine the outcome. Kalshi uses official government data — NWS Daily Climate Reports for weather, BLS for inflation, FOMC statements for interest rates. Polymarket uses the UMA Optimistic Oracle, a decentralized truth-verification system involving proposers, bonds, and challenge periods.</p>
+      <p>The gap between resolution sources matters more than most traders realize. Two platforms listing the "same" market can resolve differently based on which data source they trust.</p>
+
+      <h3>Stage 4: Settlement</h3>
+      <p>The contract resolves to a binary value:</p>
+      <ul>
+        <li>If the event was <strong>TRUE</strong>: YES contracts pay $1.00, NO contracts pay $0.00</li>
+        <li>If the event was <strong>FALSE</strong>: NO contracts pay $1.00, YES contracts pay $0.00</li>
+      </ul>
+      <p>Your profit on a resolved YES contract = $1.00 − your purchase price. Buy YES at 30¢, event resolves YES: profit is 70¢ per contract. Buy YES at 30¢, event resolves NO: loss is 30¢ per contract.</p>
+
+      <h2>Price = Implied Probability (Always)</h2>
+      <p>This is the foundational mechanical truth of prediction markets: <strong>the price of a contract is mathematically identical to the market's implied probability of that event occurring.</strong></p>
+
+      <div class="key-term">
+        <span class="key-term-word">Implied Probability</span>
+        <p>If a YES contract trades at 30¢, the market is assigning a 30% probability to the event resolving YES. The Expected Value (EV) of a share equals the estimated true probability (p) multiplied by the $1.00 payout, minus the entry cost. If you believe the true probability is 40% and the market prices it at 30¢, you have a positive-EV trade.</p>
+      </div>
+
+      <p>This relationship has a critical implication: <strong>your edge in prediction markets is not the ability to predict outcomes — it is the ability to identify when the market's implied probability is wrong.</strong> You don't need to know what will happen. You need to know when the crowd has mispriced what will happen.</p>
+
+      <h2>MECE Market Sets and the Free Donut</h2>
+      <p>Some markets on Kalshi are structured as <strong>Mutually Exclusive and Collectively Exhaustive (MECE)</strong> sets — groups of outcomes where exactly one must be true and only one can be true. Temperature bracket markets are a common example: "High temp will be below 60°F / 60–70°F / 70–80°F / above 80°F."</p>
+      <p>The pricing property of MECE sets is mathematically guaranteed: <strong>the sum of all contract prices must equal exactly $1.00.</strong> If they don't, a risk-free arbitrage exists.</p>
+
+      <div class="callout callout-stat">
+        <span class="callout-label">The Foundation of the Free Donut Strategy</span>
+        <p>When the sum of NO prices across all MECE brackets is less than $1.00, holding NO contracts on multiple brackets guarantees a minimum payout greater than zero — regardless of which bracket resolves. This is the mechanical basis of Quant72's Free Donut strategy. <a href="free-donut.html" style="color:var(--cyan)">Learn more in Chapter 4 →</a></p>
+      </div>
+
+      <h2>Resolution Criteria: Where Disputes Are Born</h2>
+      <p>Resolution criteria are the strict rules defining how a market settles. In practice, vague language in these rules has caused major disputes across platforms.</p>
+      <p>Real examples from the research record:</p>
+      <ul>
+        <li><strong>The Government Shutdown Case (2024):</strong> Polymarket resolved a government shutdown market as YES. Kalshi resolved the same event as NO. Arbitrageurs who held positions on both platforms lost money on both sides simultaneously — an outcome mathematically impossible if resolution criteria had been identical.</li>
+        <li><strong>The Venezuela "Invasion" Dispute:</strong> Conflicts over whether a specific military action qualified as an "invasion" under each platform's definition created litigation-level disagreements.</li>
+        <li><strong>NYC Weather:</strong> Kalshi resolves New York City temperature at <strong>Central Park (KNYC)</strong>. Polymarket uses <strong>LaGuardia Airport (KLGA)</strong>. These stations diverge by 1–5°F daily — making true cross-platform arbitrage on NYC weather markets structurally impossible.</li>
+      </ul>
+      <p><strong>The rule:</strong> Before placing any trade, read the resolution criteria. If you can construct a scenario where the outcome is ambiguous under those criteria, don't trade the market.</p>
+
+      <h2>The Hidden Costs: Spreads and Slippage</h2>
+      <h3>The Bid-Ask Spread</h3>
+      <p>The <strong>bid-ask spread</strong> is the gap between the best price buyers are willing to pay (bid) and the best price sellers are willing to accept (ask). On a liquid market this might be 49¢ bid / 51¢ ask — a 2¢ spread. On a thin weather market it might be 82¢ bid / 88¢ ask — a 6¢ spread that represents a meaningful percentage of the contract's value.</p>
+      <p>When you execute a market order, you immediately lose half the spread by definition. You buy at the ask (higher) or sell at the bid (lower). This is a cost that appears before the event even begins, and it is separate from the taker fee.</p>
+
+      <h3>Slippage</h3>
+      <p><strong>Slippage</strong> is what happens when your order is large enough to consume multiple price levels in the order book. In deep markets (politics, major economic events), slippage is negligible on typical retail position sizes. In thin markets — particularly Kalshi weather contracts — the research documents order books with only <strong>10–20 contracts available at the best ask</strong>.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">Slippage Warning</span>
+        <p>In Kalshi weather markets, a <strong>$100 market order</strong> can sweep multiple price levels, destroying the edge calculated from the original ask price. Scaling a weather strategy from $30 to $90 per trade often triggers these liquidity ceilings. <strong>Always use limit orders. Never use market orders on weather contracts.</strong></p>
+      </div>
+
+      <h2>When Markets Are Cancelled: Resolved N/A</h2>
+      <p>Occasionally an event cannot be determined, a market is cancelled before resolution, or the underlying event is changed materially. Platforms handle this differently:</p>
+      <ul>
+        <li><strong>Kalshi:</strong> Has codified rules for event halts. In most cancellation scenarios, the market settles at the last traded price, returning a prorated amount to holders. If a primary subject of a market dies before resolution (e.g., a candidate market), Kalshi may invoke specific contract halt provisions.</li>
+        <li><strong>Polymarket:</strong> Disputed resolutions go through the UMA Optimistic Oracle's challenge period. A proposer submits a resolution with a bond (typically $750 USDC). If no one challenges within 2 hours, the market settles. In some high-stakes disputes, the process has been vulnerable to whale manipulation — in March 2025, a single holder controlling 25% of UMA voting power manipulated a $7M market resolution.</li>
+      </ul>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">If I buy YES at 30¢ and sell before resolution at 50¢, do I profit?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Yes. You don't have to hold a contract to resolution. If you buy YES at 30¢ and the market reprices to 50¢, you can sell your YES contract at 50¢ and realize a 20¢ profit per contract. This is the basis of mean-reversion and trend strategies that close before the event resolves.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">What is the minimum trade size on Kalshi and Polymarket?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>On Kalshi, the minimum order is typically 1 contract (priced at the current market ask). On Polymarket, the minimum trade is $1 USDC. In practice, very small trades are often uneconomical because taker fees and spreads consume a disproportionate percentage of the position value at tiny sizes.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Can YES and NO prices add up to more than $1.00?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>In a binary (two-outcome) market, the YES + NO prices should equal exactly $1.00. If they deviate, it represents a Dutch Book — a guaranteed profit for anyone who can trade both sides. In practice, fees and execution costs eliminate most of these opportunities almost instantly. In multi-bracket MECE markets, the sum of all outcomes should equal $1.00.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Why do Kalshi and Polymarket sometimes resolve the same event differently?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Because they use different resolution sources and different definitions of terms in their criteria. Kalshi uses official government data; Polymarket uses the UMA oracle. For the 2024 government shutdown, different definitions of "government shutdown" led to opposite resolutions on the two platforms. This is why resolution criteria review is mandatory before any trade.</p></div>
+        </div>
+      </div>
+
+      <div class="article-cta">
+        <h3>Put the mechanics to work.</h3>
+        <p>Open your Kalshi account and place your first limit order. Use our affiliate link for your signup bonus.</p>
+        <div class="cta-buttons">
+          <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-primary-sm" target="_blank" rel="noopener">OPEN KALSHI — GET BONUS →</a>
+          <a href="prediction-markets-vs-sports-betting.html" class="btn-secondary-sm">NEXT: vs. Sports Betting →</a>
+        </div>
+      </div>
+
+      <nav class="article-nav">
+        <a href="what-is-a-prediction-market.html" class="article-nav-card">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">What Is a Prediction Market?</div>
+        </a>
+        <a href="prediction-markets-vs-sports-betting.html" class="article-nav-card next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">Prediction Markets vs. Sports Betting</div>
+        </a>
+      </nav>
+
+    </main>
+
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>In This Chapter</h4>
+        <ul class="sidebar-links">
+          <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+          <li><a href="how-contracts-work.html" style="color:var(--cyan)">How Contracts Work</a></li>
+          <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+          <li><a href="why-traders-lose.html">Why 99% of Traders Lose</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-kalshi" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
+        <a href="YOUR_POLYMARKET_AFFILIATE_LINK" class="btn-poly" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
+      </div>
+      <div class="sidebar-card">
+        <h4>Key Rule</h4>
+        <p style="font-size:13px;color:var(--text);font-weight:600;line-height:1.5;margin-bottom:0">Always use limit orders. Market orders pay the spread AND the taker fee. That's two costs before the event begins.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div><p>The anti-casino.</p></div>
+      <div class="footer-links"><h4>Chapter 1</h4><ul>
+        <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+        <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+        <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+        <li><a href="why-traders-lose.html">Why 99% of Traders Lose</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="YOUR_KALSHI_AFFILIATE_LINK" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="YOUR_POLYMARKET_AFFILIATE_LINK" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Prediction market trading involves risk.</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'−':'+'}</script>
+</body>
+</html>

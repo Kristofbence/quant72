@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Markets vs. Sports Betting: Why the Math Is Completely Different — Quant72</title>
+  <meta name="description" content="Sports betting has a fixed 4.5–5% house edge working against you forever. Prediction markets don't. Here's the structural math that makes prediction markets tradeable."/>
+  <meta name="keywords" content="prediction markets vs sports betting, Kalshi vs sportsbook, prediction market legal US, is Kalshi legal, prediction market tax, vig vs prediction market fees"/>
+  <meta property="og:title" content="Prediction Markets vs. Sports Betting — Quant72"/>
+  <meta property="og:type" content="article"/>
+  <link rel="canonical" href="https://quant72.com/learn/prediction-markets-vs-sports-betting"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Prediction Markets vs. Sports Betting: Why the Math Is Completely Different","description":"The structural fee and regulatory differences between prediction markets and sports betting, including why positive EV is achievable in prediction markets but structurally impossible in sportsbooks.","author":{"@type":"Organization","name":"Quant72"},"publisher":{"@type":"Organization","name":"Quant72","url":"https://quant72.com"},"datePublished":"2025-01-01","dateModified":"2026-04-01"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Kalshi legal in the United States?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kalshi is a CFTC-regulated Designated Contract Market (DCM) and is fully legal for US participants in all 50 states. It operates under the Commodity Exchange Act, approved by regulators in 2020 and operational since 2021."}},
+    {"@type":"Question","name":"Is Polymarket legal for US users?","acceptedAnswer":{"@type":"Answer","text":"The main Polymarket platform is illegal for US residents and uses geoblocking to restrict US access as part of its 2022 CFTC settlement (which included a $1.4 million penalty). However, Polymarket is launching a US-only sports app via QCX LLC with limited CFTC approval."}},
+    {"@type":"Question","name":"What is the house edge in sports betting?","acceptedAnswer":{"@type":"Answer","text":"Major sportsbooks maintain a house edge of approximately 4.5% to 5% on standard bets. This is embedded in the odds structure (e.g., -110/-110 on even-money bets) and means the average sports bettor is mathematically guaranteed to lose money over the long run."}},
+    {"@type":"Question","name":"How are prediction market winnings taxed?","acceptedAnswer":{"@type":"Answer","text":"Prediction market platforms classify their products as event contracts or financial instruments, not bets. Platforms like Kalshi position themselves as commodity futures markets. This suggests gains may be treated as ordinary income or capital gains rather than gambling income, though this area is subject to evolving regulatory and legal challenges and is not settled law."}},
+    {"@type":"Question","name":"Can you make positive expected value trades in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Yes. Unlike sports betting where the house edge is fixed, prediction market prices are set by other traders — not by a bookmaker. When crowd psychology creates systematic mispricings (e.g., the Favorite-Longshot Bias, panic pricing), systematic traders can exploit these with positive expected value."}}
+  ]}
+  </script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Learn</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#discord">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="../index.html#platforms" class="nav-cta">GET BONUS →</a>
+  </div>
+</nav>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch1">Chapter 1</a><span class="breadcrumb-sep">/</span>
+  <span>vs. Sports Betting</span>
+</div></div></div>
+
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 01</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">BEGINNER</span>
+      <span class="read-time">7 min read</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>Prediction markets vs.<br/><em>sports betting</em></h1>
+    <p class="article-intro">Sports betting has a fixed 4.5–5% house edge that compounds against you on every single bet for the rest of your life. Prediction markets don't work that way. Here's the structural math that makes all the difference.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+
+      <div class="tldr">
+        <span class="tldr-label">TL;DR — Key Facts</span>
+        <ul>
+          <li>Sportsbooks maintain a 4.5–5% house edge on every bet — it's embedded in the odds structure</li>
+          <li>Prediction markets are peer-to-peer exchanges — the edge isn't fixed, it comes from other traders' mistakes</li>
+          <li>Less than 30% of prediction market traders are net profitable (vs. ~2% of sports bettors)</li>
+          <li>Kalshi is CFTC-regulated and fully legal for all US residents. Polymarket is offshore and restricts US users</li>
+          <li>Polymarket paid a $1.4M CFTC penalty in 2022 and geoblocks US users as part of that settlement</li>
+          <li>Prediction market platforms classify gains as financial instrument income, not gambling income</li>
+        </ul>
+      </div>
+
+      <h2>The Core Structural Difference</h2>
+      <p>The single most important thing to understand about prediction markets is what they are <em>not</em>: they are not sportsbooks. This distinction is not semantic. It is mechanical, mathematical, and consequential for every trader who participates.</p>
+      <p>In a <strong>sportsbook</strong>, the bookmaker is your counterparty. They set the odds with a built-in profit margin (the vig). When you bet, you are betting against a business whose entire model is to extract a fixed percentage from you on every transaction. There is no amount of skill or strategy that eliminates this edge in the long run — it is baked into the pricing before the line even goes up.</p>
+      <p>In a <strong>prediction market</strong>, you are trading against other participants. The platform collects a small fee on executions, but the prices are set by the collective action of everyone in the market — including retail traders making biased, emotional decisions. Your edge does not come from outperforming a mathematical house. It comes from being more rational than the crowd.</p>
+
+      <h2>The Vig vs. The Taker Fee</h2>
+      <h3>How the Vig Works</h3>
+      <p>In sports betting, the "vig" (vigorish) or "juice" is the commission baked into the odds. On a standard even-money bet, most sportsbooks offer odds of -110 on both sides: you must risk $1.10 to win $1.00. This means if 50% of bettors are on each side, the book collects $2.20 in bets and pays out only $2.00 — keeping 20¢, or approximately <strong>4.5–9.1% of the total handle</strong>.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Platform Type</th><th>Fee Structure</th><th>House Edge</th><th>Can You Beat It Long-Term?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sportsbook</strong></td><td>Embedded in odds (vig)</td><td class="orange">4.5–5% fixed</td><td>No. Edge is structural and permanent.</td></tr>
+            <tr><td><strong>Kalshi (Taker)</strong></td><td>Formula: 0.07 × contracts × price × (1-price)</td><td class="orange">~3.5¢/contract at 50¢</td><td>Difficult. Avoid taker orders entirely.</td></tr>
+            <tr><td><strong>Kalshi (Maker)</strong></td><td>1/4 of taker rate</td><td class="cyan">~0.875¢/contract at 50¢</td><td>Yes. Maker execution is the core edge.</td></tr>
+            <tr><td><strong>Polymarket (Taker)</strong></td><td>Dynamic, peak ~1.56% at 50¢</td><td class="orange">1.25–1.80%</td><td>Difficult. Same principle — use limit orders.</td></tr>
+            <tr><td><strong>Polymarket (Maker)</strong></td><td>Zero fees + rebates on some categories</td><td class="cyan">0% (+ rebate)</td><td>Yes, with edge in pricing.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Kalshi Taker Fee Formula</h3>
+      <p>Kalshi's taker fee is not a flat percentage — it is dynamic, calculated as:</p>
+      <div class="callout callout-neutral">
+        <span class="callout-label">Kalshi Taker Fee Formula</span>
+        <p style="font-family:var(--mono);font-size:14px;color:var(--cyan)">Fee = round_up( 0.07 × contracts × price × (1 − price) )</p>
+        <p style="margin-top:12px">This formula peaks at 50/50 odds (approximately <strong>1.75¢ per contract</strong>) and decreases toward zero at the price extremes (1¢ or 99¢). On a 15¢ contract, taker fees consume approximately <strong>6.6% of your invested capital</strong> — up to 56% of the gross profit on a winning trade. Maker fees are set at exactly 1/4 of the taker rate.</p>
+      </div>
+
+      <h2>Long-Run Returns: The Reality</h2>
+      <p>Neither environment is kind to undisciplined retail participants. But the ceiling is fundamentally different:</p>
+      <ul>
+        <li><strong>Sports bettors:</strong> Approximately 2–3% of sports bettors are net profitable long-term. The house edge is a permanent, compounding tax on every bet.</li>
+        <li><strong>Prediction market traders:</strong> Research across 112,000 Polymarket wallets found 87.3% of users lose money. A separate study (Reichenbach & Walther, 2025) analyzing 124 million trades concluded only 30% of traders generate positive profits.</li>
+      </ul>
+      <p>A 12.7–30% profitability rate is significantly better than the sportsbook equivalent. More importantly: <strong>the unprofitable majority in prediction markets are losing to the profitable minority, not to a house.</strong> Their losses are someone else's gains. That someone else can be you, if you operate systematically.</p>
+
+      <h2>Pari-Mutuel vs. Central Limit Order Book</h2>
+      <p>Understanding this distinction clarifies why prediction markets allow price-locking that sportsbooks and pari-mutuel betting cannot offer.</p>
+      <p><strong>Pari-mutuel betting</strong> (horse racing): All bets of a given type pool together. The house takes its cut, and the remainder is divided among winners. Crucially, <em>you don't know your final payout until the betting window closes</em>. If everyone bets on the same horse after you, the odds shorten and your expected return decreases.</p>
+      <p><strong>Prediction markets (CLOB):</strong> Kalshi and Polymarket both operate Central Limit Order Books. You lock in your price — and therefore your exact implied probability and payout — the moment your order fills. If you buy YES at 30¢, that's your entry regardless of what happens to the market price afterward.</p>
+
+      <h2>The Legal Landscape</h2>
+      <h3>Kalshi: Fully Regulated, US-Legal</h3>
+      <p>Kalshi is a <strong>Designated Contract Market (DCM)</strong> regulated by the US Commodity Futures Trading Commission (CFTC) under the authority of the Commodity Exchange Act. It received regulatory approval in 2020 and has been operational since 2021. It is legally compliant across all 50 US states.</p>
+      <p>The CFTC classification matters: Kalshi's contracts are treated as financial instruments (event contracts), not as bets. This regulatory structure is why Kalshi can operate openly in the US while offshore platforms cannot.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">Legal Friction — March 2026</span>
+        <p>In March 2026, Arizona filed criminal charges against Kalshi alleging its operations constitute illegal gambling under state law. This is an ongoing legal dispute and does not currently affect Kalshi's federal CFTC authorization or operations. The case reflects the tension between state gambling laws and federal commodity exchange regulation.</p>
+      </div>
+
+      <h3>Polymarket: Offshore, US-Restricted</h3>
+      <p>Polymarket is based in Panama and uses geoblocking to restrict US access. In 2022, Polymarket paid a <strong>$1.4 million penalty</strong> to the CFTC for operating an unlicensed exchange and agreed to block US users as a condition of settlement.</p>
+      <p>In late 2025, Polymarket began rolling out a <strong>US-only sports app</strong> via its acquired entities QCX LLC and QC Clearing LLC, which received limited CFTC approval for sports event contracts only. This is separate from the main global Polymarket platform.</p>
+
+      <h2>Taxes: Event Contracts, Not Gambling</h2>
+      <p>Prediction market platforms argue their products are <strong>event contracts</strong> — financial instruments regulated as futures, not gambling instruments. This distinction has practical tax implications:</p>
+      <ul>
+        <li>By classifying themselves as commodity futures markets, platforms like Kalshi position participant gains as potentially subject to capital gains treatment rather than gambling-specific withholding rules</li>
+        <li>The legal classification has helped these platforms avoid state gambling taxes and age verification requirements that apply to traditional sportsbooks</li>
+        <li>However, <strong>this area remains unsettled law</strong>. Consult a tax professional for guidance specific to your situation</li>
+      </ul>
+      <p>What the research consistently shows: the platforms are designed to be treated as financial exchanges. Treat your prediction market activity accordingly — track entries, exits, and fees with the same rigor as any investment account.</p>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Can US residents use Polymarket?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>The main Polymarket global platform is restricted to non-US users as part of Polymarket's 2022 CFTC settlement. Polymarket launched a US-only sports app via QCX LLC in late 2025 with limited CFTC authorization. For US traders, Kalshi remains the primary regulated platform.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Is prediction market trading safer than sports betting?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>The regulated structure (Kalshi under CFTC oversight) provides more institutional protection than most offshore sportsbooks. However, from a financial risk standpoint, both involve the risk of losing your capital. The difference is that prediction markets offer a structural path to positive expected value through systematic trading — something sports betting does not.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Why is the vig so important to understand?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a"><p>Because it determines whether positive EV is mathematically possible. In sports betting, the vig ensures the average participant loses money regardless of skill. In prediction markets, the fee structure is smaller and applied differently — and Maker traders can reduce or eliminate their fee exposure entirely. The path to profitability exists. In sports betting, it structurally cannot.</p></div>
+        </div>
+      </div>
+
+      <div class="article-cta">
+        <h3>Start on the right side of the math.</h3>
+        <p>Open your Kalshi account. The regulated platform, no vig, with our signup bonus waiting.</p>
+        <div class="cta-buttons">
+          <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-primary-sm" target="_blank" rel="noopener">OPEN KALSHI — GET BONUS →</a>
+          <a href="why-traders-lose.html" class="btn-secondary-sm">NEXT: Why 99% Lose →</a>
+        </div>
+      </div>
+
+      <nav class="article-nav">
+        <a href="how-contracts-work.html" class="article-nav-card">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">How Contracts Work</div>
+        </a>
+        <a href="why-traders-lose.html" class="article-nav-card next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">Why 99% of Traders Lose Money</div>
+        </a>
+      </nav>
+
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card">
+        <h4>In This Chapter</h4>
+        <ul class="sidebar-links">
+          <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+          <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+          <li><a href="prediction-markets-vs-sports-betting.html" style="color:var(--cyan)">vs. Sports Betting</a></li>
+          <li><a href="why-traders-lose.html">Why 99% of Traders Lose</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="YOUR_KALSHI_AFFILIATE_LINK" class="btn-kalshi" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
+        <a href="YOUR_POLYMARKET_AFFILIATE_LINK" class="btn-poly" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
+      </div>
+      <div class="sidebar-card">
+        <h4>House Edge</h4>
+        <div style="font-family:var(--mono);font-size:32px;font-weight:700;color:var(--orange);line-height:1">4.5%</div>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:0">Fixed sportsbook vig, every single bet. Forever. Prediction markets don't have this.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div><p>The anti-casino.</p></div>
+      <div class="footer-links"><h4>Chapter 1</h4><ul>
+        <li><a href="what-is-a-prediction-market.html">What Is a Prediction Market?</a></li>
+        <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+        <li><a href="prediction-markets-vs-sports-betting.html">vs. Sports Betting</a></li>
+        <li><a href="why-traders-lose.html">Why 99% of Traders Lose</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="YOUR_KALSHI_AFFILIATE_LINK" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="YOUR_POLYMARKET_AFFILIATE_LINK" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Not legal advice. Consult a professional for tax guidance.</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'−':'+'}</script>
+</body>
+</html>
