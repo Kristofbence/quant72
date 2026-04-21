@@ -3,224 +3,62 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quant72 — Stop Guessing. Start Harvesting.</title>
-  <meta name="description" content="Quant72 is the anti-casino. Institutional-grade prediction market strategies for Kalshi and Polymarket. Free education, community, and systematic edge."/>
-  <meta name="keywords" content="prediction market trading, Kalshi strategies, Polymarket strategies, quantitative trading, prediction market education"/>
-  <meta property="og:title" content="Quant72 — Stop Guessing. Start Harvesting."/>
-  <meta property="og:description" content="72% of contracts resolve NO. 87% of traders lose. Learn the systematic math that puts you in the profitable minority."/>
+  <title>Prediction Market Trading Curriculum — Quant72</title>
+  <meta name="description" content="Free prediction market trading education covering Kalshi and Polymarket. 8 chapters from beginner basics to advanced algorithmic trading. The Free Donut, 88¢ Rule, Kelly Criterion, and more."/>
+  <meta name="keywords" content="prediction market education, Kalshi trading strategies, Polymarket strategies, free donut strategy, 88 cent rule, Kelly criterion trading, prediction market course"/>
+  <meta property="og:title" content="Prediction Market Trading Curriculum — Quant72"/>
+  <meta property="og:description" content="8 chapters. Free. From zero to systematic edge on Kalshi and Polymarket."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://quant72.com"/>
+  <meta property="og:url" content="https://quant72.com/learn/"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Quant72 — Stop Guessing. Start Harvesting."/>
-  <meta name="twitter:description" content="Institutional-grade prediction market education. Free."/>
-  <link rel="canonical" href="https://quant72.com"/>
+  <meta name="twitter:title" content="Prediction Market Trading Curriculum — Quant72"/>
+  <meta name="twitter:description" content="8 chapters. Free. From zero to systematic edge on Kalshi and Polymarket."/>
+  <link rel="canonical" href="https://quant72.com/learn/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Quant72","url":"https://quant72.com","description":"Institutional-grade prediction market trading education for Kalshi and Polymarket."}</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Prediction Market Trading Complete Curriculum","description":"Free 8-chapter prediction market trading education covering Kalshi and Polymarket strategies, expected value math, Kelly Criterion sizing, and algorithmic execution.","provider":{"@type":"Organization","name":"Quant72","url":"https://quant72.com"},"isAccessibleForFree":true,"educationalLevel":"Beginner to Advanced"}</script>
+  <link rel="stylesheet" href="article.css"/>
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --white:#FFFFFF;
-      --bg:#F7F8FA;
-      --bg-card:#FFFFFF;
-      --border:#E5E8ED;
-      --border-dark:#D1D5DC;
-      --text:#0F1117;
-      --text-secondary:#4B5563;
-      --text-muted:#9CA3AF;
-      --blue:#1B6FF8;
-      --blue-light:#EEF4FF;
-      --blue-mid:rgba(27,111,248,0.12);
-      --orange:#FF5A00;
-      --orange-light:#FFF3EE;
-      --gray-dark:#1F2937;
-      --mono:'IBM Plex Mono',monospace;
-      --sans:'Inter',sans-serif;
-    }
-    html{scroll-behavior:smooth}
-    body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:0 24px}
-
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
-    .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:var(--text);flex-shrink:0}
-    .nav-logo-mark{width:30px;height:30px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700;font-family:var(--mono)}
-    .nav-links{display:flex;gap:2px;list-style:none;align-items:center}
-    .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:4px;font-size:14px;font-weight:500;color:var(--text-secondary);transition:color 0.15s;padding:7px 12px;border-radius:6px;cursor:pointer;white-space:nowrap}
-    .nav-links>li>a:hover{color:var(--text);background:var(--bg)}
-    .caret{font-size:8px;transition:transform 0.2s}
-    .nav-links>li:hover>a .caret{transform:rotate(180deg)}
-    .nav-cta{background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:7px;transition:opacity 0.15s;white-space:nowrap;letter-spacing:0.01em}
-    .nav-cta:hover{opacity:0.88}
-
-    /* DROPDOWN */
-    .dropdown{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-4px);background:#fff;border:1px solid var(--border);border-radius:14px;padding:8px;width:560px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity 0.15s,transform 0.15s,visibility 0s linear 0.15s;box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);z-index:300}
-    .nav-links>li:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition:opacity 0.15s,transform 0.15s,visibility 0s}
-    .dd-section{padding:8px}
-    .dd-heading{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:6px;padding:0 6px}
-    .dd-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;transition:background 0.12s;cursor:pointer}
-    .dd-item:hover{background:var(--bg)}
-    .dd-num{font-family:var(--mono);font-size:10px;color:var(--text-muted);flex-shrink:0;min-width:20px;font-weight:500}
-    .dd-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;display:block}
-    .dd-badge{font-family:var(--mono);font-size:9px;border-radius:3px;padding:1px 5px;display:inline-block;margin-top:2px;letter-spacing:0.04em}
-    .dd-badge.live{color:var(--blue);background:var(--blue-light);border:1px solid rgba(27,111,248,0.2)}
-    .dd-badge.soon{color:var(--text-muted);background:var(--bg);border:1px solid var(--border)}
-    .dd-divider{grid-column:1/-1;height:1px;background:var(--border);margin:4px 8px}
-    .dd-footer{grid-column:1/-1;padding:6px 10px;display:flex;justify-content:space-between}
-    .dd-footer a{font-size:12px;color:var(--blue);font-weight:500}
-    .dd-footer a:hover{text-decoration:underline}
-
-    /* MOBILE */
-    .nav-mobile-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text-secondary);padding:6px 11px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}
-    .nav-mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px;z-index:199;max-height:calc(100vh - 60px);overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-    .nav-mobile-menu.open{display:block}
-    .mob-section{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);padding:12px 8px 6px;display:block}
-    .mob-link{display:block;padding:10px 8px;font-size:14px;font-weight:500;color:var(--text-secondary);border-radius:6px}
-    .mob-link:hover{color:var(--text);background:var(--bg)}
-    .mob-cta{display:block;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:8px;text-align:center;margin-top:12px}
-
-    /* HERO */
-    .hero{padding:120px 0 80px;background:var(--white)}
-    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;font-weight:500}
-    .hero h1{font-size:clamp(36px,4.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-0.03em;color:var(--text);margin-bottom:24px}
-    .hero h1 span{color:var(--blue)}
-    .hero-sub{font-size:17px;color:var(--text-secondary);line-height:1.65;margin-bottom:40px;max-width:440px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-blue{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:opacity 0.15s,transform 0.15s;letter-spacing:0.01em}
-    .btn-blue:hover{opacity:0.88;transform:translateY(-1px)}
-    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--text);font-size:14px;font-weight:500;padding:13px 24px;border-radius:8px;border:1.5px solid var(--border-dark);transition:border-color 0.15s,background 0.15s}
-    .btn-outline:hover{border-color:var(--blue);background:var(--blue-light)}
-    .hero-visual{background:var(--gray-dark);border-radius:16px;padding:32px;font-family:var(--mono);font-size:13px;position:relative;overflow:hidden}
-    .hero-visual::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(27,111,248,0.15) 0%,transparent 70%)}
-    .terminal-header{display:flex;align-items:center;gap:8px;margin-bottom:20px}
-    .terminal-dot{width:10px;height:10px;border-radius:50%}
-    .terminal-line{color:rgba(255,255,255,0.45);margin-bottom:6px;line-height:1.6}
-    .terminal-line.hi{color:#fff}
-    .terminal-line.blue{color:#60A5FA}
-    .terminal-line.green{color:#34D399}
-    .terminal-line.orange{color:#FB923C}
-
-    /* STATS BAR */
-    .stats-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 0;background:var(--white)}
-    .stats-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-    .stat-item{text-align:center;flex:1;min-width:120px}
-    .stat-num{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--blue);display:block;margin-bottom:4px}
-    .stat-label{font-size:12px;color:var(--text-secondary);font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
-    .stat-source{font-family:var(--mono);font-size:10px;color:var(--text-muted);margin-top:3px;display:block}
-
-    /* TICKER */
-    .ticker-wrap{overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg);padding:11px 0}
-    .ticker-track{display:flex;white-space:nowrap;animation:ticker 35s linear infinite}
-    .ticker-item{display:inline-flex;align-items:center;gap:20px;padding:0 20px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--text-muted);text-transform:uppercase}
-    .ticker-item strong{color:var(--text);font-weight:600}
-    .ticker-dot{width:3px;height:3px;border-radius:50%;background:var(--orange);display:inline-block}
-    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-    /* SECTIONS */
-    .section{padding:80px 0}
-    .section-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:12px}
-    .section-title{font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-0.025em;line-height:1.15;margin-bottom:16px;color:var(--text)}
-    .section-sub{font-size:16px;color:var(--text-secondary);max-width:500px;line-height:1.65}
-
-    /* CHAPTERS */
-    .chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:48px}
-    .chapter-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:24px;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s;display:flex;flex-direction:column;gap:10px}
-    .chapter-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(27,111,248,0.08);transform:translateY(-2px)}
-    .chapter-card-num{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);font-weight:600}
-    .chapter-card h3{font-size:15px;font-weight:700;line-height:1.35;color:var(--text)}
-    .chapter-card p{font-size:13px;color:var(--text-secondary);line-height:1.6;flex:1}
-    .chapter-meta{font-family:var(--mono);font-size:10px;color:var(--text-muted);letter-spacing:0.04em}
-    .badge{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:0.06em;padding:3px 7px;border-radius:3px;text-transform:uppercase;font-weight:600}
-    .badge-live{background:var(--blue-light);color:var(--blue);border:1px solid rgba(27,111,248,0.2)}
-    .badge-soon{background:var(--bg);color:var(--text-muted);border:1px solid var(--border)}
-    .badge-inter{background:#FFF7ED;color:#C2410C;border:1px solid rgba(194,65,12,0.2)}
-    .badge-adv{background:#F5F3FF;color:#7C3AED;border:1px solid rgba(124,58,237,0.2)}
-
-    /* PLATFORMS */
-    .platforms{background:var(--bg);padding:80px 0}
-    .platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
-    .platform-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:36px;display:flex;flex-direction:column;gap:20px}
-    .platform-name{font-size:22px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
-    .platform-tag{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.06em;padding:3px 8px;border-radius:3px}
-    .tag-regulated{background:#DCFCE7;color:#16A34A;border:1px solid rgba(22,163,74,0.2)}
-    .tag-global{background:#FEF3C7;color:#D97706;border:1px solid rgba(217,119,6,0.2)}
-    .platform-desc{font-size:14px;color:var(--text-secondary);line-height:1.7}
-    .platform-perks{list-style:none;display:flex;flex-direction:column;gap:9px}
-    .platform-perks li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-secondary);line-height:1.5}
-    .platform-perks li::before{content:'→';font-family:var(--mono);color:var(--blue);flex-shrink:0;margin-top:1px;font-size:11px}
-    .btn-kalshi{display:flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:8px;transition:opacity 0.15s;letter-spacing:0.01em}
-    .btn-kalshi:hover{opacity:0.88}
-    .btn-poly{display:flex;align-items:center;justify-content:center;background:#fff;color:var(--orange);font-size:14px;font-weight:600;padding:13px;border-radius:8px;border:1.5px solid var(--orange);transition:background 0.15s}
-    .btn-poly:hover{background:var(--orange-light)}
-
-    /* EMAIL / COMMUNITY */
-    .community{padding:80px 0}
-    .community-box{background:var(--gray-dark);border-radius:20px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-    .community-text .section-label{color:#60A5FA}
-    .community-text h2{font-size:clamp(24px,3vw,38px);font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:12px;line-height:1.2}
-    .community-text p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.65}
-    .community-form{display:flex;flex-direction:column;gap:10px}
-    .form-input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:13px 16px;color:#fff;font-size:14px;font-family:var(--sans);outline:none;transition:border-color 0.15s;width:100%}
-    .form-input::placeholder{color:rgba(255,255,255,0.35)}
-    .form-input:focus{border-color:rgba(27,111,248,0.6);background:rgba(255,255,255,0.1)}
-    .btn-submit{background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:8px;border:none;cursor:pointer;transition:opacity 0.15s;font-family:var(--sans);letter-spacing:0.01em}
-    .btn-submit:hover{opacity:0.88}
-    .btn-submit:disabled{opacity:0.6;cursor:default}
-    .form-note{font-size:12px;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:0.02em}
-    .success-box{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);border-radius:12px;padding:24px;text-align:center}
-    .success-icon{font-size:28px;color:#34D399;margin-bottom:8px}
-    .success-text{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px}
-    .success-sub{font-size:13px;color:rgba(255,255,255,0.5)}
-
-    /* VIDEOS */
-    .videos{background:var(--bg);padding:80px 0}
-    .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:48px}
-    .video-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow 0.15s,transform 0.15s}
-    .video-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06);transform:translateY(-2px)}
-    .video-thumb{position:relative;padding-bottom:56.25%;background:var(--bg)}
-    .video-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
-    .play-icon{width:44px;height:44px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center}
-    .play-icon svg{fill:var(--blue)}
-    .video-placeholder span{font-family:var(--mono);font-size:10px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase}
-    .video-meta{padding:18px 20px}
-    .video-tag{font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:8px}
-    .video-meta h3{font-size:14px;font-weight:700;line-height:1.4;color:var(--text);margin-bottom:6px}
-    .video-meta p{font-size:13px;color:var(--text-secondary);line-height:1.5}
-
-    /* FOOTER */
-    footer{background:var(--gray-dark);padding:56px 0 0}
-    .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px}
-    .footer-brand-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:#fff;margin-bottom:12px}
-    .footer-brand-mark{width:28px;height:28px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700;font-family:var(--mono)}
-    .footer-brand p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65;max-width:240px}
-    .footer-links h4{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
-    .footer-links ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .footer-links a{font-size:13px;color:rgba(255,255,255,0.6);transition:color 0.15s}
-    .footer-links a:hover{color:#fff}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-    .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.3);font-family:var(--mono)}
-
-    .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
-    .fade-up.visible{opacity:1;transform:translateY(0)}
-
+    .page-header{padding:100px 0 60px;border-bottom:1px solid var(--border)}
+    .page-header h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.03em;line-height:1.05;margin-bottom:16px}
+    .page-header h1 em{font-style:normal;color:var(--cyan)}
+    .page-header p{font-size:17px;color:var(--muted);max-width:580px;line-height:1.65;margin-bottom:32px}
+    .header-stats{display:flex;gap:32px;flex-wrap:wrap}
+    .header-stat{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.04em}
+    .header-stat strong{color:var(--cyan)}
+    .curriculum-layout{display:grid;grid-template-columns:1fr 280px;gap:64px;padding:64px 0 100px;align-items:start}
+    .curriculum-main{min-width:0}
+    .curriculum-sidebar{position:sticky;top:88px}
+    .chapter-section{margin-bottom:64px}
+    .chapter-section-head{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .chapter-num-big{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange)}
+    .chapter-section-head h2{font-size:20px;font-weight:700;letter-spacing:-0.02em;flex:1}
+    .chapter-level{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+    .level-beginner{color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--border-hi)}
+    .level-intermediate{color:var(--orange);background:var(--orange-dim);border:1px solid rgba(255,90,0,0.25)}
+    .level-advanced{color:var(--muted);background:var(--bg-raised);border:1px solid var(--border)}
+    .chapter-desc{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:20px}
+    .article-list{display:flex;flex-direction:column;gap:12px}
+    .article-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:18px;transition:border-color 0.2s,transform 0.15s}
+    a.article-card:hover{border-color:var(--border-hi);transform:translateX(4px);text-decoration:none}
+    .article-card.soon{opacity:0.72}
+    .article-num{font-family:var(--mono);font-size:12px;color:var(--dim);flex-shrink:0;min-width:32px}
+    .article-info{flex:1;min-width:0}
+    .article-title{font-size:15px;font-weight:600;line-height:1.35;margin-bottom:4px;color:var(--text)}
+    .article-card.soon .article-title{color:var(--muted)}
+    .article-meta-sm{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:0.03em}
+    .abadge{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.07em;padding:3px 8px;border-radius:3px;flex-shrink:0}
+    .abadge-live{color:var(--green);background:var(--green-dim);border:1px solid rgba(0,201,122,0.2)}
+    .abadge-video{color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--border-hi)}
+    .abadge-soon{color:var(--dim);background:transparent;border:1px solid var(--border)}
+    .arr{font-family:var(--mono);font-size:14px;color:var(--dim);flex-shrink:0;transition:color 0.2s,transform 0.2s}
+    a.article-card:hover .arr{color:var(--cyan);transform:translateX(4px)}
+    .progress-track{background:var(--bg-raised);border-radius:4px;height:6px;margin-bottom:8px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--cyan),rgba(0,170,255,0.4));border-radius:4px}
     @media(max-width:960px){
-      .nav-links{display:none}.nav-mobile-toggle{display:block}
-      .hero-inner{grid-template-columns:1fr;gap:40px}
-      .hero-visual{display:none}
-      .platform-grid{grid-template-columns:1fr}
-      .community-box{grid-template-columns:1fr;gap:36px;padding:36px 28px}
-      .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
-      .footer-bottom{flex-direction:column;text-align:center}
-    }
-    @media(max-width:600px){
-      .chapter-grid{grid-template-columns:1fr}
-      .footer-inner{grid-template-columns:1fr}
-      .stats-inner{justify-content:center}
+      .curriculum-layout{grid-template-columns:1fr;gap:40px}
+      .curriculum-sidebar{position:static}
     }
   </style>
 </head>
@@ -228,386 +66,234 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <div class="nav-logo-mark">Q72</div>
-      QUANT72
-    </a>
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</a>
     <ul class="nav-links">
       <li>
-        <a href="learn/index.html">Learn <span class="caret">▾</span></a>
+        <a href="index.html" class="active">Learn &#9660;</a>
         <div class="dropdown">
-          <div class="dd-section">
-            <span class="dd-heading">Beginner</span>
-            <a href="learn/what-is-a-prediction-market.html" class="dd-item"><span class="dd-num">01</span><span><span class="dd-title">Prediction Markets 101</span><span class="dd-badge live">4 live</span></span></a>
-            <a href="learn/kalshi-explained.html" class="dd-item"><span class="dd-num">02</span><span><span class="dd-title">Your Platforms</span><span class="dd-badge live">3 live</span></span></a>
-            <a href="learn/index.html#ch3" class="dd-item"><span class="dd-num">03</span><span><span class="dd-title">The Math Foundation</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/index.html#ch4" class="dd-item"><span class="dd-num">04</span><span><span class="dd-title">Core Strategies</span><span class="dd-badge soon">Coming soon</span></span></a>
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Beginner</span>
+            <a href="what-is-a-prediction-market.html" class="dropdown-item"><span class="dropdown-item-num">01</span><span class="dropdown-item-text"><span class="dropdown-item-title">Prediction Markets 101</span><span class="dropdown-item-sub">What they are, how contracts work</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="kalshi-explained.html" class="dropdown-item"><span class="dropdown-item-num">02</span><span class="dropdown-item-text"><span class="dropdown-item-title">Your Platforms</span><span class="dropdown-item-sub">Kalshi &amp; Polymarket</span><span class="dropdown-item-badge live">3 live</span></span></a>
+            <a href="#ch3" class="dropdown-item"><span class="dropdown-item-num">03</span><span class="dropdown-item-text"><span class="dropdown-item-title">The Math Foundation</span><span class="dropdown-item-sub">EV, FLB, 72% Rule</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="#ch4" class="dropdown-item"><span class="dropdown-item-num">04</span><span class="dropdown-item-text"><span class="dropdown-item-title">Core Strategies</span><span class="dropdown-item-sub">Free Donut, 88¢ Rule</span><span class="dropdown-item-badge">Soon</span></span></a>
           </div>
-          <div class="dd-section">
-            <span class="dd-heading">Advanced</span>
-            <a href="learn/kalshi-strategies.html" class="dd-item"><span class="dd-num">05</span><span><span class="dd-title">Kalshi Strategies</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/polymarket-strategies.html" class="dd-item"><span class="dd-num">06</span><span><span class="dd-title">Polymarket Strategies</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/risk-management.html" class="dd-item"><span class="dd-num">07</span><span><span class="dd-title">Risk &amp; Bankroll</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/advanced-algorithmic.html" class="dd-item"><span class="dd-num">08</span><span><span class="dd-title">Advanced &amp; Algo</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <div class="dd-divider"></div>
-            <div class="dd-footer"><a href="learn/index.html">View full curriculum →</a><a href="learn/what-is-a-prediction-market.html">Start from Ch.01 →</a></div>
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Advanced</span>
+            <a href="kalshi-strategies.html" class="dropdown-item"><span class="dropdown-item-num">05</span><span class="dropdown-item-text"><span class="dropdown-item-title">Kalshi Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="polymarket-strategies.html" class="dropdown-item"><span class="dropdown-item-num">06</span><span class="dropdown-item-text"><span class="dropdown-item-title">Polymarket Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="risk-management.html" class="dropdown-item"><span class="dropdown-item-num">07</span><span class="dropdown-item-text"><span class="dropdown-item-title">Risk &amp; Bankroll</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="advanced-algorithmic.html" class="dropdown-item"><span class="dropdown-item-num">08</span><span class="dropdown-item-text"><span class="dropdown-item-title">Advanced &amp; Algo</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-footer"><a href="../index.html">&#8592; Home</a><a href="what-is-a-prediction-market.html">Start Ch.01 &#8594;</a></div>
           </div>
         </div>
       </li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#community">Community</a></li>
-      <li><a href="#platforms">Get Started</a></li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#community" target="_blank">Discord</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
     </ul>
-    <a href="#platforms" class="nav-cta">GET BONUS →</a>
-    <button class="nav-mobile-toggle" onclick="document.getElementById('mm').classList.toggle('open')">☰ Menu</button>
+    <a href="../index.html#platforms" class="nav-cta">GET BONUS &#8594;</a>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('mm').classList.toggle('open')">&#9776; Menu</button>
   </div>
 </nav>
-
 <div class="nav-mobile-menu" id="mm">
-  <span class="mob-section">Learn</span>
-  <a href="learn/what-is-a-prediction-market.html" class="mob-link">Ch.01 — Prediction Markets 101</a>
-  <a href="learn/kalshi-explained.html" class="mob-link">Ch.02 — Platform Guides</a>
-  <a href="learn/kalshi-strategies.html" class="mob-link">Ch.05 — Kalshi Strategies</a>
-  <a href="learn/polymarket-strategies.html" class="mob-link">Ch.06 — Polymarket Strategies</a>
-  <a href="learn/index.html" class="mob-link">View All Chapters →</a>
-  <span class="mob-section">Explore</span>
-  <a href="#videos" class="mob-link" onclick="document.getElementById('mm').classList.remove('open')">Videos</a>
-  <a href="#community" class="mob-link" onclick="document.getElementById('mm').classList.remove('open')">Community</a>
-  <a href="#platforms" class="mob-cta" onclick="document.getElementById('mm').classList.remove('open')">GET TRADING BONUS →</a>
+  <span class="mobile-section-title">Learn</span>
+  <a href="what-is-a-prediction-market.html" class="mobile-link">Ch.01 &#8212; Markets 101</a>
+  <a href="kalshi-explained.html" class="mobile-link">Ch.02 &#8212; Platforms</a>
+  <a href="kalshi-strategies.html" class="mobile-link">Ch.05 &#8212; Kalshi Strategies</a>
+  <a href="polymarket-strategies.html" class="mobile-link">Ch.06 &#8212; Polymarket</a>
+  <a href="risk-management.html" class="mobile-link">Ch.07 &#8212; Risk Management</a>
+  <a href="advanced-algorithmic.html" class="mobile-link">Ch.08 &#8212; Advanced &amp; Algo</a>
+  <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="mobile-cta" target="_blank">GET KALSHI BONUS &#8594;</a>
 </div>
 
-<!-- HERO -->
-<section class="hero">
+<header class="page-header">
   <div class="container">
-    <div class="hero-inner">
-      <div>
-        <p class="hero-eyebrow">The Anti-Casino</p>
-        <h1>Stop guessing.<br/><span>Start harvesting.</span></h1>
-        <p class="hero-sub">Institutional-grade prediction market strategies — free, for everyone. We don't predict the future. We trade the math.</p>
-        <div class="hero-actions">
-          <a href="learn/what-is-a-prediction-market.html" class="btn-blue">Start Learning Free →</a>
-          <a href="#platforms" class="btn-outline">Get Trading Bonus</a>
+    <div style="margin-bottom:20px"><span class="tag">FREE CURRICULUM</span></div>
+    <h1>Stop guessing.<br/><em>Start harvesting.</em></h1>
+    <p>8 chapters from zero to systematic edge. Every strategy grounded in academic research and real platform data. No hype. Just the math.</p>
+    <div class="header-stats">
+      <span class="header-stat"><strong>8</strong> chapters</span>
+      <span class="header-stat"><strong>28</strong> articles total</span>
+      <span class="header-stat"><strong>7</strong> articles live now</span>
+      <span class="header-stat"><strong>10</strong> YouTube videos</span>
+      <span class="header-stat">Always <strong>free</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="curriculum-layout">
+    <main class="curriculum-main">
+
+      <!-- CH1 -->
+      <div class="chapter-section" id="ch1">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 01</span><h2>Prediction Markets 101</h2><span class="chapter-level level-beginner">Beginner</span></div>
+        <p class="chapter-desc">What prediction markets are, how contracts work, why they outperform polls, and the statistical reality of why most participants lose money before they make a single trade.</p>
+        <div class="article-list">
+          <a href="what-is-a-prediction-market.html" class="article-card"><span class="article-num">1.1</span><div class="article-info"><div class="article-title">What Is a Prediction Market?</div><div class="article-meta-sm">6 min &middot; The origin, accuracy data, the 72% NO baseline</div></div><span class="abadge abadge-live">Live</span><span class="arr">&#8594;</span></a>
+          <a href="how-contracts-work.html" class="article-card"><span class="article-num">1.2</span><div class="article-info"><div class="article-title">How Contracts Work: YES, NO, and Resolution</div><div class="article-meta-sm">5 min &middot; Lifecycle, MECE sets, slippage, oracle disputes</div></div><span class="abadge abadge-live">Live</span><span class="arr">&#8594;</span></a>
+          <a href="prediction-markets-vs-sports-betting.html" class="article-card"><span class="article-num">1.3</span><div class="article-info"><div class="article-title">Prediction Markets vs. Sports Betting</div><div class="article-meta-sm">7 min &middot; Vig, taker fees, legality, pari-mutuel vs CLOB</div></div><span class="abadge abadge-live">Live</span><span class="arr">&#8594;</span></a>
+          <a href="why-traders-lose.html" class="article-card"><span class="article-num">1.4</span><div class="article-info"><div class="article-title">Why 99% of Prediction Market Traders Lose Money</div><div class="article-meta-sm">8 min &middot; FLB data, the 32% vs 10% execution gap &middot; Video #1</div></div><span class="abadge abadge-video">&#9654; Video</span><span class="arr">&#8594;</span></a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="terminal-header">
-          <div class="terminal-dot" style="background:#EF4444"></div>
-          <div class="terminal-dot" style="background:#F59E0B"></div>
-          <div class="terminal-dot" style="background:#10B981"></div>
+
+      <!-- CH2 -->
+      <div class="chapter-section" id="ch2">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 02</span><h2>Your Platforms: Kalshi &amp; Polymarket</h2><span class="chapter-level level-beginner">Beginner</span></div>
+        <p class="chapter-desc">Full walkthroughs of both platforms — regulatory status, fee structures, settlement mechanics, and the differences that determine which strategies work where.</p>
+        <div class="article-list">
+          <a href="kalshi-explained.html" class="article-card"><span class="article-num">2.1</span><div class="article-info"><div class="article-title">Kalshi Explained: The Regulated US Market</div><div class="article-meta-sm">8 min &middot; CFTC, fees, collateral return, API, post_only</div></div><span class="abadge abadge-live">Live</span><span class="arr">&#8594;</span></a>
+          <a href="polymarket-explained.html" class="article-card"><span class="article-num">2.2</span><div class="article-info"><div class="article-title">Polymarket Explained: The Global Crypto Market</div><div class="article-meta-sm">7 min &middot; $21.5B volume, USDC, UMA oracle, legal status</div></div><span class="abadge abadge-live">Live</span><span class="arr">&#8594;</span></a>
+          <a href="kalshi-vs-polymarket.html" class="article-card"><span class="article-num">2.3</span><div class="article-info"><div class="article-title">Kalshi vs. Polymarket: Which Should You Use?</div><div class="article-meta-sm">10 min &middot; Fees, depth, arbitrage, NYC weather trap</div></div><span class="abadge abadge-live">Live</span><span class="arr">&#8594;</span></a>
         </div>
-        <div class="terminal-line">// Quant72 edge scanner</div>
-        <div class="terminal-line hi">NO_resolution_rate: <span style="color:#34D399">72.0%</span></div>
-        <div class="terminal-line hi">taker_loss_avg: <span style="color:#F87171">-32%</span></div>
-        <div class="terminal-line hi">maker_loss_avg: <span style="color:#34D399">-10%</span></div>
-        <div class="terminal-line" style="margin-top:12px">// Strategy: 88¢ NO bond</div>
-        <div class="terminal-line hi">entry_price: <span style="color:#60A5FA">0.88</span></div>
-        <div class="terminal-line hi">true_prob_NO: <span style="color:#60A5FA">0.92</span></div>
-        <div class="terminal-line hi">ev_per_contract: <span style="color:#34D399">+$0.04</span></div>
-        <div class="terminal-line hi">post_only: <span style="color:#34D399">true</span></div>
-        <div class="terminal-line" style="margin-top:12px; color:#34D399">✓ Order placed as maker</div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-inner">
-      <div class="stat-item fade-up">
-        <span class="stat-num">72%</span>
-        <div class="stat-label">Contracts resolve NO</div>
-        <span class="stat-source">161,000 contracts analyzed</span>
-      </div>
-      <div class="stat-item fade-up" style="transition-delay:0.07s">
-        <span class="stat-num">87.3%</span>
-        <div class="stat-label">Of traders lose money</div>
-        <span class="stat-source">112,000 Polymarket wallets</span>
-      </div>
-      <div class="stat-item fade-up" style="transition-delay:0.14s">
-        <span class="stat-num">22pt</span>
-        <div class="stat-label">Taker vs Maker gap</div>
-        <span class="stat-source">Bürgi, Deng &amp; Whelan 2026</span>
-      </div>
-      <div class="stat-item fade-up" style="transition-delay:0.21s">
-        <span class="stat-num">$21.5B</span>
-        <div class="stat-label">Polymarket 2025 volume</div>
-        <span class="stat-source">Platform reported</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-track">
-    <span class="ticker-item"><strong>We don't predict the future. We trade the math.</strong><span class="ticker-dot"></span></span>
-    <span class="ticker-item">Takers lose 32%. Makers lose 10%. Use limit orders.<span class="ticker-dot"></span></span>
-    <span class="ticker-item"><strong>72% of contracts resolve NO.</strong><span class="ticker-dot"></span></span>
-    <span class="ticker-item">The crowd wants a miracle. We systematically sell it to them.<span class="ticker-dot"></span></span>
-    <span class="ticker-item"><strong>Be the house, not the gambler.</strong><span class="ticker-dot"></span></span>
-    <span class="ticker-item">post_only: true<span class="ticker-dot"></span></span>
-    <span class="ticker-item"><strong>We don't predict the future. We trade the math.</strong><span class="ticker-dot"></span></span>
-    <span class="ticker-item">Takers lose 32%. Makers lose 10%. Use limit orders.<span class="ticker-dot"></span></span>
-    <span class="ticker-item"><strong>72% of contracts resolve NO.</strong><span class="ticker-dot"></span></span>
-    <span class="ticker-item">The crowd wants a miracle. We systematically sell it to them.<span class="ticker-dot"></span></span>
-    <span class="ticker-item"><strong>Be the house, not the gambler.</strong><span class="ticker-dot"></span></span>
-    <span class="ticker-item">post_only: true<span class="ticker-dot"></span></span>
-  </div>
-</div>
-
-<!-- CHAPTERS -->
-<section class="section" id="learn">
-  <div class="container">
-    <div class="fade-up">
-      <p class="section-label">Free Curriculum</p>
-      <h2 class="section-title">From zero to systematic edge.<br/>Eight chapters.</h2>
-      <p class="section-sub">Whether you've never heard of a prediction market or you're already trading, there's a chapter for your level. All free. No email required.</p>
-    </div>
-    <div class="chapter-grid">
-      <a href="learn/what-is-a-prediction-market.html" class="chapter-card fade-up">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 01</span><span class="badge badge-live">Live</span></div>
-        <h3>Prediction Markets 101</h3>
-        <p>What they are, how contracts work, and why they're fundamentally different from gambling.</p>
-        <span class="chapter-meta">4 articles · Beginner</span>
-      </a>
-      <a href="learn/kalshi-explained.html" class="chapter-card fade-up" style="transition-delay:0.05s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 02</span><span class="badge badge-live">Live</span></div>
-        <h3>Your Platforms: Kalshi &amp; Polymarket</h3>
-        <p>Full walkthroughs, fees, legal status, and how to claim your signup bonuses.</p>
-        <span class="chapter-meta">3 articles · Beginner</span>
-      </a>
-      <a href="learn/index.html#ch3" class="chapter-card fade-up" style="transition-delay:0.1s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 03</span><span class="badge badge-inter">Intermediate</span></div>
-        <h3>The Math Foundation</h3>
-        <p>Expected value, Favorite-Longshot Bias, and why 87.3% of traders are guaranteed to lose.</p>
-        <span class="chapter-meta">4 articles · Coming soon</span>
-      </a>
-      <a href="learn/index.html#ch4" class="chapter-card fade-up" style="transition-delay:0.15s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 04</span><span class="badge badge-inter">Intermediate</span></div>
-        <h3>Core Strategies</h3>
-        <p>The Free Donut, the 88-Cent Rule, and Maker execution. Three edges that work every week.</p>
-        <span class="chapter-meta">3 articles · Coming soon</span>
-      </a>
-      <a href="learn/kalshi-strategies.html" class="chapter-card fade-up" style="transition-delay:0.2s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 05</span><span class="badge badge-inter">Intermediate</span></div>
-        <h3>Kalshi Strategies</h3>
-        <p>Weather trading, bond harvesting, EMOS anchoring, and the Ignorance Prior play.</p>
-        <span class="chapter-meta">4 articles · Coming soon</span>
-      </a>
-      <a href="learn/polymarket-strategies.html" class="chapter-card fade-up" style="transition-delay:0.25s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 06</span><span class="badge badge-inter">Intermediate</span></div>
-        <h3>Polymarket Strategies</h3>
-        <p>The 72% NO system, exploiting panic pricing, and mean reversion after news spikes.</p>
-        <span class="chapter-meta">3 articles · Coming soon</span>
-      </a>
-      <a href="learn/risk-management.html" class="chapter-card fade-up" style="transition-delay:0.3s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 07</span><span class="badge badge-inter">Intermediate</span></div>
-        <h3>Risk &amp; Bankroll Management</h3>
-        <p>Kelly Criterion, fractional sizing, and the discipline separating survivors from statistics.</p>
-        <span class="chapter-meta">3 articles · Coming soon</span>
-      </a>
-      <a href="learn/advanced-algorithmic.html" class="chapter-card fade-up" style="transition-delay:0.35s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 08</span><span class="badge badge-adv">Advanced</span></div>
-        <h3>Advanced &amp; Algorithmic</h3>
-        <p>Latency arbitrage, order book mechanics, and building your first trading bot.</p>
-        <span class="chapter-meta">4 articles · Coming soon</span>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:40px">
-      <a href="learn/index.html" class="btn-outline" style="display:inline-flex">View Full Curriculum →</a>
-    </div>
-  </div>
-</section>
-
-<!-- PLATFORMS -->
-<section class="platforms" id="platforms">
-  <div class="container">
-    <div class="fade-up">
-      <p class="section-label">Get Started</p>
-      <h2 class="section-title">Pick your platform.<br/>Claim your bonus.</h2>
-      <p class="section-sub">Free starting capital before you risk a dollar of your own money. Use both links — bonuses are funded by the platforms.</p>
-    </div>
-    <div class="platform-grid">
-      <div class="platform-card fade-up">
-        <div>
-          <div class="platform-name">Kalshi <span class="platform-tag tag-regulated">US Regulated</span></div>
+      <!-- CH3 -->
+      <div class="chapter-section" id="ch3">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 03</span><h2>The Math Foundation</h2><span class="chapter-level level-intermediate">Intermediate</span></div>
+        <p class="chapter-desc">Expected value, the Favorite-Longshot Bias, the 72% NO Rule, and the crowd psychology biases that create exploitable mispricings every single day.</p>
+        <div class="article-list">
+          <a href="#ch3" class="article-card soon" style="cursor:default"><span class="article-num">3.1</span><div class="article-info"><div class="article-title">Expected Value: The Only Number That Matters</div><div class="article-meta-sm">EV formula, Kelly Criterion, ex-ante vs ex-post, Brier Score</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="#ch3" class="article-card soon" style="cursor:default"><span class="article-num">3.2</span><div class="article-info"><div class="article-title">The Favorite-Longshot Bias: Why Cheap Contracts Destroy Capital</div><div class="article-meta-sm">Ali 1977 to Bürgi 2026 &middot; 60%+ loss on under-10¢ contracts</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="#ch3" class="article-card soon" style="cursor:default"><span class="article-num">3.3</span><div class="article-info"><div class="article-title">The 72% Rule: Why "Nothing Ever Happens" Is a Strategy</div><div class="article-meta-sm">161,000 contracts &middot; EV table &middot; NO-scanner criteria &middot; Video #2</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="#ch3" class="article-card soon" style="cursor:default"><span class="article-num">3.4</span><div class="article-info"><div class="article-title">Crowd Psychology: The 4 Biases That Create Your Edge</div><div class="article-meta-sm">Partition Dependence, Salience, Recency Bias, Overconfidence</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
         </div>
-        <p class="platform-desc">The CFTC-regulated prediction market, fully legal for all US residents. Home of weather contracts, economic events, and the MECE bracket structures that make the Free Donut strategy possible.</p>
-        <ul class="platform-perks">
-          <li>CFTC-regulated — fully legal in all 50 US states</li>
-          <li>MECE brackets enable the Free Donut collateral return play</li>
-          <li>Maker fees 4× lower than taker — post_only: true supported</li>
-          <li>Government-data resolution (NWS, BLS, FOMC) — no oracle risk</li>
+      </div>
+
+      <!-- CH4 -->
+      <div class="chapter-section" id="ch4">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 04</span><h2>Core Strategies</h2><span class="chapter-level level-intermediate">Intermediate</span></div>
+        <p class="chapter-desc">The three edges that work every week. Built on platform mechanics, not prediction. The Free Donut, the 88¢ Rule, and Maker Edge.</p>
+        <div class="article-list">
+          <a href="#ch4" class="article-card soon" style="cursor:default"><span class="article-num">4.1</span><div class="article-info"><div class="article-title">The Free Donut: Guaranteed Floor from MECE Brackets</div><div class="article-meta-sm">Collateral return mechanics &middot; 5x capital efficiency &middot; Video #3</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="#ch4" class="article-card soon" style="cursor:default"><span class="article-num">4.2</span><div class="article-info"><div class="article-title">The 88-Cent Rule: Buying the Mispriced Favorite</div><div class="article-meta-sm">Full threshold derivation &middot; Recovery rate math &middot; Video #6</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="#ch4" class="article-card soon" style="cursor:default"><span class="article-num">4.3</span><div class="article-info"><div class="article-title">Maker Edge: How post_only: true Changes Everything</div><div class="article-meta-sm">Fee drag tables &middot; Adverse selection &middot; Optimal limit placement</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+        </div>
+      </div>
+
+      <!-- CH5 -->
+      <div class="chapter-section" id="ch5">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 05</span><h2>Kalshi Strategies</h2><span class="chapter-level level-intermediate">Intermediate</span></div>
+        <p class="chapter-desc">Weather trading, bond harvesting at 90¢+, EMOS-anchored entries, and the Ignorance Prior play on center brackets underpriced by 5–13 percentage points.</p>
+        <div class="article-list">
+          <a href="kalshi-strategies.html" class="article-card"><span class="article-num">5.1</span><div class="article-info"><div class="article-title">Weather Trading 101: Your Complete Kalshi Playbook</div><div class="article-meta-sm">Bracket mechanics &middot; Free Donut flow &middot; 5x capital efficiency</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="kalshi-strategies.html" class="article-card"><span class="article-num">5.2</span><div class="article-info"><div class="article-title">Bond Harvesting: Buying Dollars for 94 Cents</div><div class="article-meta-sm">99.5% win rate documented (424/426) &middot; Black Swan management</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="kalshi-strategies.html" class="article-card"><span class="article-num">5.3</span><div class="article-info"><div class="article-title">What is EMOS? Using Ensemble Models to Anchor Trades</div><div class="article-meta-sm">ECMWF vs GFS vs NBM &middot; 30% outperformance over single models</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="kalshi-strategies.html" class="article-card"><span class="article-num">5.4</span><div class="article-info"><div class="article-title">The Ignorance Prior: Why the Center Bracket Is Always Mispriced</div><div class="article-meta-sm">Partition Dependence Bias &middot; 5–13pt underpricing documented</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+        </div>
+      </div>
+
+      <!-- CH6 -->
+      <div class="chapter-section" id="ch6">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 06</span><h2>Polymarket Strategies</h2><span class="chapter-level level-intermediate">Intermediate</span></div>
+        <p class="chapter-desc">The 72% NO harvesting system, exploiting panic pricing via mean reversion, and political market mechanics. EV of buying NO at 50¢: +$0.22 per contract before fees.</p>
+        <div class="article-list">
+          <a href="polymarket-strategies.html" class="article-card"><span class="article-num">6.1</span><div class="article-info"><div class="article-title">The "Nothing Ever Happens" System: Systematic NO Harvesting</div><div class="article-meta-sm">72% NO rate &middot; Selection criteria &middot; Portfolio rules &middot; Video #2</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="polymarket-strategies.html" class="article-card"><span class="article-num">6.2</span><div class="article-info"><div class="article-title">Exploiting Panic Pricing: The Mean Reversion Playbook</div><div class="article-meta-sm">58% reversal rate &middot; 20%+ move trigger &middot; Video #3</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="polymarket-strategies.html" class="article-card"><span class="article-num">6.3</span><div class="article-info"><div class="article-title">Political &amp; Macro Market Mechanics on Polymarket</div><div class="article-meta-sm">Narrative cycles &middot; Structural mispricings &middot; Binary risk management</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+        </div>
+      </div>
+
+      <!-- CH7 -->
+      <div class="chapter-section" id="ch7">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 07</span><h2>Risk &amp; Bankroll Management</h2><span class="chapter-level level-intermediate">Intermediate</span></div>
+        <p class="chapter-desc">Kelly Criterion, fractional sizing, and the discipline that separates survivors from statistics. The chapter most traders skip — and the reason most blow up.</p>
+        <div class="article-list">
+          <a href="risk-management.html" class="article-card"><span class="article-num">7.1</span><div class="article-info"><div class="article-title">Why a 60% Win Rate Beats 90% (With the Math)</div><div class="article-meta-sm">Kelly Criterion &middot; Logarithmic growth &middot; Ruin prevention &middot; Video #8</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="risk-management.html" class="article-card"><span class="article-num">7.2</span><div class="article-info"><div class="article-title">Fractional Kelly in Practice: Your Sizing Calculator</div><div class="article-meta-sm">1/4 Kelly standard &middot; Parameter uncertainty &middot; Worked examples</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="risk-management.html" class="article-card"><span class="article-num">7.3</span><div class="article-info"><div class="article-title">Forecast Busts Are Data: Processing Losses Without Tilting</div><div class="article-meta-sm">Bad process vs variance &middot; Brier Score &middot; The discipline framework</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+        </div>
+      </div>
+
+      <!-- CH8 -->
+      <div class="chapter-section" id="ch8">
+        <div class="chapter-section-head"><span class="chapter-num-big">Chapter 08</span><h2>Advanced &amp; Algorithmic</h2><span class="chapter-level level-advanced">Advanced</span></div>
+        <p class="chapter-desc">Latency arbitrage, order book mechanics, and automating the math. The 0x8dxd case study: $313 to $414k. For traders who want to go beyond manual execution.</p>
+        <div class="article-list">
+          <a href="advanced-algorithmic.html" class="article-card"><span class="article-num">8.1</span><div class="article-info"><div class="article-title">Latency Arbitrage: How Bots Front-Run the Truth</div><div class="article-meta-sm">0x8dxd case study &middot; 2.7s window &middot; EMOS timing &middot; Video #9</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="advanced-algorithmic.html" class="article-card"><span class="article-num">8.2</span><div class="article-info"><div class="article-title">The Order Book Trap: Why Market Orders Drain Your Account</div><div class="article-meta-sm">Adverse selection &middot; Winner's Curse &middot; Spread mechanics &middot; Video #10</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="advanced-algorithmic.html" class="article-card"><span class="article-num">8.3</span><div class="article-info"><div class="article-title">Building Your First Prediction Market Trading Bot</div><div class="article-meta-sm">Kalshi REST + WebSocket &middot; post_only: true &middot; Bot architecture</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+          <a href="advanced-algorithmic.html" class="article-card"><span class="article-num">8.4</span><div class="article-info"><div class="article-title">From Manual to Automated: The Full EMOS Pipeline</div><div class="article-meta-sm">ECMWF + GFS + NBM &middot; Calibrated distributions &middot; Auto-entry logic</div></div><span class="abadge abadge-soon">Soon</span><span class="arr">&#8594;</span></a>
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="curriculum-sidebar">
+      <div class="sidebar-card">
+        <h4>Progress</h4>
+        <div style="font-family:var(--mono);font-size:24px;font-weight:700;color:var(--cyan);line-height:1;margin-bottom:4px">7/28</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px">articles published</div>
+        <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--dim)">25% complete</div>
+      </div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-kalshi" target="_blank" rel="noopener">KALSHI &#8212; GET BONUS</a>
+        <a href="https://polymarket.com/?r=quant72" class="btn-poly" target="_blank" rel="noopener">POLYMARKET &#8212; GET BONUS</a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:10px;line-height:1.5">Affiliate links. Bonuses funded by platforms.</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Live Strategy Drops</h4>
+        <a href="../index.html#community" class="btn-discord-sm" target="_blank" rel="noopener">JOIN DISCORD</a>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5">Every chapter gets discussed in Discord before it becomes an article.</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Quick Start</h4>
+        <ul class="sidebar-links">
+          <li><a href="what-is-a-prediction-market.html">Start at Ch.01</a></li>
+          <li><a href="why-traders-lose.html">Why 99% Lose</a></li>
+          <li><a href="kalshi-explained.html">Kalshi Guide</a></li>
+          <li><a href="kalshi-vs-polymarket.html">Kalshi vs Polymarket</a></li>
+          <li><a href="../index.html#platforms">Get Signup Bonus</a></li>
         </ul>
-        <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-kalshi" target="_blank" rel="noopener">Start on Kalshi — Get Bonus →</a>
       </div>
-      <div class="platform-card fade-up" style="transition-delay:0.1s">
-        <div>
-          <div class="platform-name">Polymarket <span class="platform-tag tag-global">Global · Crypto</span></div>
-        </div>
-        <p class="platform-desc">The world's largest prediction market with $21.5B in 2025 volume. Best for political events and global markets. 72% of all contracts resolve NO — the basis of systematic harvesting.</p>
-        <ul class="platform-perks">
-          <li>$21.5B+ 2025 volume — deepest political and macro liquidity</li>
-          <li>72% of contracts resolve NO — the structural edge</li>
-          <li>Maker orders: zero fees + USDC rebates on high-frequency markets</li>
-          <li>On-chain transparency — track whale positioning in real time</li>
-        </ul>
-        <a href="https://polymarket.com/?r=quant72" class="btn-poly" target="_blank" rel="noopener">Start on Polymarket — Get Bonus →</a>
+      <div class="sidebar-card" style="background:var(--orange-dim);border-color:rgba(255,90,0,0.25)">
+        <h4 style="color:var(--orange)">The Core Stat</h4>
+        <div style="font-family:var(--mono);font-size:40px;font-weight:700;color:var(--orange);line-height:1;margin-bottom:8px">72%</div>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;margin:0">of all prediction market contracts resolve NO. 161,000 contracts analyzed across Kalshi and Polymarket.</p>
       </div>
-    </div>
+    </aside>
   </div>
-</section>
+</div>
 
-<!-- VIDEOS -->
-<section class="videos" id="videos">
-  <div class="container">
-    <div class="fade-up">
-      <p class="section-label">YouTube</p>
-      <h2 class="section-title">Watch the math.<br/>Then trade it.</h2>
-      <p class="section-sub">Data-driven breakdowns. No hype. No promises. Just the calculation and why it works.</p>
-    </div>
-    <div class="video-grid">
-      <div class="video-card fade-up">
-        <div class="video-thumb">
-          <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen loading="lazy"></iframe> -->
-          <div class="video-placeholder"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span>Coming soon</span></div>
-        </div>
-        <div class="video-meta">
-          <div class="video-tag">Beginner</div>
-          <h3>Why 99% of Prediction Market Traders Lose Money</h3>
-          <p>The Favorite-Longshot Bias — why 5¢ contracts lose 60%+ of capital.</p>
-        </div>
-      </div>
-      <div class="video-card fade-up" style="transition-delay:0.1s">
-        <div class="video-thumb">
-          <div class="video-placeholder"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span>Coming soon</span></div>
-        </div>
-        <div class="video-meta">
-          <div class="video-tag">Strategy</div>
-          <h3>I Analyzed 161,000 Trades: The "Nothing Ever Happens" System</h3>
-          <p>The 72% NO resolution rate — systematic harvesting beats chasing wins.</p>
-        </div>
-      </div>
-      <div class="video-card fade-up" style="transition-delay:0.2s">
-        <div class="video-thumb">
-          <div class="video-placeholder"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span>Coming soon</span></div>
-        </div>
-        <div class="video-meta">
-          <div class="video-tag">Kalshi</div>
-          <h3>The Free Donut: Weather Trading with a Guaranteed Floor</h3>
-          <p>How to buy multiple NO tail brackets and improve capital efficiency by 5×.</p>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px">
-      <a href="https://youtube.com/@Quant72" class="btn-outline" target="_blank" rel="noopener" style="display:inline-flex">All Videos on YouTube →</a>
-    </div>
-  </div>
-</section>
-
-<!-- COMMUNITY -->
-<section class="community" id="community">
-  <div class="container">
-    <div class="community-box fade-up">
-      <div class="community-text">
-        <p class="section-label">Community</p>
-        <h2>Strategy drops before anyone else.</h2>
-        <p>Early access to every new article, live trade setups, and the community Discord when it launches. Drop your email — that's it.</p>
-      </div>
-      <div>
-        <form action="https://api.web3forms.com/submit" method="POST" id="community-form" onsubmit="handleCommunity(event)" class="community-form">
-          <input type="hidden" name="access_key" value="0fa80f2a-9db5-4902-aebf-74da4351d2de"/>
-          <input type="hidden" name="subject" value="New Quant72 Community Signup"/>
-          <input type="hidden" name="redirect" value="false"/>
-          <input type="text" name="name" placeholder="Your name" required class="form-input"/>
-          <input type="email" name="email" placeholder="your@email.com" required class="form-input"/>
-          <input type="hidden" name="message" value="Quant72 community signup"/>
-          <button type="submit" id="community-btn" class="btn-submit">Join the Community →</button>
-          <p class="form-note">No spam. Discord invite goes to this list first.</p>
-        </form>
-        <div id="community-success" style="display:none" class="success-box">
-          <div class="success-icon">✓</div>
-          <div class="success-text">You're on the list.</div>
-          <div class="success-sub">Discord invite drops here first when it launches.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-logo"><div class="footer-brand-mark">Q72</div>QUANT72</div>
-        <p>The anti-casino. Quantitative prediction market education and community. We trade the math, not the hype.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Learn</h4>
-        <ul>
-          <li><a href="learn/what-is-a-prediction-market.html">Markets 101</a></li>
-          <li><a href="learn/kalshi-explained.html">Platform Guides</a></li>
-          <li><a href="learn/kalshi-strategies.html">Kalshi Strategies</a></li>
-          <li><a href="learn/polymarket-strategies.html">Polymarket Strategies</a></li>
-          <li><a href="learn/risk-management.html">Risk Management</a></li>
-          <li><a href="learn/advanced-algorithmic.html">Advanced &amp; Algo</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Platforms</h4>
-        <ul>
-          <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
-          <li><a href="https://polymarket.com/?r=quant72" target="_blank">Polymarket (+ Bonus)</a></li>
-        </ul>
-        <h4 style="margin-top:24px">Media</h4>
-        <ul>
-          <li><a href="https://youtube.com/@Quant72" target="_blank">YouTube</a></li>
-          <li><a href="https://instagram.com/quant72" target="_blank">Instagram</a></li>
-          <li><a href="https://tiktok.com/@quant72" target="_blank">TikTok</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Community</h4>
-        <ul>
-          <li><a href="#community">Email List</a></li>
-          <li><a href="#community">Discord (launching soon)</a></li>
-        </ul>
-      </div>
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-mark">Q<span style="color:var(--cyan)">72</span></div>QUANT72</div><p>The anti-casino. Quantitative prediction market education and community.</p></div>
+      <div class="footer-links"><h4>Chapters 1&#8211;4</h4><ul>
+        <li><a href="what-is-a-prediction-market.html">Markets 101</a></li>
+        <li><a href="how-contracts-work.html">How Contracts Work</a></li>
+        <li><a href="why-traders-lose.html">Why Traders Lose</a></li>
+        <li><a href="kalshi-explained.html">Kalshi Explained</a></li>
+        <li><a href="kalshi-vs-polymarket.html">Kalshi vs Polymarket</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Chapters 5&#8211;8</h4><ul>
+        <li><a href="kalshi-strategies.html">Kalshi Strategies</a></li>
+        <li><a href="polymarket-strategies.html">Polymarket Strategies</a></li>
+        <li><a href="risk-management.html">Risk Management</a></li>
+        <li><a href="advanced-algorithmic.html">Advanced &amp; Algo</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="https://polymarket.com/?r=quant72" target="_blank">Polymarket (+ Bonus)</a></li>
+        <li><a href="../index.html#community" target="_blank">Discord</a></li>
+        <li><a href="https://youtube.com/@Quant72" target="_blank">YouTube</a></li>
+      </ul></div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Quant72. All rights reserved.</p>
-      <p>Not financial advice. Affiliate links may result in compensation. Trading involves risk.</p>
+      <p>&#169; 2025 Quant72. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Prediction market trading involves risk. Affiliate links may result in compensation to Quant72.</p>
     </div>
   </div>
 </footer>
-
 <script>
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  document.addEventListener('click', e => {
-    const m = document.getElementById('mm'), t = document.querySelector('.nav-mobile-toggle');
-    if(m && t && !m.contains(e.target) && !t.contains(e.target)) m.classList.remove('open');
+  document.addEventListener('click',e=>{
+    const m=document.getElementById('mm'),t=document.querySelector('.nav-mobile-toggle');
+    if(m&&t&&!m.contains(e.target)&&!t.contains(e.target))m.classList.remove('open');
   });
-
-  async function handleCommunity(e) {
-    e.preventDefault();
-    const btn = document.getElementById('community-btn');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(e.target) });
-      const data = await res.json();
-      if (data.success) {
-        document.getElementById('community-form').style.display = 'none';
-        document.getElementById('community-success').style.display = 'block';
-      } else { btn.textContent = 'Try again →'; btn.disabled = false; }
-    } catch { btn.textContent = 'Try again →'; btn.disabled = false; }
-  }
 </script>
 </body>
 </html>
