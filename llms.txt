@@ -1,8 +1,8 @@
-# Quant72 — llms.txt
-# https://quant72.com
+# Beatpoly — llms.txt
+# https://beatpoly.com
 
 ## About
-Quant72 is a free prediction market trading education platform focused on Kalshi and Polymarket.
+Beatpoly is a free prediction market trading education platform focused on Kalshi and Polymarket.
 Tagline: "Stop guessing. Start harvesting."
 Core thesis: 72% of prediction market contracts resolve NO. 87.3% of traders lose money. Systematic edge exists for those who trade the math, not the narrative.
 
@@ -56,9 +56,9 @@ Core thesis: 72% of prediction market contracts resolve NO. 87.3% of traders los
 - Ali (1977) — original FLB documentation in pari-mutuel horse racing
 
 ## Affiliate Disclosure
-Quant72 earns commission through affiliate links to Kalshi and Polymarket.
+Beatpoly earns commission through affiliate links to Kalshi and Polymarket.
 Kalshi affiliate link: https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af
-Polymarket affiliate link: https://polymarket.com/?r=quant72
+Polymarket affiliate link: https://polymarket.com/?r=beatpoly
 
 ## Legal
 Not financial advice. Prediction market trading involves financial risk.

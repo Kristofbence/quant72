@@ -1,7 +1,7 @@
-# Quant72 — robots.txt
+# Beatpoly — robots.txt
 User-agent: *
 Allow: /
 
-Sitemap: https://quant72.com/sitemap.xml
+Sitemap: https://beatpoly.com/sitemap.xml
 
 # Block nothing — we want full indexing
