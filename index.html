@@ -222,92 +222,133 @@
       .footer-inner{grid-template-columns:1fr}
       .stats-inner{justify-content:center}
     }
+  
+    /* HERO COMPARISON CARD */
+    .hero-text { max-width: 460px; }
+    .hero-comparison { flex: 1; min-width: 0; }
+    .comp-card { display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.1);border:1.5px solid #E5E8ED; }
+    .comp-panel { padding:28px 24px;display:flex;flex-direction:column;gap:20px; }
+    .comp-lose { background:#FAFAFA;border-right:1.5px solid #E5E8ED; }
+    .comp-win  { background:#1B6FF8; }
+    .comp-header { display:flex;flex-direction:column;gap:6px; }
+    .comp-badge { display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;padding:3px 8px;border-radius:3px;width:fit-content; }
+    .comp-badge-lose { background:#FEE2E2;color:#DC2626;border:1px solid rgba(220,38,38,0.2); }
+    .comp-badge-win  { background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3); }
+    .comp-title { font-size:14px;font-weight:700;line-height:1.3; }
+    .comp-lose .comp-title { color:#6B7280; }
+    .comp-win  .comp-title { color:rgba(255,255,255,0.8); }
+    .comp-list { list-style:none;display:flex;flex-direction:column;gap:10px;flex:1; }
+    .comp-item { display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.45; }
+    .comp-item-bad  { color:#6B7280; }
+    .comp-item-good { color:rgba(255,255,255,0.9); }
+    .comp-icon { font-size:14px;flex-shrink:0;font-weight:700; }
+    .comp-item-bad  .comp-icon { color:#EF4444; }
+    .comp-item-good .comp-icon { color:#86EFAC; }
+    .comp-result { display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:10px;margin-top:auto; }
+    .comp-result-bad  { background:#FEE2E2; }
+    .comp-result-good { background:rgba(255,255,255,0.15); }
+    .comp-result-num  { font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;line-height:1;flex-shrink:0; }
+    .comp-result-bad  .comp-result-num { color:#DC2626; }
+    .comp-result-good .comp-result-num { color:#fff; }
+    .comp-result-label { font-size:11px;line-height:1.4; }
+    .comp-result-bad  .comp-result-label { color:#9CA3AF; }
+    .comp-result-good .comp-result-label { color:rgba(255,255,255,0.65); }
+    @media(max-width:960px) {
+      .hero-inner{grid-template-columns:1fr;gap:40px}
+      .hero-text{max-width:100%}
+      .comp-card{grid-template-columns:1fr}
+      .comp-lose{border-right:none;border-bottom:1.5px solid #E5E8ED}
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <div class="nav-logo-mark">BP</div>
-      BEATPOLY
-    </a>
-    <ul class="nav-links">
-      <li>
-        <a href="learn/index.html">Learn <span class="caret">▾</span></a>
-        <div class="dropdown">
-          <div class="dd-section">
-            <span class="dd-heading">Beginner</span>
-            <a href="learn/what-is-a-prediction-market.html" class="dd-item"><span class="dd-num">01</span><span><span class="dd-title">Prediction Markets 101</span><span class="dd-badge live">4 live</span></span></a>
-            <a href="learn/kalshi-explained.html" class="dd-item"><span class="dd-num">02</span><span><span class="dd-title">Your Platforms</span><span class="dd-badge live">3 live</span></span></a>
-            <a href="learn/index.html#ch3" class="dd-item"><span class="dd-num">03</span><span><span class="dd-title">The Math Foundation</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/index.html#ch4" class="dd-item"><span class="dd-num">04</span><span><span class="dd-title">Core Strategies</span><span class="dd-badge soon">Coming soon</span></span></a>
-          </div>
-          <div class="dd-section">
-            <span class="dd-heading">Advanced</span>
-            <a href="learn/kalshi-strategies.html" class="dd-item"><span class="dd-num">05</span><span><span class="dd-title">Kalshi Strategies</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/polymarket-strategies.html" class="dd-item"><span class="dd-num">06</span><span><span class="dd-title">Polymarket Strategies</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/risk-management.html" class="dd-item"><span class="dd-num">07</span><span><span class="dd-title">Risk &amp; Bankroll</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <a href="learn/advanced-algorithmic.html" class="dd-item"><span class="dd-num">08</span><span><span class="dd-title">Advanced &amp; Algo</span><span class="dd-badge soon">Coming soon</span></span></a>
-            <div class="dd-divider"></div>
-            <div class="dd-footer"><a href="learn/index.html">View full curriculum →</a><a href="learn/what-is-a-prediction-market.html">Start from Ch.01 →</a></div>
-          </div>
-        </div>
-      </li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#community">Community</a></li>
-      <li><a href="#platforms">Get Started</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    <a href="#platforms" class="nav-cta">GET BONUS →</a>
-    <button class="nav-mobile-toggle" onclick="document.getElementById('mm').classList.toggle('open')">☰ Menu</button>
-  </div>
-</nav>
-
-<div class="nav-mobile-menu" id="mm">
-  <span class="mob-section">Learn</span>
-  <a href="learn/what-is-a-prediction-market.html" class="mob-link">Ch.01 — Prediction Markets 101</a>
-  <a href="learn/kalshi-explained.html" class="mob-link">Ch.02 — Platform Guides</a>
-  <a href="learn/kalshi-strategies.html" class="mob-link">Ch.05 — Kalshi Strategies</a>
-  <a href="learn/polymarket-strategies.html" class="mob-link">Ch.06 — Polymarket Strategies</a>
-  <a href="learn/index.html" class="mob-link">View All Chapters →</a>
-  <span class="mob-section">Explore</span>
-  <a href="#videos" class="mob-link" onclick="document.getElementById('mm').classList.remove('open')">Videos</a>
-  <a href="about.html" class="mob-link">About</a>
-  <a href="#community" class="mob-link" onclick="document.getElementById('mm').classList.remove('open')">Community</a>
-  <a href="#platforms" class="mob-cta" onclick="document.getElementById('mm').classList.remove('open')">GET TRADING BONUS →</a>
-</div>
+<div id="nav-root"></div>
+<script src="nav.js"></script>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div>
+
+      <!-- LEFT: Headline + CTAs -->
+      <div class="hero-text">
         <p class="hero-eyebrow">The Anti-Casino</p>
-        <h1>Stop guessing.<br/><span>Start harvesting.</span></h1>
-        <p class="hero-sub">Institutional-grade prediction market strategies — free, for everyone. We don't predict the future. We trade the math.</p>
+        <h1>Beat Polymarket<br/>and Kalshi<br/><span>with math.</span></h1>
+        <p class="hero-sub">87% of traders lose. They guess. They chase narratives. They pay taker fees. We do none of that. We trade the statistics, and the statistics don&#8217;t lie.</p>
         <div class="hero-actions">
-          <a href="learn/what-is-a-prediction-market.html" class="btn-blue">Start Learning Free →</a>
+          <a href="learn/what-is-a-prediction-market.html" class="btn-blue">Start Learning Free &#8594;</a>
           <a href="#platforms" class="btn-outline">Get Trading Bonus</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="terminal-header">
-          <div class="terminal-dot" style="background:#EF4444"></div>
-          <div class="terminal-dot" style="background:#F59E0B"></div>
-          <div class="terminal-dot" style="background:#10B981"></div>
+
+      <!-- RIGHT: Comparison card -->
+      <div class="hero-comparison">
+        <div class="comp-card">
+
+          <!-- Left panel: The losing side -->
+          <div class="comp-panel comp-lose">
+            <div class="comp-header">
+              <span class="comp-badge comp-badge-lose">87% of traders</span>
+              <div class="comp-title">How most people play it</div>
+            </div>
+            <ul class="comp-list">
+              <li class="comp-item comp-item-bad">
+                <span class="comp-icon">&#8679;</span>
+                <span>Buy exciting 5&#162; contracts on headlines</span>
+              </li>
+              <li class="comp-item comp-item-bad">
+                <span class="comp-icon">&#8679;</span>
+                <span>Market orders &#8212; pay maximum fees</span>
+              </li>
+              <li class="comp-item comp-item-bad">
+                <span class="comp-icon">&#8679;</span>
+                <span>Price the narrative, not the probability</span>
+              </li>
+              <li class="comp-item comp-item-bad">
+                <span class="comp-icon">&#8679;</span>
+                <span>No position sizing, no model, no edge</span>
+              </li>
+            </ul>
+            <div class="comp-result comp-result-bad">
+              <span class="comp-result-num">&#8722;32%</span>
+              <span class="comp-result-label">average return<br/>for taker traders</span>
+            </div>
+          </div>
+
+          <!-- Right panel: The Beatpoly way -->
+          <div class="comp-panel comp-win">
+            <div class="comp-header">
+              <span class="comp-badge comp-badge-win">Beatpoly edge</span>
+              <div class="comp-title">How we do it</div>
+            </div>
+            <ul class="comp-list">
+              <li class="comp-item comp-item-good">
+                <span class="comp-icon">&#10003;</span>
+                <span>72% of contracts resolve NO &#8212; we harvest it</span>
+              </li>
+              <li class="comp-item comp-item-good">
+                <span class="comp-icon">&#10003;</span>
+                <span>Limit orders only &#8212; post_only: true</span>
+              </li>
+              <li class="comp-item comp-item-good">
+                <span class="comp-icon">&#10003;</span>
+                <span>EV formula: buy when math says yes</span>
+              </li>
+              <li class="comp-item comp-item-good">
+                <span class="comp-icon">&#10003;</span>
+                <span>Kelly sizing &#8212; survive and compound</span>
+              </li>
+            </ul>
+            <div class="comp-result comp-result-good">
+              <span class="comp-result-num">+EV</span>
+              <span class="comp-result-label">systematic edge<br/>every trade</span>
+            </div>
+          </div>
+
         </div>
-        <div class="terminal-line">// Beatpoly edge scanner</div>
-        <div class="terminal-line hi">NO_resolution_rate: <span style="color:#34D399">72.0%</span></div>
-        <div class="terminal-line hi">taker_loss_avg: <span style="color:#F87171">-32%</span></div>
-        <div class="terminal-line hi">maker_loss_avg: <span style="color:#34D399">-10%</span></div>
-        <div class="terminal-line" style="margin-top:12px">// Strategy: 88¢ NO bond</div>
-        <div class="terminal-line hi">entry_price: <span style="color:#60A5FA">0.88</span></div>
-        <div class="terminal-line hi">true_prob_NO: <span style="color:#60A5FA">0.92</span></div>
-        <div class="terminal-line hi">ev_per_contract: <span style="color:#34D399">+$0.04</span></div>
-        <div class="terminal-line hi">post_only: <span style="color:#34D399">true</span></div>
-        <div class="terminal-line" style="margin-top:12px; color:#34D399">✓ Order placed as maker</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -503,7 +544,7 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:40px">
-      <a href="https://youtube.com/@Beatpoly" class="btn-outline" target="_blank" rel="noopener" style="display:inline-flex">All Videos on YouTube →</a>
+      <a href="https://https://youtube.com/@beatpoly" class="btn-outline" target="_blank" rel="noopener" style="display:inline-flex">All Videos on YouTube →</a>
     </div>
   </div>
 </section>
@@ -565,9 +606,9 @@
         </ul>
         <h4 style="margin-top:24px">Media</h4>
         <ul>
-          <li><a href="https://youtube.com/@Beatpoly" target="_blank">YouTube</a></li>
-          <li><a href="https://instagram.com/beatpoly" target="_blank">Instagram</a></li>
-          <li><a href="https://tiktok.com/@beatpoly" target="_blank">TikTok</a></li>
+          <li><a href="https://https://youtube.com/@beatpoly" target="_blank">YouTube</a></li>
+          <li><a href="https://https://www.instagram.com/beatpoly_com" target="_blank">Instagram</a></li>
+          <li><a href="https://https://www.tiktok.com/@beatpoly" target="_blank">TikTok</a></li>
         </ul>
       </div>
       <div class="footer-links">
