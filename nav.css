@@ -44,15 +44,23 @@
 
 /* DROPDOWN */
 .bp-dropdown {
-  position: absolute; top: calc(100% + 10px); left: 50%;
+  position: absolute; top: calc(100% + 4px); left: 50%;
   transform: translateX(-50%) translateY(-4px);
   background: #fff; border: 1px solid #E5E8ED; border-radius: 14px;
   padding: 8px; width: 580px;
-  display: none; grid-template-columns: 1fr 1fr; gap: 2px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.10); z-index: 600;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.3s;
 }
 .bp-nav-links > li:hover .bp-dropdown {
-  display: grid; transform: translateX(-50%) translateY(0);
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s;
+}
+/* Bridge gap between nav item and dropdown so mouse can travel */
+.bp-dropdown::before {
+  content: ""; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
 }
 .bp-dd-section { padding: 8px; }
 .bp-dd-heading {
