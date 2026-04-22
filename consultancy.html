@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Trading Bot Development — Beatpoly Consultancy</title>
+  <meta name="description" content="We build custom Kalshi and Polymarket trading bots for you. Strategy design, development, backtesting, and live deployment. Get in touch for a custom quote."/>
+  <meta property="og:title" content="Custom Trading Bot Development — Beatpoly"/>
+  <meta property="og:description" content="Custom Kalshi and Polymarket trading bots. Strategy design, development, backtesting, live deployment."/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://beatpoly.com/consultancy.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <div id="nav-root"></div>
+  <script src="nav.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--white:#fff;--bg:#F7F8FA;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--orange:#FF5A00;--amber:#D97706;--amber-light:#FFFBEB;--sans:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace}
+    body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    .narrow{max-width:760px;margin:0 auto}
+
+    /* PAGE HEADER */
+    .page-header{padding:120px 0 72px;border-bottom:1px solid var(--border)}
+    .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:block;font-weight:500}
+    h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin-bottom:20px}
+    h1 span{color:var(--blue)}
+    .lead{font-size:18px;color:var(--muted);max-width:560px;line-height:1.65;margin-bottom:36px}
+    .header-pills{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:0.06em;padding:5px 12px;border-radius:20px;text-transform:uppercase}
+    .pill-blue{background:var(--blue-light);color:var(--blue);border:1px solid rgba(27,111,248,0.2)}
+    .pill-amber{background:var(--amber-light);color:var(--amber);border:1px solid rgba(217,119,6,0.2)}
+
+    /* TWO COL */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:72px 0;align-items:start}
+    .two-col-narrow{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:48px 0}
+
+    /* SECTION */
+    h2{font-size:clamp(22px,3vw,32px);font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px}
+    h3{font-size:18px;font-weight:700;margin:28px 0 10px;letter-spacing:-0.01em}
+    p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:18px}
+    p strong{color:var(--text);font-weight:600}
+
+    /* OFFER CARDS */
+    .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:48px 0}
+    .offer-card{background:var(--bg);border:1.5px solid var(--border);border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:border-color 0.15s}
+    .offer-card:hover{border-color:var(--blue)}
+    .offer-card.featured{background:var(--blue);border-color:var(--blue)}
+    .offer-num{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim)}
+    .offer-card.featured .offer-num{color:rgba(255,255,255,0.5)}
+    .offer-card h3{font-size:18px;font-weight:700;margin:0;letter-spacing:-0.01em}
+    .offer-card.featured h3{color:#fff}
+    .offer-desc{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
+    .offer-card.featured .offer-desc{color:rgba(255,255,255,0.7)}
+    .offer-list{list-style:none;display:flex;flex-direction:column;gap:8px;flex:1}
+    .offer-list li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--muted);line-height:1.5}
+    .offer-card.featured .offer-list li{color:rgba(255,255,255,0.8)}
+    .offer-list li::before{content:"→";font-family:var(--mono);color:var(--blue);font-size:11px;flex-shrink:0;margin-top:2px}
+    .offer-card.featured .offer-list li::before{color:#86EFAC}
+    .offer-price{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--dim);padding-top:8px;border-top:1px solid var(--border)}
+    .offer-card.featured .offer-price{color:rgba(255,255,255,0.5);border-top-color:rgba(255,255,255,0.15)}
+
+    /* PROCESS */
+    .process-list{display:flex;flex-direction:column;gap:0;margin:32px 0}
+    .process-step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);position:relative}
+    .process-step:last-child{border-bottom:none}
+    .process-num{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--blue);width:32px;flex-shrink:0;padding-top:3px}
+    .process-body h3{font-size:16px;font-weight:700;margin:0 0 6px;letter-spacing:-0.01em}
+    .process-body p{font-size:14px;color:var(--muted);margin:0;line-height:1.6}
+
+    /* CONTACT FORM */
+    .contact-section{background:#1F2937;border-radius:20px;padding:64px;margin:64px 0}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-text h2{font-size:clamp(22px,3vw,34px);font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:12px}
+    .contact-text p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:0}
+    .contact-perks{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:10px}
+    .contact-perks li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.7)}
+    .contact-perks li::before{content:"✓";color:#86EFAC;font-weight:700;flex-shrink:0}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+    .form-label{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+    .form-input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-size:14px;font-family:var(--sans);outline:none;transition:border-color 0.15s;width:100%}
+    .form-input::placeholder{color:rgba(255,255,255,0.25)}
+    .form-input:focus{border-color:rgba(27,111,248,0.6)}
+    .form-select{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-size:14px;font-family:var(--sans);outline:none;width:100%;cursor:pointer;appearance:none;transition:border-color 0.15s}
+    .form-select option{background:#1F2937;color:#fff}
+    .form-textarea{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 14px;color:#fff;font-size:14px;font-family:var(--sans);outline:none;transition:border-color 0.15s;width:100%;resize:vertical;min-height:100px}
+    .form-textarea::placeholder{color:rgba(255,255,255,0.25)}
+    .form-textarea:focus{border-color:rgba(27,111,248,0.6)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn-submit{background:var(--blue);color:#fff;font-size:15px;font-weight:600;padding:14px;border-radius:9px;border:none;cursor:pointer;transition:opacity 0.15s;font-family:var(--sans);width:100%;margin-top:8px;letter-spacing:0.01em}
+    .btn-submit:hover{opacity:0.88}
+    .btn-submit:disabled{opacity:0.6;cursor:default}
+    .form-note{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.25);text-align:center;margin-top:10px}
+    .success-msg{display:none;background:rgba(5,150,105,0.15);border:1px solid rgba(5,150,105,0.3);border-radius:10px;padding:24px;text-align:center}
+    .success-msg .check{font-size:28px;color:#34D399;margin-bottom:8px}
+    .success-msg h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+    .success-msg p{font-size:13px;color:rgba(255,255,255,0.5);margin:0}
+
+    @media(max-width:900px){
+      .two-col,.offer-grid,.contact-grid,.form-row,.two-col-narrow{grid-template-columns:1fr}
+      .contact-section{padding:36px 24px}
+      .page-header{padding:100px 0 48px}
+    }
+  </style>
+</head>
+<body>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Consultancy &amp; Bot Development</span>
+    <h1>We build your<br/><span>trading bot.</span></h1>
+    <p class="lead">You have the strategy. We have the engineering. Custom Kalshi and Polymarket trading bots — designed around your edge, built to production standard, deployed and running.</p>
+    <div class="header-pills">
+      <span class="pill pill-blue">Kalshi API</span>
+      <span class="pill pill-blue">Polymarket API</span>
+      <span class="pill pill-amber">Custom Strategy</span>
+      <span class="pill pill-blue">Live Deployment</span>
+      <span class="pill pill-blue">Backtesting</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding:72px 0">
+  <div class="container">
+    <div class="two-col" style="padding:0;gap:80px">
+      <div>
+        <h2>Who this is for</h2>
+        <p>You have been trading Kalshi or Polymarket manually and you have found an edge — or you want to implement one of the Beatpoly strategies at scale. The problem is time and execution speed. Manual trading is slow, inconsistent, and emotional.</p>
+        <p>A bot is not an option for most traders because building one requires both deep platform API knowledge and software engineering skills. We bridge that gap. We know the Kalshi and Polymarket APIs at the microstructure level, and we have built systems that execute the exact strategies taught on this site.</p>
+        <p><strong>The result:</strong> your strategy, running 24/7, executing at machine speed, with no emotional interference, consistent position sizing, and full logging.</p>
+      </div>
+      <div>
+        <h2>What we deliver</h2>
+        <div class="process-list">
+          <div class="process-step">
+            <span class="process-num">01</span>
+            <div class="process-body">
+              <h3>Strategy specification</h3>
+              <p>We work with you to formally define your strategy — entry criteria, sizing rules, exit conditions, and risk limits — in unambiguous, testable terms.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="process-num">02</span>
+            <div class="process-body">
+              <h3>Development &amp; backtesting</h3>
+              <p>Full bot development in Python against the Kalshi or Polymarket API. Backtested against historical data with P&amp;L attribution and drawdown analysis.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="process-num">03</span>
+            <div class="process-body">
+              <h3>Paper trading &amp; validation</h3>
+              <p>Two weeks of paper trading with live market data before any real capital is committed. We review results together and tune before go-live.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="process-num">04</span>
+            <div class="process-body">
+              <h3>Live deployment &amp; handover</h3>
+              <p>Deployment to your server or cloud instance. Full documentation, monitoring setup, and a handover session so you own and understand the system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg);padding:72px 0">
+  <div class="container">
+    <div class="narrow" style="text-align:center;margin-bottom:48px">
+      <h2>What we can build</h2>
+      <p style="max-width:480px;margin:0 auto">Every engagement is custom. These are the most common builds.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <span class="offer-num">Most popular</span>
+        <h3>Free Donut + Bond Harvesting Bot</h3>
+        <p class="offer-desc">Automated execution of the two core Kalshi strategies. MECE bracket detection, collateral return exploitation, 88¢ threshold entries.</p>
+        <ul class="offer-list">
+          <li>Kalshi REST + WebSocket integration</li>
+          <li>Bracket scanner with configurable thresholds</li>
+          <li>Collateral return netting automation</li>
+          <li>Kelly position sizing built in</li>
+          <li>Daily P&amp;L logging and alerts</li>
+        </ul>
+        <span class="offer-price">Custom quote — typically 2–3 week build</span>
+      </div>
+      <div class="offer-card featured">
+        <span class="offer-num">Full system</span>
+        <h3>72% NO Harvesting System on Polymarket</h3>
+        <p class="offer-desc">Systematic NO harvesting across Polymarket categories with real-time scanning, Brier Score tracking, and automated entry/exit.</p>
+        <ul class="offer-list">
+          <li>Polymarket CLOB API + USDC integration</li>
+          <li>Multi-category NO scanner with filters</li>
+          <li>EV-based entry logic, limit orders only</li>
+          <li>Portfolio-level Kelly sizing</li>
+          <li>Brier Score calibration dashboard</li>
+        </ul>
+        <span class="offer-price">Custom quote — typically 3–4 week build</span>
+      </div>
+      <div class="offer-card">
+        <span class="offer-num">Advanced</span>
+        <h3>EMOS Weather Arbitrage Bot (Kalshi)</h3>
+        <p class="offer-desc">Full ECMWF/GFS/NBM model pipeline feeding automated Kalshi weather contract entries based on ensemble vs. market price divergence.</p>
+        <ul class="offer-list">
+          <li>ECMWF + GFS + NBM data ingestion</li>
+          <li>Probability calibration engine</li>
+          <li>Automated Kalshi weather scanner</li>
+          <li>Entry at model-vs-market divergence</li>
+          <li>Cloud-hosted, runs on schedule</li>
+        </ul>
+        <span class="offer-price">Custom quote — typically 4–6 week build</span>
+      </div>
+      <div class="offer-card">
+        <span class="offer-num">Flexible</span>
+        <h3>Custom Strategy Implementation</h3>
+        <p class="offer-desc">Have your own edge you want automated? We implement any strategy that is executable via the Kalshi or Polymarket API.</p>
+        <ul class="offer-list">
+          <li>Strategy specification workshop included</li>
+          <li>Full API integration (Kalshi and/or Polymarket)</li>
+          <li>Custom entry, sizing, and exit logic</li>
+          <li>Backtesting against historical data</li>
+          <li>Paper trading validation period</li>
+        </ul>
+        <span class="offer-price">Custom quote — timeline depends on complexity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section style="padding:72px 0 80px">
+  <div class="container">
+    <div class="contact-section">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <h2>Tell us what you need.</h2>
+          <p>Fill in the form and we will get back to you within 48 hours with a scoping call invitation. No commitment required — the first call is always free.</p>
+          <ul class="contact-perks">
+            <li>Free scoping call — no commitment</li>
+            <li>Response within 48 hours</li>
+            <li>Fixed-price quotes, no surprises</li>
+            <li>You own the code on delivery</li>
+            <li>30-day support period included</li>
+          </ul>
+        </div>
+        <div>
+          <form id="consult-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleConsult(event)">
+            <input type="hidden" name="access_key" value="0fa80f2a-9db5-4902-aebf-74da4351d2de"/>
+            <input type="hidden" name="subject" value="Beatpoly Consultancy Enquiry"/>
+            <input type="hidden" name="redirect" value="false"/>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your name</label>
+                <input type="text" name="name" class="form-input" placeholder="Alex Smith" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-input" placeholder="you@email.com" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Platform</label>
+              <select name="platform" class="form-select" required>
+                <option value="">Select platform...</option>
+                <option value="kalshi">Kalshi only</option>
+                <option value="polymarket">Polymarket only</option>
+                <option value="both">Both Kalshi &amp; Polymarket</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Strategy type</label>
+              <select name="strategy" class="form-select" required>
+                <option value="">Select strategy...</option>
+                <option value="free-donut">Free Donut + Bond Harvesting (Kalshi)</option>
+                <option value="no-harvest">72% NO Harvesting (Polymarket)</option>
+                <option value="emos">EMOS Weather Arbitrage</option>
+                <option value="custom">Custom strategy</option>
+                <option value="unsure">I need help defining my strategy</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Approximate monthly trading budget</label>
+              <select name="budget" class="form-select">
+                <option value="">Select range...</option>
+                <option value="under-1k">Under $1,000</option>
+                <option value="1k-10k">$1,000 – $10,000</option>
+                <option value="10k-50k">$10,000 – $50,000</option>
+                <option value="50k+">$50,000+</option>
+                <option value="prefer-not">Prefer not to say</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tell us more (optional)</label>
+              <textarea name="message" class="form-textarea" placeholder="Describe your strategy, any specific requirements, or questions you have..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="consult-btn">Send Enquiry &#8594;</button>
+            <p class="form-note">We respond within 48 hours. No spam, ever.</p>
+          </form>
+
+          <div id="consult-success" class="success-msg">
+            <div class="check">&#10003;</div>
+            <h4>Enquiry received.</h4>
+            <p>We will be in touch within 48 hours to arrange a scoping call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="footer.js"></script>
+
+<script>
+async function handleConsult(e) {
+  e.preventDefault();
+  var btn = document.getElementById('consult-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(e.target)
+    });
+    var data = await res.json();
+    if (data.success) {
+      document.getElementById('consult-form').style.display = 'none';
+      document.getElementById('consult-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Try again \u2192';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'Try again \u2192';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

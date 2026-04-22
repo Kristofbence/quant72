@@ -106,6 +106,7 @@
         '<li><a href="' + r + 'about.html">About</a></li>' +
         '<li><a href="' + r + 'index.html#community">Community</a></li>' +
         '<li><a href="' + r + 'index.html#platforms">Get Started</a></li>' +
+      '<li><a href="' + r + 'consultancy.html" style="color:#D97706;font-weight:600">Build a Bot &#8599;</a></li>' +
       '</ul>' +
       '<div class="bp-nav-socials">' +
         '<a href="' + YT + '" class="bp-social-icon" target="_blank" rel="noopener" title="YouTube">' + ytSVG + '</a>' +
@@ -130,6 +131,7 @@
     '<span class="bp-mob-section" style="margin-top:4px">More</span>' +
     '<a href="' + r + 'about.html" class="bp-mob-link">About Beatpoly</a>' +
     '<a href="' + r + 'index.html#community" class="bp-mob-link">Community &amp; Newsletter</a>' +
+    '<a href="' + r + 'consultancy.html" class="bp-mob-link" style="color:#D97706;font-weight:600">&#128736; Build a Bot (Custom)</a>' +
     '<div class="bp-mob-socials">' +
       '<a href="' + YT + '" class="bp-mob-social" target="_blank" rel="noopener">' + ytSVG.replace('width:15px;height:15px','width:14px;height:14px') + ' YouTube</a>' +
       '<a href="' + INSTA + '" class="bp-mob-social" target="_blank" rel="noopener">' + igSVG.replace('width:15px;height:15px','width:14px;height:14px') + ' Instagram</a>' +
