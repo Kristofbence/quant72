@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expected Value in Prediction Markets: The Only Number That Matters &#8212; Beatpoly</title>
+  <meta name="description" content="Expected value (EV) is the only metric separating systematic trading from gambling. Learn the EV formula, Kelly Criterion sizing, ex-ante vs ex-post thinking, and the Brier Score."/>
+  <meta name="keywords" content="expected value prediction markets, EV trading, Kelly Criterion, Brier Score, positive EV trading, prediction market math"/>
+  <meta property="og:title" content="Expected Value in Prediction Markets: The Only Number That Matters &#8212; Beatpoly"/>
+  <meta property="og:description" content="Expected value (EV) is the only metric separating systematic trading from gambling. Learn the EV formula, Kelly Criterion sizing, ex-ante vs ex-post thinking, and the Brier Score."/>
+  <meta property="og:type" content="article"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://beatpoly.com/learn/expected-value.html"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Expected Value in Prediction Markets: The Only Number That Matters","description":"Expected value (EV) is the only metric separating systematic trading from gambling. Learn the EV formula, Kelly Criterion sizing, ex-ante vs ex-post thinking, and the Brier Score.","author":{"@type":"Organization","name":"Beatpoly"},"publisher":{"@type":"Organization","name":"Beatpoly","url":"https://beatpoly.com"},"datePublished":"2026-04-22","dateModified":"2026-04-22","mainEntityOfPage":"https://beatpoly.com/learn/expected-value.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is expected value in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"EV = True Probability minus Purchase Price. Positive EV means the trade is profitable over a large sample. It is the only metric that matters for trade decisions."}},{"@type":"Question","name":"What is the Kelly Criterion?","acceptedAnswer":{"@type":"Answer","text":"A formula for optimal position sizing: f* = (b x p minus q) / b. Use 1/4 Kelly in practice for safety. It maximizes long-term bankroll growth while reducing ruin risk."}},{"@type":"Question","name":"What is the Brier Score?","acceptedAnswer":{"@type":"Answer","text":"The mean squared error between your forecast probabilities and actual outcomes. Lower is better. It measures whether your edge is real or luck-based."}},{"@type":"Question","name":"Can a low win rate be more profitable than a high win rate?","acceptedAnswer":{"@type":"Answer","text":"Yes. A 37% win rate on 15-cent contracts with 30% true probability generates more EV than a 90% win rate on 92-cent contracts. What matters is the gap between true probability and purchase price, not the win rate itself."}}]}</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">BP</div>BEATPOLY</a>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">Learn &#9660;</a>
+        <div class="dropdown">
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Beginner</span>
+            <a href="what-is-a-prediction-market.html" class="dropdown-item"><span class="dropdown-item-num">01</span><span class="dropdown-item-text"><span class="dropdown-item-title">Prediction Markets 101</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="kalshi-explained.html" class="dropdown-item"><span class="dropdown-item-num">02</span><span class="dropdown-item-text"><span class="dropdown-item-title">Your Platforms</span><span class="dropdown-item-badge live">3 live</span></span></a>
+            <a href="expected-value.html" class="dropdown-item"><span class="dropdown-item-num">03</span><span class="dropdown-item-text"><span class="dropdown-item-title">The Math Foundation</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="index.html#ch4" class="dropdown-item"><span class="dropdown-item-num">04</span><span class="dropdown-item-text"><span class="dropdown-item-title">Core Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+          </div>
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Advanced</span>
+            <a href="kalshi-strategies.html" class="dropdown-item"><span class="dropdown-item-num">05</span><span class="dropdown-item-text"><span class="dropdown-item-title">Kalshi Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="polymarket-strategies.html" class="dropdown-item"><span class="dropdown-item-num">06</span><span class="dropdown-item-text"><span class="dropdown-item-title">Polymarket Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="risk-management.html" class="dropdown-item"><span class="dropdown-item-num">07</span><span class="dropdown-item-text"><span class="dropdown-item-title">Risk &amp; Bankroll</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="advanced-algorithmic.html" class="dropdown-item"><span class="dropdown-item-num">08</span><span class="dropdown-item-text"><span class="dropdown-item-title">Advanced &amp; Algo</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-footer"><a href="index.html">View full curriculum &#8594;</a></div>
+          </div>
+        </div>
+      </li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#community">Community</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="nav-cta" target="_blank" rel="noopener">GET BONUS &#8594;</a>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('mob-menu').classList.toggle('open')" aria-label="Menu">&#9776; Menu</button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mob-menu">
+  <span class="mobile-section-title">Chapters</span>
+  <a href="what-is-a-prediction-market.html" class="mobile-link">Ch.01 &#8212; Prediction Markets 101</a>
+  <a href="kalshi-explained.html" class="mobile-link">Ch.02 &#8212; Platform Guides</a>
+  <a href="expected-value.html" class="mobile-link">Ch.03 &#8212; Math Foundation</a>
+  <a href="index.html#ch4" class="mobile-link" style="opacity:0.6">Ch.04 &#8212; Core Strategies (soon)</a>
+  <a href="kalshi-strategies.html" class="mobile-link" style="opacity:0.6">Ch.05 &#8212; Kalshi Strategies (soon)</a>
+  <a href="polymarket-strategies.html" class="mobile-link" style="opacity:0.6">Ch.06 &#8212; Polymarket (soon)</a>
+  <a href="risk-management.html" class="mobile-link" style="opacity:0.6">Ch.07 &#8212; Risk Management (soon)</a>
+  <a href="advanced-algorithmic.html" class="mobile-link" style="opacity:0.6">Ch.08 &#8212; Advanced &amp; Algo (soon)</a>
+  <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="mobile-cta" target="_blank" rel="noopener">GET KALSHI BONUS &#8594;</a>
+</div>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch3">Chapter 3: The Math Foundation</a><span class="breadcrumb-sep">/</span>
+  <span>Expected Value in Prediction Markets</span>
+</div></div></div>
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 03</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">INTERMEDIATE</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>Expected value:<br/><em>the only number that matters</em></h1>
+    <p class="article-intro">Win rate is a vanity metric. A 37% win rate can generate three times more profit than a 90% win rate. Here is the math that actually matters &#8212; applied to prediction markets.</p>
+  </div>
+</header>
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+      <div class="tldr"><span class="tldr-label">TL;DR &#8212; Key Facts</span><ul><li>EV = True Probability &#8722; Purchase Price. The single most important formula in prediction market trading.</li><li>A 37% win rate can generate 3&#215; more profit than a 90% win rate &#8212; it depends entirely on the prices paid.</li><li>Taker fees turn marginal positive-EV trades negative. Maker execution (post_only: true) is non-negotiable.</li><li>Ex-ante EV is the only valid basis for decisions. Evaluating trades by outcomes is a cognitive error.</li><li>Kelly Criterion: f* = (b&#215;p&#8722;q)/b. Use &#188; Kelly in practice. Hard cap at 5% of bankroll per market.</li><li>Track your Brier Score to distinguish genuine edge from variance over time.</li></ul></div>
+      
+      <h2>Why Win Rate Is the Wrong Metric</h2>
+      <p>Most traders think in terms of winning and losing. They celebrate high win rates and feel embarrassed by losses. This mental model is wrong — and actively expensive.</p>
+      <p>Consider two traders over 100 trades each:</p>
+      <ul>
+        <li><strong>Trader A</strong> wins 90% of the time, buying YES at 92&#162; on contracts with 93% true probability. EV per trade: <strong>+$0.048</strong>.</li>
+        <li><strong>Trader B</strong> wins only 37% of the time, buying YES at 15&#162; on contracts with 30% true probability. EV per trade: <strong>+$0.15</strong>.</li>
+      </ul>
+      <p>After 100 trades at $100 each: Trader A earns ~$480. Trader B earns ~$1,500. <strong>The 37% win rate generates three times more profit.</strong> Win rate tells you nothing. Expected value tells you everything.</p>
+
+      <h2>The EV Formula</h2>
+      <p>Expected value is the probability-weighted average of all possible outcomes. For binary prediction markets (two outcomes: $1.00 or $0.00), it simplifies cleanly:</p>
+      <div class="math-block">EV = (p &#215; (1.00 &#8722; Price)) &#8722; (q &#215; Price)</div>
+      <p>Where p = your estimated true probability, q = 1&#8722;p, and Price = what you paid. This reduces to the practical shortcut:</p>
+      <div class="math-block">EV = True Probability &#8722; Purchase Price</div>
+      <p>If you believe true probability is 40% and the contract costs 30&#162;, EV = +$0.10. Over a large sample, you expect to earn 10 cents profit per contract traded.</p>
+
+      <div class="callout callout-stat">
+        <span class="callout-label">Worked Example</span>
+        <p>Kalshi weather contract: will NYC exceed 85&#176;F tomorrow? Market: 30&#162; (30% implied). Your model: 40% true probability.</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:14px;color:var(--blue)">EV = (0.40 &#215; 0.70) &#8722; (0.60 &#215; 0.30) = 0.28 &#8722; 0.18 = <strong>+$0.10/contract</strong></p>
+      </div>
+
+      <h2>The Bid-Ask Spread and Fee Tax</h2>
+      <p>You can never buy at the midpoint — you pay the ask. If midpoint is 30&#162; but ask is 32&#162;, your EV is +$0.08, not +$0.10. Always calculate EV using the actual execution price.</p>
+      <p>With Kalshi taker fees, the true net EV is:</p>
+      <div class="math-block">EV_net = True Probability &#8722; (Price + Fee_per_contract)</div>
+      <div class="callout callout-warn">
+        <span class="callout-label">Taker Fee Destruction</span>
+        <p>On a 15&#162; contract, taker fees consume ~6.6% of capital &#8212; up to 56% of gross profit on a winning trade. A +$0.10 EV trade becomes &#8722;$0.03 after taker fees. <strong>This is why post_only: true (Maker execution) is non-negotiable.</strong></p>
+      </div>
+
+      <h2>Ex-Ante vs. Ex-Post: The Most Important Distinction</h2>
+      <div class="key-term">
+        <span class="key-term-word">Ex-Ante EV</span>
+        <p>Calculated <em>before</em> the event from your model. The only number that matters for the trade decision.</p>
+      </div>
+      <div class="key-term">
+        <span class="key-term-word">Ex-Post EV</span>
+        <p>Always $1.00 or $0.00 after resolution. Using outcomes to evaluate process is <strong>results-oriented thinking</strong> &#8212; a cognitive error that destroys systematic discipline.</p>
+      </div>
+      <p>A positive-EV trade that loses is <em>not a mistake</em>. If you estimated 40% and bought at 30&#162;, your process was correct. The loss is expected variance from a legitimately profitable strategy. Do not change strategy based on individual outcomes.</p>
+
+      <h2>The Kelly Criterion: Optimal Position Sizing</h2>
+      <p>Once you have a positive-EV trade, how much should you bet? Kelly maximizes long-term bankroll growth:</p>
+      <div class="math-block">f* = (b &#215; p &#8722; q) / b</div>
+      <p>Where b = net odds (profit/stake) = (1.00&#8722;Price)/Price, p = win probability, q = 1&#8722;p.</p>
+      <p><strong>In practice:</strong> use <strong>&#188; Kelly</strong> (25% of the formula output). Full Kelly assumes perfect probability estimates. They never are. Quarter Kelly gives you ~75% of the growth rate at a fraction of the ruin risk. Hard cap single-market exposure at 5% of bankroll.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Contract Price</th><th>True Probability</th><th>EV</th><th>Full Kelly</th><th>&#188; Kelly</th></tr></thead>
+          <tbody>
+            <tr><td>88&#162; NO</td><td>92%</td><td class="cyan">+$0.040</td><td>33%</td><td>8.3%</td></tr>
+            <tr><td>72&#162; NO</td><td>80%</td><td class="cyan">+$0.080</td><td>22%</td><td>5.5%</td></tr>
+            <tr><td>30&#162; YES</td><td>40%</td><td class="cyan">+$0.100</td><td>19%</td><td>4.8%</td></tr>
+            <tr><td>5&#162; YES</td><td>4%</td><td class="orange">&#8722;$0.010</td><td>0% (do not bet)</td><td>&#8212;</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Brier Score: Measuring Real Edge</h2>
+      <p>A string of profits could be skill or luck. The Brier Score separates them:</p>
+      <div class="math-block">Brier Score = (1/N) &#215; &#931;(forecast &#8722; outcome)&#178;</div>
+      <p>Lower is better. Perfect calibration = 0. Random guessing = 0.25. Target below 0.15. Track it every session. A declining Brier Score over time means your edge is real and improving. A flat score despite profits means variance is carrying you — reduce position sizes.</p>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is the minimum positive EV worth trading?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>On Kalshi as a Maker, fees are roughly 0.44&#162;/contract at 50&#162;. Your minimum EV threshold should comfortably exceed this &#8212; practical minimum is +2&#162; to +3&#162;. Below this, model error can flip the trade negative. Higher-variance event types warrant higher minimums.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Should I use Kelly or fixed fractional sizing?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Kelly adapts to edge size and is theoretically optimal. Fixed fractional (e.g. always 2% of bankroll) is simpler. If you have fewer than 50 trades of Brier Score history, use fixed fractional at 1&#8211;2%. Move to &#188; Kelly once you have demonstrated calibration.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">My last 10 trades were all losses. Should I change my strategy?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Not based on 10 trades. Even a 70% win rate has a 0.003% chance of 10 consecutive losses. Before changing anything: is your Brier Score deteriorating? Are your probability estimates drifting from outcomes systematically? If no, it is likely variance. Changing strategy based on variance is results-oriented thinking and will destroy your edge.</p></div></div>
+      </div>
+      <div class="art-nav-grid"><a href="why-traders-lose.html" class="art-nav-card" style="text-decoration:none"><div class="art-nav-dir">&#8592; Previous</div><div class="art-nav-title">Why 99% of Traders Lose Money</div></a><a href="favorite-longshot-bias.html" class="art-nav-card art-nav-right" style="text-decoration:none"><div class="art-nav-dir">Next &#8594;</div><div class="art-nav-title">The Favorite-Longshot Bias</div></a></div>
+      <div class="art-affiliate-box"><div class="art-affiliate-inner">
+        <div><div class="art-affiliate-label">START TRADING</div><div class="art-affiliate-title">Ready to put this into practice?</div><div class="art-affiliate-sub">Open your account and collect your signup bonus before you risk a dollar of your own capital.</div></div>
+        <div class="art-affiliate-btns">
+          <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="art-btn-kalshi" target="_blank" rel="noopener">Kalshi &#8212; Get Bonus &#8594;</a>
+          <a href="https://polymarket.com/?r=beatpoly" class="art-btn-poly" target="_blank" rel="noopener">Polymarket &#8212; Get Bonus &#8594;</a>
+        </div>
+      </div></div>
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card"><h4>In This Chapter</h4><ul class="sidebar-links"><li><a href="expected-value.html" style="color:var(--blue)">3.1 Expected Value</a></li>
+<li><a href="favorite-longshot-bias.html">3.2 Favorite-Longshot Bias</a></li>
+<li><a href="the-72-percent-rule.html">3.3 The 72% Rule</a></li>
+<li><a href="crowd-psychology.html">3.4 Crowd Psychology</a></li>
+</ul></div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-kalshi" target="_blank" rel="noopener">KALSHI &#8212; GET BONUS</a>
+        <a href="https://polymarket.com/?r=beatpoly" class="btn-poly" target="_blank" rel="noopener">POLYMARKET &#8212; GET BONUS</a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:10px;line-height:1.5">Affiliate links. Bonuses funded by platforms.</p>
+      </div>
+      
+    </aside>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:#fff;margin-bottom:10px"><div style="width:28px;height:28px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700">BP</div>BEATPOLY</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);max-width:240px;line-height:1.6">The anti-casino. Prediction market education built on math, not hype.</p>
+      </div>
+      <div class="footer-links"><h4>Chapter 3</h4><ul>
+        <li><a href="expected-value.html">Expected Value</a></li>
+        <li><a href="favorite-longshot-bias.html">Favorite-Longshot Bias</a></li>
+        <li><a href="the-72-percent-rule.html">The 72% Rule</a></li>
+        <li><a href="crowd-psychology.html">Crowd Psychology</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="https://polymarket.com/?r=beatpoly" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Beatpoly. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Prediction market trading involves risk. Affiliate links may result in compensation to Beatpoly.</p>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'&#8722;':'+'}
+document.addEventListener('click',e=>{const m=document.getElementById('mob-menu'),t=document.querySelector('.nav-mobile-toggle');if(m&&t&&!m.contains(e.target)&&!t.contains(e.target))m.classList.remove('open')});
+</script>
+</body>
+</html>

@@ -274,44 +274,61 @@
         </div>
       </div>
 
-      
-<!-- COMMUNITY EMAIL CAPTURE -->
-<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:40px;margin:64px 0 0" id="community">
-  <span class="tag" style="margin-bottom:16px;display:inline-block">COMMUNITY</span>
-  <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em">Get strategy drops before anyone else.</h3>
-  <p style="font-size:14px;color:var(--muted);margin-bottom:24px;max-width:500px;line-height:1.65">Early access to every new article, live trade setups, and the Discord invite when it launches.</p>
-  <form action="https://api.web3forms.com/submit" method="POST" id="art-form" onsubmit="artSubmit(event)" style="display:flex;gap:10px;flex-wrap:wrap;max-width:480px">
-    <input type="hidden" name="access_key" value="0fa80f2a-9db5-4902-aebf-74da4351d2de"/>
-    <input type="hidden" name="subject" value="New Beatpoly Article Signup"/>
-    <input type="text" name="name" placeholder="Name" required style="flex:1;min-width:120px;background:var(--bg-raised);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none"/>
-    <input type="email" name="email" placeholder="your@email.com" required style="flex:2;min-width:180px;background:var(--bg-raised);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none"/>
-    <input type="hidden" name="message" value="Article page signup"/>
-    <button type="submit" id="art-btn" style="background:var(--orange);color:#fff;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:0.06em;padding:12px 20px;border-radius:8px;border:none;cursor:pointer;white-space:nowrap;width:100%">JOIN THE COMMUNITY &#8594;</button>
-  </form>
-  <div id="art-success" style="display:none;font-family:var(--mono);font-size:13px;color:var(--green);margin-top:12px">&#10003; You're on the list. Discord invite comes here first.</div>
-</div>
-<script>
-async function artSubmit(e){
-  e.preventDefault();
-  const btn=document.getElementById('art-btn');
-  btn.textContent='SENDING...';btn.disabled=true;
-  try{
-    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});
-    const d=await res.json();
-    if(d.success){document.getElementById('art-form').style.display='none';document.getElementById('art-success').style.display='block';}
-    else{btn.textContent='TRY AGAIN →';btn.disabled=false;}
-  }catch{btn.textContent='TRY AGAIN →';btn.disabled=false;}
-}
-</script>
-<div class="article-cta" style="margin-top:32px">
-        <h3>Put the mechanics to work.</h3>
-        <p>Open your Kalshi account and place your first limit order. Use our affiliate link for your signup bonus.</p>
-        <div class="cta-buttons">
-          <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-primary-sm" style="background:#1B6FF8;color:#fff" target="_blank" rel="noopener">OPEN KALSHI — GET BONUS →</a>
-          <a href="prediction-markets-vs-sports-betting.html" class="btn-secondary-sm">NEXT: vs. Sports Betting →</a>
+      <!-- BOTTOM NAV -->
+      <div class="art-nav-grid">
+        <a href="what-is-a-prediction-market.html" class="art-nav-card">
+          <div class="art-nav-dir">← Previous</div>
+          <div class="art-nav-title">What Is a Prediction Market?</div>
+        </a>
+        <a href="prediction-markets-vs-sports-betting.html" class="art-nav-card art-nav-next">
+          <div class="art-nav-dir">Next →</div>
+          <div class="art-nav-title">Prediction Markets vs. Sports Betting</div>
+        </a>
+      </div>
+
+      <!-- AFFILIATE BOX -->
+      <div class="art-affiliate-box">
+        <div class="art-affiliate-label">Start Trading — Claim Your Bonus</div>
+        <div class="art-affiliate-btns">
+          <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="art-btn-kalshi" target="_blank" rel="noopener">
+            Kalshi — Get Signup Bonus →
+          </a>
+          <a href="https://polymarket.com/?r=beatpoly" class="art-btn-poly" target="_blank" rel="noopener">
+            Polymarket — Get Signup Bonus →
+          </a>
+        </div>
+        <p class="art-affiliate-note">Affiliate links. Signup bonuses funded by the platforms, not Beatpoly.</p>
+      </div>
+
+    
+      <!-- ARTICLE BOTTOM NAV -->
+      <div class="art-nav-grid">
+        <a href="what-is-a-prediction-market.html" class="art-nav-card" style="text-decoration:none">
+          <div class="art-nav-dir">&#8592; Previous</div>
+          <div class="art-nav-title">What Is a Prediction Market?</div>
+        </a>
+        <a href="prediction-markets-vs-sports-betting.html" class="art-nav-card art-nav-right" style="text-decoration:none">
+          <div class="art-nav-dir">Next &#8594;</div>
+          <div class="art-nav-title">Prediction Markets vs. Sports Betting</div>
+        </a>
+      </div>
+
+      <!-- AFFILIATE BOX -->
+      <div class="art-affiliate-box">
+        <div class="art-affiliate-inner">
+          <div>
+            <div class="art-affiliate-label">START TRADING</div>
+            <div class="art-affiliate-title">Ready to put this into practice?</div>
+            <div class="art-affiliate-sub">Open your account and collect your signup bonus before you risk a dollar of your own capital.</div>
+          </div>
+          <div class="art-affiliate-btns">
+            <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="art-btn-kalshi" target="_blank" rel="noopener">Kalshi &#8212; Get Bonus &#8594;</a>
+            <a href="https://polymarket.com/?r=beatpoly" class="art-btn-poly" target="_blank" rel="noopener">Polymarket &#8212; Get Bonus &#8594;</a>
+          </div>
         </div>
       </div>
-</main>
+
+    </main>
 
     <aside class="article-sidebar">
       <div class="sidebar-card">
@@ -326,7 +343,7 @@ async function artSubmit(e){
       <div class="sidebar-card">
         <h4>Start Trading</h4>
         <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-kalshi" style="background:#1B6FF8;color:#fff;text-decoration:none" target="_blank" rel="noopener">KALSHI — GET BONUS</a>
-        <a href="https://polymarket.com/?r=quant72" class="btn-poly" style="background:#fff;color:#1B6FF8;border:1.5px solid #1B6FF8;text-decoration:none" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
+        <a href="https://polymarket.com/?r=beatpoly" class="btn-poly" style="background:#fff;color:#1B6FF8;border:1.5px solid #1B6FF8;text-decoration:none" target="_blank" rel="noopener">POLYMARKET — GET BONUS</a>
       </div>
       <div class="sidebar-card">
         <h4>Key Rule</h4>
@@ -348,7 +365,7 @@ async function artSubmit(e){
       </ul></div>
       <div class="footer-links"><h4>Platforms</h4><ul>
         <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
-        <li><a href="https://polymarket.com/?r=quant72" target="_blank">Polymarket (+ Bonus)</a></li>
+        <li><a href="https://polymarket.com/?r=beatpoly" target="_blank">Polymarket (+ Bonus)</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">

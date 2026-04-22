@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Favorite-Longshot Bias: Why Cheap Contracts Destroy Capital &#8212; Beatpoly</title>
+  <meta name="description" content="Contracts under 10 cents lose 60%+ of capital on average. The Favorite-Longshot Bias is the most documented inefficiency in prediction markets — and the most profitable to fade."/>
+  <meta name="keywords" content="favorite longshot bias prediction markets, FLB Kalshi, cheap contracts prediction markets, NO harvesting strategy, prediction market edge"/>
+  <meta property="og:title" content="The Favorite-Longshot Bias: Why Cheap Contracts Destroy Capital &#8212; Beatpoly"/>
+  <meta property="og:description" content="Contracts under 10 cents lose 60%+ of capital on average. The Favorite-Longshot Bias is the most documented inefficiency in prediction markets — and the most profitable to fade."/>
+  <meta property="og:type" content="article"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://beatpoly.com/learn/favorite-longshot-bias.html"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Favorite-Longshot Bias: Why Cheap Contracts Destroy Capital","description":"Contracts under 10 cents lose 60%+ of capital on average. The Favorite-Longshot Bias is the most documented inefficiency in prediction markets — and the most profitable to fade.","author":{"@type":"Organization","name":"Beatpoly"},"publisher":{"@type":"Organization","name":"Beatpoly","url":"https://beatpoly.com"},"datePublished":"2026-04-22","dateModified":"2026-04-22","mainEntityOfPage":"https://beatpoly.com/learn/favorite-longshot-bias.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Favorite-Longshot Bias?","acceptedAnswer":{"@type":"Answer","text":"The systematic tendency for market participants to overprice low-probability (longshot) contracts and underprice high-probability (favorite) contracts. Contracts under 10 cents lose over 60% of capital on average. Contracts at 88-95 cents earn consistent positive returns."}},{"@type":"Question","name":"What percentage of prediction market contracts resolve NO?","acceptedAnswer":{"@type":"Answer","text":"72% of all contracts resolve NO, confirmed across 161,000 contracts on Kalshi and Polymarket. A calibration study of 8,476 Kalshi markets found a YES rate of only 28.7%."}},{"@type":"Question","name":"Why do traders overpay for cheap contracts?","acceptedAnswer":{"@type":"Answer","text":"Prospect Theory probability misperception, lottery ticket psychology, and narrative overreaction. Humans overweight small probabilities when large gains are possible. This is structural, persistent, and exploitable."}},{"@type":"Question","name":"Who documented the Favorite-Longshot Bias in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Burgi, Deng and Whelan (2026) analyzed 313,972 Kalshi contracts. Ali (1977) first documented it in horse racing. Snowberg and Wolfers (2010) confirmed it across 5 million horse races."}}]}</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">BP</div>BEATPOLY</a>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">Learn &#9660;</a>
+        <div class="dropdown">
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Beginner</span>
+            <a href="what-is-a-prediction-market.html" class="dropdown-item"><span class="dropdown-item-num">01</span><span class="dropdown-item-text"><span class="dropdown-item-title">Prediction Markets 101</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="kalshi-explained.html" class="dropdown-item"><span class="dropdown-item-num">02</span><span class="dropdown-item-text"><span class="dropdown-item-title">Your Platforms</span><span class="dropdown-item-badge live">3 live</span></span></a>
+            <a href="expected-value.html" class="dropdown-item"><span class="dropdown-item-num">03</span><span class="dropdown-item-text"><span class="dropdown-item-title">The Math Foundation</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="index.html#ch4" class="dropdown-item"><span class="dropdown-item-num">04</span><span class="dropdown-item-text"><span class="dropdown-item-title">Core Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+          </div>
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Advanced</span>
+            <a href="kalshi-strategies.html" class="dropdown-item"><span class="dropdown-item-num">05</span><span class="dropdown-item-text"><span class="dropdown-item-title">Kalshi Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="polymarket-strategies.html" class="dropdown-item"><span class="dropdown-item-num">06</span><span class="dropdown-item-text"><span class="dropdown-item-title">Polymarket Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="risk-management.html" class="dropdown-item"><span class="dropdown-item-num">07</span><span class="dropdown-item-text"><span class="dropdown-item-title">Risk &amp; Bankroll</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="advanced-algorithmic.html" class="dropdown-item"><span class="dropdown-item-num">08</span><span class="dropdown-item-text"><span class="dropdown-item-title">Advanced &amp; Algo</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-footer"><a href="index.html">View full curriculum &#8594;</a></div>
+          </div>
+        </div>
+      </li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#community">Community</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="nav-cta" target="_blank" rel="noopener">GET BONUS &#8594;</a>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('mob-menu').classList.toggle('open')" aria-label="Menu">&#9776; Menu</button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mob-menu">
+  <span class="mobile-section-title">Chapters</span>
+  <a href="what-is-a-prediction-market.html" class="mobile-link">Ch.01 &#8212; Prediction Markets 101</a>
+  <a href="kalshi-explained.html" class="mobile-link">Ch.02 &#8212; Platform Guides</a>
+  <a href="expected-value.html" class="mobile-link">Ch.03 &#8212; Math Foundation</a>
+  <a href="index.html#ch4" class="mobile-link" style="opacity:0.6">Ch.04 &#8212; Core Strategies (soon)</a>
+  <a href="kalshi-strategies.html" class="mobile-link" style="opacity:0.6">Ch.05 &#8212; Kalshi Strategies (soon)</a>
+  <a href="polymarket-strategies.html" class="mobile-link" style="opacity:0.6">Ch.06 &#8212; Polymarket (soon)</a>
+  <a href="risk-management.html" class="mobile-link" style="opacity:0.6">Ch.07 &#8212; Risk Management (soon)</a>
+  <a href="advanced-algorithmic.html" class="mobile-link" style="opacity:0.6">Ch.08 &#8212; Advanced &amp; Algo (soon)</a>
+  <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="mobile-cta" target="_blank" rel="noopener">GET KALSHI BONUS &#8594;</a>
+</div>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch3">Chapter 3: The Math Foundation</a><span class="breadcrumb-sep">/</span>
+  <span>The Favorite-Longshot Bias</span>
+</div></div></div>
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 03</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">INTERMEDIATE</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>The Favorite-Longshot Bias:<br/><em>why cheap contracts destroy capital</em></h1>
+    <p class="article-intro">Buying the cheap, exciting 5&#162; contract is the most natural trade in prediction markets &#8212; and the worst one by data. Contracts under 10&#162; lose 60%+ of capital on average. Here is why, and what to do instead.</p>
+  </div>
+</header>
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+      <div class="tldr"><span class="tldr-label">TL;DR &#8212; Key Facts</span><ul><li>Contracts under 10&#162; lose 60%+ of capital on average &#8212; Bürgi, Deng &amp; Whelan (2026), 313,972 Kalshi contracts</li><li>5&#162; contracts have a true payoff rate of only 4% despite 5% implied probability &#8212; negative EV before fees</li><li>Inverse FLB: contracts at 88&#8211;95&#162; are mispriced by ~4&#162; &#8212; true probability is systematically higher than price</li><li>Ali (1977) first documented FLB in horse racing. Snowberg &amp; Wolfers (2010) confirmed across 5 million races</li><li>Manski (2006) proved mathematically that binary payoffs + budget constraints inevitably produce longshot overpricing</li><li>NO buyers earn +0.83% dollar-weighted returns. YES buyers lose &#8722;1.02% (Polymarket empirical data)</li></ul></div>
+      
+      <h2>What Is the Favorite-Longshot Bias?</h2>
+      <p>The <strong>Favorite-Longshot Bias (FLB)</strong> is the single most documented inefficiency in prediction markets. It has one implication you can trade on immediately: <strong>cheap contracts are systematically overpriced, and expensive contracts are systematically underpriced.</strong></p>
+      <p>In practical terms: contracts priced under 10&#162; are consistently worse bets than their price suggests, and contracts priced above 88&#162; are consistently better bets than their price suggests. This is not an opinion &#8212; it is supported by analysis of over 300,000 Kalshi contracts (Bürgi, Deng &amp; Whelan, 2026) and confirmed across decades of horse racing data.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">The Data on Cheap Contracts</span>
+        <span class="callout-number">&#8722;60%+</span>
+        <p>Retail investors purchasing contracts priced <strong>below 10&#162;</strong> lose more than 60% of their invested capital on average. A 5&#162; contract has a historical payoff rate of only 4% despite its 5% implied probability &#8212; systematic negative ROI before fees. (Bürgi, Deng &amp; Whelan, 2026, 313,972 Kalshi contracts)</p>
+      </div>
+
+      <h2>Academic Origins: From Horse Racing to Prediction Markets</h2>
+      <p>The FLB was first documented by Ali (1977) in pari-mutuel horse racing, where bettors consistently overpaid for long-shot horses relative to their true win rates. The finding was confirmed across 5 million horse races by Snowberg &amp; Wolfers (2010), who traced the bias to probability misperception as defined in Kahneman &amp; Tversky&#8217;s Prospect Theory &#8212; humans overweight small probabilities when a large gain is possible.</p>
+      <p>Manski (2006) provided a mathematical proof that the combination of binary payoffs and budget-constrained traders inevitably produces longshot overpricing in equilibrium. The bias is not a quirk &#8212; it is a structural feature of how humans interact with lottery-like bets.</p>
+      <p>Bürgi, Deng &amp; Whelan (2026) brought this to prediction markets specifically, analyzing 313,972 Kalshi contracts and confirming the same pattern with greater precision than the horse racing literature. This is the most comprehensive prediction market microstructure study to date.</p>
+
+      <h2>The Full Probability Spectrum</h2>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Price Range</th><th>Implied Probability</th><th>True Resolution Rate</th><th>EV Signal</th><th>Trade Action</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Under 5&#162;</strong></td><td>&lt;5%</td><td class="orange">~2&#8211;3%</td><td>Strongly negative</td><td>Never buy YES</td></tr>
+            <tr><td><strong>5&#162;&#8211;10&#162;</strong></td><td>5&#8211;10%</td><td class="orange">~4&#8211;7%</td><td>Negative (FLB peak)</td><td>Avoid</td></tr>
+            <tr><td><strong>10&#162;&#8211;50&#162;</strong></td><td>10&#8211;50%</td><td>Near implied</td><td>Mixed &#8212; fee-sensitive</td><td>Only with model edge</td></tr>
+            <tr><td><strong>50&#162;&#8211;85&#162;</strong></td><td>50&#8211;85%</td><td>Near implied</td><td>Neutral to positive</td><td>Situational</td></tr>
+            <tr><td><strong>88&#162;&#8211;95&#162;</strong></td><td>88&#8211;95%</td><td class="cyan">~4&#162; above implied</td><td>Positive (inverse FLB)</td><td>Core NO bond zone</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Inverse FLB: Favorites Are Underpriced</h2>
+      <p>The FLB works in both directions. While longshots are overpriced, favorites are <em>underpriced</em>. Research confirms that contracts priced above 88&#162; are systematically mispriced by approximately 4 cents pessimistically &#8212; meaning their true resolution probability is consistently higher than the market price implies.</p>
+      <p>An 88&#162; contract often has a true resolution probability of ~92%. That is a +$0.04 EV edge per contract before fees &#8212; the structural basis of the 88-Cent Rule strategy covered in Chapter 4.</p>
+
+      <h2>Why Traders Overpay for Longshots: The Psychology</h2>
+      <h3>1. Probability Misperception (Prospect Theory)</h3>
+      <p>Humans overweight small probabilities when a large gain is on offer. A 5% chance of winning 19&#215; your money <em>feels</em> more valuable than it mathematically is. The perceived excitement of the longshot exceeds its mathematical expectation every time.</p>
+      <h3>2. The Lottery Ticket Effect</h3>
+      <p>Cheap contracts are psychologically appealing: small downside, large upside. This is identical to why people buy lottery tickets despite deeply negative expected value. The asymmetric return profile overrides rational probability assessment.</p>
+      <h3>3. Narrative Overreaction</h3>
+      <p>When sensationalized news breaks &#8212; a shock weather forecast, a dramatic political development &#8212; retail traders buy YES on dramatic outcomes, pushing prices above any rational probability. The crowd is pricing the narrative, not the math. This creates tradeable spikes.</p>
+      <h3>4. Partition Dependence (the 1/N Heuristic)</h3>
+      <p>In multi-bracket markets (like weather temperature bands), traders anchor to an equal-probability baseline: &#8220;there are 6 options, so each is about 16.7% likely.&#8221; This ignores physics and base rates entirely, pulling rare tail outcomes up to the average. Tail brackets worth 2&#8211;3% get priced at 5&#8211;10&#162;. The center brackets &#8212; the genuinely probable outcomes &#8212; get underpriced by 5&#8211;13 percentage points.</p>
+
+      <div class="callout callout-stat">
+        <span class="callout-label">The Empirical Edge Summary</span>
+        <p>Dollar-weighted returns on Polymarket show: <strong>NO buyers earn +0.83%</strong> on average. <strong>YES buyers lose &#8722;1.02%</strong>. The FLB creates a structural, persistent edge for systematic NO sellers &#8212; the basis of the 72% harvesting strategy.</p>
+      </div>
+
+      <h2>Fee Interaction: The Compounded Disadvantage</h2>
+      <p>The FLB does not operate in isolation. On Kalshi, taker fees on a 15&#162; contract consume roughly 6.6% of invested capital. The combination of FLB (overpriced longshots) and taker fees creates a compounded negative EV for retail longshot buyers:</p>
+      <ul>
+        <li>True probability: 10% (vs. 15&#162; implied probability)</li>
+        <li>Base EV before fees: &#8722;$0.05</li>
+        <li>Taker fee: &#8722;$0.007 additional</li>
+        <li>Total EV: <strong>&#8722;$0.057 per contract</strong></li>
+      </ul>
+      <p>This is why the 87.3% loss rate among retail participants is not surprising. The most natural and instinctive trade &#8212; buying the cheap exciting contract &#8212; is the worst trade by a wide margin.</p>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are there ever legitimate reasons to buy a longshot contract?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Yes &#8212; but only when you have specific private information suggesting the true probability significantly exceeds the market price. The FLB means the bar is high: if a contract trades at 5&#162;, your model needs to estimate at least 7&#8211;8% true probability before fees make it neutral EV. Without specific information advantage, buying under 10&#162; is a losing strategy by the data.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does the FLB apply on Polymarket the same as Kalshi?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Yes. The 72% NO resolution rate and the underpricing of favorites has been confirmed across both platforms. The magnitude of the FLB may vary by market category &#8212; sports markets often show less FLB than political or weather markets &#8212; but the directional bias is consistent.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does the inverse FLB mean I should always buy high-probability contracts?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>The inverse FLB creates a structural edge in the 88&#8211;95&#162; range, but the recovery rate math still matters. At 97&#162;, one loss wipes out 33 wins. The 88&#162; sweet spot balances positive EV with a sustainable recovery rate. Higher prices offer less edge, not more.</p></div></div>
+      </div>
+      <div class="art-nav-grid"><a href="expected-value.html" class="art-nav-card" style="text-decoration:none"><div class="art-nav-dir">&#8592; Previous</div><div class="art-nav-title">Expected Value</div></a><a href="the-72-percent-rule.html" class="art-nav-card art-nav-right" style="text-decoration:none"><div class="art-nav-dir">Next &#8594;</div><div class="art-nav-title">The 72% Rule</div></a></div>
+      <div class="art-affiliate-box"><div class="art-affiliate-inner">
+        <div><div class="art-affiliate-label">START TRADING</div><div class="art-affiliate-title">Ready to put this into practice?</div><div class="art-affiliate-sub">Open your account and collect your signup bonus before you risk a dollar of your own capital.</div></div>
+        <div class="art-affiliate-btns">
+          <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="art-btn-kalshi" target="_blank" rel="noopener">Kalshi &#8212; Get Bonus &#8594;</a>
+          <a href="https://polymarket.com/?r=beatpoly" class="art-btn-poly" target="_blank" rel="noopener">Polymarket &#8212; Get Bonus &#8594;</a>
+        </div>
+      </div></div>
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card"><h4>In This Chapter</h4><ul class="sidebar-links"><li><a href="expected-value.html">3.1 Expected Value</a></li>
+<li><a href="favorite-longshot-bias.html" style="color:var(--blue)">3.2 Favorite-Longshot Bias</a></li>
+<li><a href="the-72-percent-rule.html">3.3 The 72% Rule</a></li>
+<li><a href="crowd-psychology.html">3.4 Crowd Psychology</a></li>
+</ul></div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-kalshi" target="_blank" rel="noopener">KALSHI &#8212; GET BONUS</a>
+        <a href="https://polymarket.com/?r=beatpoly" class="btn-poly" target="_blank" rel="noopener">POLYMARKET &#8212; GET BONUS</a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:10px;line-height:1.5">Affiliate links. Bonuses funded by platforms.</p>
+      </div>
+      
+    </aside>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:#fff;margin-bottom:10px"><div style="width:28px;height:28px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700">BP</div>BEATPOLY</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);max-width:240px;line-height:1.6">The anti-casino. Prediction market education built on math, not hype.</p>
+      </div>
+      <div class="footer-links"><h4>Chapter 3</h4><ul>
+        <li><a href="expected-value.html">Expected Value</a></li>
+        <li><a href="favorite-longshot-bias.html">Favorite-Longshot Bias</a></li>
+        <li><a href="the-72-percent-rule.html">The 72% Rule</a></li>
+        <li><a href="crowd-psychology.html">Crowd Psychology</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="https://polymarket.com/?r=beatpoly" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Beatpoly. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Prediction market trading involves risk. Affiliate links may result in compensation to Beatpoly.</p>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'&#8722;':'+'}
+document.addEventListener('click',e=>{const m=document.getElementById('mob-menu'),t=document.querySelector('.nav-mobile-toggle');if(m&&t&&!m.contains(e.target)&&!t.contains(e.target))m.classList.remove('open')});
+</script>
+</body>
+</html>

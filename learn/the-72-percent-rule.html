@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The 72% Rule: Why 'Nothing Ever Happens' Is a Trading Strategy &#8212; Beatpoly</title>
+  <meta name="description" content="72% of prediction market contracts resolve NO across 161,000 analyzed contracts. The systematic edge built on this base rate, with EV tables, category breakdown, and NO-scanner criteria."/>
+  <meta name="keywords" content="72 percent rule prediction markets, NO harvesting, Polymarket NO resolution rate, prediction market base rate, systematic NO trading"/>
+  <meta property="og:title" content="The 72% Rule: Why 'Nothing Ever Happens' Is a Trading Strategy &#8212; Beatpoly"/>
+  <meta property="og:description" content="72% of prediction market contracts resolve NO across 161,000 analyzed contracts. The systematic edge built on this base rate, with EV tables, category breakdown, and NO-scanner criteria."/>
+  <meta property="og:type" content="article"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://beatpoly.com/learn/the-72-percent-rule.html"/>
+  <link rel="stylesheet" href="article.css"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The 72% Rule: Why 'Nothing Ever Happens' Is a Trading Strategy","description":"72% of prediction market contracts resolve NO across 161,000 analyzed contracts. The systematic edge built on this base rate, with EV tables, category breakdown, and NO-scanner criteria.","author":{"@type":"Organization","name":"Beatpoly"},"publisher":{"@type":"Organization","name":"Beatpoly","url":"https://beatpoly.com"},"datePublished":"2026-04-22","dateModified":"2026-04-22","mainEntityOfPage":"https://beatpoly.com/learn/the-72-percent-rule.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What percentage of Kalshi contracts resolve NO?","acceptedAnswer":{"@type":"Answer","text":"A calibration study of 8,476 Kalshi markets found a YES rate of only 28.7%, meaning 71.3% resolve NO. A broader analysis of 161,000 contracts across Kalshi and Polymarket found the identical 72% NO rate."}},{"@type":"Question","name":"What is the EV of buying NO at 50 cents?","acceptedAnswer":{"@type":"Answer","text":"If the true NO resolution rate is 72%, EV = 0.72 - 0.50 = +$0.22 per contract. Over 100 contracts at $10 each, expected profit is $220 before fees."}},{"@type":"Question","name":"Why do prediction market contracts resolve NO so often?","acceptedAnswer":{"@type":"Answer","text":"Two forces: Status Quo Bias causes traders to overprice dramatic outcomes (things rarely change as dramatically as feared), and Neglected Base Rates cause markets to ignore historical frequencies in favor of salient narratives."}},{"@type":"Question","name":"What is the NO-scanner?","acceptedAnswer":{"@type":"Answer","text":"A set of selection criteria for systematic NO harvesting: target YES prices between 1-15 cents (longshot fades) or buy NO when YES is above 90 cents (bond harvesting). Prioritize geopolitics and weather tail brackets. Always use Maker (limit) orders."}}]}</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><div class="nav-logo-mark">BP</div>BEATPOLY</a>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">Learn &#9660;</a>
+        <div class="dropdown">
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Beginner</span>
+            <a href="what-is-a-prediction-market.html" class="dropdown-item"><span class="dropdown-item-num">01</span><span class="dropdown-item-text"><span class="dropdown-item-title">Prediction Markets 101</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="kalshi-explained.html" class="dropdown-item"><span class="dropdown-item-num">02</span><span class="dropdown-item-text"><span class="dropdown-item-title">Your Platforms</span><span class="dropdown-item-badge live">3 live</span></span></a>
+            <a href="expected-value.html" class="dropdown-item"><span class="dropdown-item-num">03</span><span class="dropdown-item-text"><span class="dropdown-item-title">The Math Foundation</span><span class="dropdown-item-badge live">4 live</span></span></a>
+            <a href="index.html#ch4" class="dropdown-item"><span class="dropdown-item-num">04</span><span class="dropdown-item-text"><span class="dropdown-item-title">Core Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+          </div>
+          <div class="dropdown-section">
+            <span class="dropdown-heading">Advanced</span>
+            <a href="kalshi-strategies.html" class="dropdown-item"><span class="dropdown-item-num">05</span><span class="dropdown-item-text"><span class="dropdown-item-title">Kalshi Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="polymarket-strategies.html" class="dropdown-item"><span class="dropdown-item-num">06</span><span class="dropdown-item-text"><span class="dropdown-item-title">Polymarket Strategies</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="risk-management.html" class="dropdown-item"><span class="dropdown-item-num">07</span><span class="dropdown-item-text"><span class="dropdown-item-title">Risk &amp; Bankroll</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <a href="advanced-algorithmic.html" class="dropdown-item"><span class="dropdown-item-num">08</span><span class="dropdown-item-text"><span class="dropdown-item-title">Advanced &amp; Algo</span><span class="dropdown-item-badge">Soon</span></span></a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-footer"><a href="index.html">View full curriculum &#8594;</a></div>
+          </div>
+        </div>
+      </li>
+      <li><a href="../index.html#videos">Videos</a></li>
+      <li><a href="../index.html#community">Community</a></li>
+      <li><a href="../index.html#platforms">Get Started</a></li>
+    </ul>
+    <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="nav-cta" target="_blank" rel="noopener">GET BONUS &#8594;</a>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('mob-menu').classList.toggle('open')" aria-label="Menu">&#9776; Menu</button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mob-menu">
+  <span class="mobile-section-title">Chapters</span>
+  <a href="what-is-a-prediction-market.html" class="mobile-link">Ch.01 &#8212; Prediction Markets 101</a>
+  <a href="kalshi-explained.html" class="mobile-link">Ch.02 &#8212; Platform Guides</a>
+  <a href="expected-value.html" class="mobile-link">Ch.03 &#8212; Math Foundation</a>
+  <a href="index.html#ch4" class="mobile-link" style="opacity:0.6">Ch.04 &#8212; Core Strategies (soon)</a>
+  <a href="kalshi-strategies.html" class="mobile-link" style="opacity:0.6">Ch.05 &#8212; Kalshi Strategies (soon)</a>
+  <a href="polymarket-strategies.html" class="mobile-link" style="opacity:0.6">Ch.06 &#8212; Polymarket (soon)</a>
+  <a href="risk-management.html" class="mobile-link" style="opacity:0.6">Ch.07 &#8212; Risk Management (soon)</a>
+  <a href="advanced-algorithmic.html" class="mobile-link" style="opacity:0.6">Ch.08 &#8212; Advanced &amp; Algo (soon)</a>
+  <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="mobile-cta" target="_blank" rel="noopener">GET KALSHI BONUS &#8594;</a>
+</div>
+<div class="breadcrumb"><div class="container"><div class="breadcrumb-inner">
+  <a href="index.html">Learn</a><span class="breadcrumb-sep">/</span>
+  <a href="index.html#ch3">Chapter 3: The Math Foundation</a><span class="breadcrumb-sep">/</span>
+  <span>The 72% Rule</span>
+</div></div></div>
+<header class="article-header">
+  <div class="container">
+    <div class="article-meta-row">
+      <span class="tag">CHAPTER 03</span>
+      <span class="tag" style="background:transparent;border-color:var(--border);color:var(--muted)">INTERMEDIATE</span>
+      <span class="article-date">Updated April 2026</span>
+    </div>
+    <h1>The 72% Rule:<br/><em>why &#8220;nothing ever happens&#8221; is a strategy</em></h1>
+    <p class="article-intro">161,000 contracts analyzed. 72% resolved NO. The crowd consistently prices dramatic outcomes above their true probability &#8212; and the math of doing nothing keeps compounding in your favor.</p>
+  </div>
+</header>
+<div class="container">
+  <div class="article-layout">
+    <main class="article-body">
+      <div class="tldr"><span class="tldr-label">TL;DR &#8212; Key Facts</span><ul><li>72% of all prediction market contracts resolve NO &#8212; confirmed across 161,000 contracts on Kalshi and Polymarket</li><li>Buying NO at 50&#162; has an EV of +$0.22 per contract assuming the 72% base rate holds</li><li>The break-even NO price is ~72&#162; &#8212; above this, category-specific NO rates must exceed the baseline</li><li>Weather tail brackets: 80&#8211;95% NO. Geopolitics: 72&#8211;78%. Sports: 50&#8211;60% &#8212; size exposure accordingly</li><li>NO-scanner filters: price (1&#8211;15&#162; YES fades or 90&#162;+ bond harvesting), category priority, Maker execution only, 25% category cap</li><li>Main risk: correlated tail events. Defense: strict position sizing and category diversification</li></ul></div>
+      
+      <h2>The Number Behind the Strategy</h2>
+      <p>Analysis of over <strong>161,000 contracts</strong> across Kalshi and Polymarket produced a number that now drives every Beatpoly strategy: <strong>72% of prediction market contracts resolve as NO.</strong></p>
+      <p>This is not a Polymarket quirk or a Kalshi artifact &#8212; it appears across both platforms and across market categories. A calibration study of 8,476 Kalshi markets found a YES resolution rate of only 28.7% (71.3% NO). A Bloomberg analysis of 300+ Trump-related Polymarket contracts found the identical 72% NO rate. Aggregated data from 15,000+ Metaculus questions shows a slightly lower but consistent 63.5% NO baseline.</p>
+
+      <div class="callout callout-stat">
+        <span class="callout-label">THE STRUCTURAL BASELINE</span>
+        <span class="callout-number">72%</span>
+        <p>72% of prediction market contracts resolve NO across 161,000 analyzed contracts. This is the foundation of every systematic strategy on this site.</p>
+      </div>
+
+      <h2>Why "Nothing Ever Happens"</h2>
+      <p>The 72% NO rate reflects a fundamental truth about prediction markets: they systematically overestimate the probability of change, action, and dramatic outcomes. Two cognitive forces drive this:</p>
+      <h3>Status Quo Bias</h3>
+      <p>Retail traders eagerly buy YES on dramatic narratives &#8212; sudden resignations, military actions, extreme weather, shock policy changes &#8212; at prices far exceeding their true statistical probability. The market price of excitement consistently exceeds the mathematical price of the event.</p>
+      <h3>Neglected Base Rate</h3>
+      <p>Traders price contracts based on salient narratives rather than historical frequencies. The question &#8220;what usually happens in situations like this?&#8221; is almost never asked. Base rates are systematically underweighted. The base rate answer is almost always: nothing unusual happens. The market prices otherwise.</p>
+
+      <h2>The EV of Systematic NO Buying</h2>
+      <p>If the true probability of NO is 72%, what is the EV of buying NO at various prices?</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>NO Purchase Price</th><th>True NO Probability</th><th>EV per Contract</th><th>EV per $100 Invested</th></tr></thead>
+          <tbody>
+            <tr><td><strong>50&#162;</strong></td><td>72%</td><td class="cyan">+$0.22</td><td class="cyan">+$44</td></tr>
+            <tr><td><strong>60&#162;</strong></td><td>72%</td><td class="cyan">+$0.12</td><td class="cyan">+$20</td></tr>
+            <tr><td><strong>70&#162;</strong></td><td>72%</td><td class="cyan">+$0.02</td><td class="cyan">+$2.86</td></tr>
+            <tr><td><strong>75&#162;</strong></td><td>72%</td><td style="color:var(--orange)">&#8722;$0.03</td><td style="color:var(--orange)">&#8722;$4</td></tr>
+            <tr><td><strong>80&#162;</strong></td><td>72%</td><td style="color:var(--orange)">&#8722;$0.08</td><td style="color:var(--orange)">&#8722;$10</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The break-even price is approximately 72&#162; &#8212; buying NO above this price requires the specific sub-category to have a NO rate higher than the 72% baseline to remain profitable. In practice, geopolitical and policy markets consistently exceed 72% NO, while sports markets often fall below it.</p>
+
+      <h2>Category-Level NO Resolution Rates</h2>
+      <p>The 72% baseline is not uniform across all market types. Understanding the category distribution is essential for applying the scanner correctly:</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Category</th><th>Historical NO Rate</th><th>Strategy Implication</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Geopolitical/Policy</strong></td><td class="cyan">~72&#8211;78%</td><td>Strongest NO harvesting edge</td></tr>
+            <tr><td><strong>Economics (macro)</strong></td><td>~60&#8211;75%</td><td>Efficiently priced by professionals &#8212; require stronger edge</td></tr>
+            <tr><td><strong>Entertainment/Pop Culture</strong></td><td>~65&#8211;70%</td><td>Good edge, less professional competition</td></tr>
+            <tr><td><strong>Weather (tail brackets)</strong></td><td class="cyan">~80&#8211;95%</td><td>Best edge via Free Donut and 88&#162; Rule</td></tr>
+            <tr><td><strong>Sports</strong></td><td>~50&#8211;60%</td><td>Weaker edge, near coin-flip</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The NO-Scanner: Practical Selection Criteria</h2>
+      <p>Buying NO indiscriminately at the 72% baseline is not a strategy &#8212; it is an approximation. Systematic NO harvesting uses specific filters to identify contracts where the edge is highest:</p>
+      <ol>
+        <li><strong>Price threshold:</strong> Target YES prices between 1&#8211;15&#162; (longshot fades) or buy NO when YES trades above 90&#162; (bond harvesting). Avoid the 20&#8211;80&#162; range unless you have specific model data.</li>
+        <li><strong>Category filter:</strong> Prioritize geopolitics and policy markets. Avoid sports and macro economic data, which attract professional participants who narrow the edge quickly.</li>
+        <li><strong>Execution:</strong> Always Maker (limit orders). Never market orders. The 32% vs. 10% average loss gap between Takers and Makers (Bürgi et al.) is the margin between profitable and unprofitable systematic trading.</li>
+        <li><strong>Diversification:</strong> Cap exposure in any single category at 25% of capital to avoid correlation risk &#8212; the main tail risk is a correlated black swan that invalidates base rates across many markets simultaneously.</li>
+      </ol>
+
+      <h2>The Main Risk: Correlated Tail Events</h2>
+      <p>Systematic NO harvesting is structurally similar to selling deep out-of-the-money options. The P&amp;L profile is: many small wins, occasional small losses, and rare catastrophic losses. The catastrophic scenario is a genuine paradigm-shifting event &#8212; a pandemic, a regional war, a financial crisis &#8212; that simultaneously validates many previously implausible YES contracts across unrelated markets.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-label">The Black Swan Warning</span>
+        <p>When a genuine structural change occurs &#8212; a legitimate regime transition, a systemic shock &#8212; the base rate assumption breaks down across many markets at once. This is the primary risk of systematic NO harvesting. Position sizing (&#188; Kelly, 5% single-market cap, 25% category cap) is the only defense. Do not confuse normal variance with a regime change, but do not dismiss large correlated moves as noise either.</p>
+      </div>
+
+      <div class="faq">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does the 72% rule mean I should just buy NO on every contract?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>No. The 72% baseline means randomly selected NO contracts have a structural edge over YES, but the NO contract price must be below 72&#162; to give you positive EV. If the market has already priced NO at 80&#162;, buying it at that price has negative EV (0.72 &#8722; 0.80 = &#8722;$0.08). The edge is in finding NO contracts mispriced below their true probability.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Why does the market consistently overprice YES outcomes?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Two structural forces: (1) The Favorite-Longshot Bias &#8212; humans overweight dramatic, narrative-driven outcomes. (2) The supply-side imbalance &#8212; more retail participants buy YES on exciting events than provide liquidity on boring NO contracts. Market makers price this demand premium into the YES side.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Which platform is better for the 72% NO harvesting strategy?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Polymarket is the primary venue for systematic NO harvesting due to its volume depth in political and macro markets and its historically zero maker fees. Kalshi is better for the weather-specific variants (Free Donut, 88-Cent Rule) due to its MECE bracket structure and collateral return mechanics.</p></div></div>
+      </div>
+      <div class="art-nav-grid"><a href="favorite-longshot-bias.html" class="art-nav-card" style="text-decoration:none"><div class="art-nav-dir">&#8592; Previous</div><div class="art-nav-title">The Favorite-Longshot Bias</div></a><a href="crowd-psychology.html" class="art-nav-card art-nav-right" style="text-decoration:none"><div class="art-nav-dir">Next &#8594;</div><div class="art-nav-title">Crowd Psychology: The 4 Biases</div></a></div>
+      <div class="art-affiliate-box"><div class="art-affiliate-inner">
+        <div><div class="art-affiliate-label">START TRADING</div><div class="art-affiliate-title">Ready to put this into practice?</div><div class="art-affiliate-sub">Open your account and collect your signup bonus before you risk a dollar of your own capital.</div></div>
+        <div class="art-affiliate-btns">
+          <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="art-btn-kalshi" target="_blank" rel="noopener">Kalshi &#8212; Get Bonus &#8594;</a>
+          <a href="https://polymarket.com/?r=beatpoly" class="art-btn-poly" target="_blank" rel="noopener">Polymarket &#8212; Get Bonus &#8594;</a>
+        </div>
+      </div></div>
+    </main>
+    <aside class="article-sidebar">
+      <div class="sidebar-card"><h4>In This Chapter</h4><ul class="sidebar-links"><li><a href="expected-value.html">3.1 Expected Value</a></li>
+<li><a href="favorite-longshot-bias.html">3.2 Favorite-Longshot Bias</a></li>
+<li><a href="the-72-percent-rule.html" style="color:var(--blue)">3.3 The 72% Rule</a></li>
+<li><a href="crowd-psychology.html">3.4 Crowd Psychology</a></li>
+</ul></div>
+      <div class="sidebar-card">
+        <h4>Start Trading</h4>
+        <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-kalshi" target="_blank" rel="noopener">KALSHI &#8212; GET BONUS</a>
+        <a href="https://polymarket.com/?r=beatpoly" class="btn-poly" target="_blank" rel="noopener">POLYMARKET &#8212; GET BONUS</a>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:10px;line-height:1.5">Affiliate links. Bonuses funded by platforms.</p>
+      </div>
+      
+    </aside>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:#fff;margin-bottom:10px"><div style="width:28px;height:28px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700">BP</div>BEATPOLY</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);max-width:240px;line-height:1.6">The anti-casino. Prediction market education built on math, not hype.</p>
+      </div>
+      <div class="footer-links"><h4>Chapter 3</h4><ul>
+        <li><a href="expected-value.html">Expected Value</a></li>
+        <li><a href="favorite-longshot-bias.html">Favorite-Longshot Bias</a></li>
+        <li><a href="the-72-percent-rule.html">The 72% Rule</a></li>
+        <li><a href="crowd-psychology.html">Crowd Psychology</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Platforms</h4><ul>
+        <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
+        <li><a href="https://polymarket.com/?r=beatpoly" target="_blank">Polymarket (+ Bonus)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Beatpoly. All rights reserved.</p>
+      <p class="footer-disclaimer">Not financial advice. Prediction market trading involves risk. Affiliate links may result in compensation to Beatpoly.</p>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'&#8722;':'+'}
+document.addEventListener('click',e=>{const m=document.getElementById('mob-menu'),t=document.querySelector('.nav-mobile-toggle');if(m&&t&&!m.contains(e.target)&&!t.contains(e.target))m.classList.remove('open')});
+</script>
+</body>
+</html>
