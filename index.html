@@ -44,44 +44,44 @@
     .container{max-width:1120px;margin:0 auto;padding:0 24px}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
-    .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:var(--text);flex-shrink:0}
-    .nav-logo-mark{width:30px;height:30px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700;font-family:var(--mono)}
-    .nav-links{display:flex;gap:2px;list-style:none;align-items:center}
-    .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:4px;font-size:14px;font-weight:500;color:var(--text-secondary);transition:color 0.15s;padding:7px 12px;border-radius:6px;cursor:pointer;white-space:nowrap}
+    #old-nav-removed{}
+    
+    
+    
+    
+    
+    
     .nav-links>li>a:hover{color:var(--text);background:var(--bg)}
-    .caret{font-size:8px;transition:transform 0.2s}
-    .nav-links>li:hover>a .caret{transform:rotate(180deg)}
-    .nav-cta{background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:7px;transition:opacity 0.15s;white-space:nowrap;letter-spacing:0.01em}
-    .nav-cta:hover{opacity:0.88}
+    
+    .nav-links>li:hover>a 
+    
+    
 
     /* DROPDOWN */
-    .dropdown{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-4px);background:#fff;border:1px solid var(--border);border-radius:14px;padding:8px;width:560px;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;visibility:hidden;transition:opacity 0.15s,transform 0.15s,visibility 0s linear 0.15s;box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);z-index:300}
-    .nav-links>li:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition:opacity 0.15s,transform 0.15s,visibility 0s}
-    .dd-section{padding:8px}
-    .dd-heading{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:6px;padding:0 6px}
-    .dd-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;transition:background 0.12s;cursor:pointer}
-    .dd-item:hover{background:var(--bg)}
-    .dd-num{font-family:var(--mono);font-size:10px;color:var(--text-muted);flex-shrink:0;min-width:20px;font-weight:500}
-    .dd-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;display:block}
-    .dd-badge{font-family:var(--mono);font-size:9px;border-radius:3px;padding:1px 5px;display:inline-block;margin-top:2px;letter-spacing:0.04em}
-    .dd-badge.live{color:var(--blue);background:var(--blue-light);border:1px solid rgba(27,111,248,0.2)}
-    .dd-badge.soon{color:var(--text-muted);background:var(--bg);border:1px solid var(--border)}
-    .dd-divider{grid-column:1/-1;height:1px;background:var(--border);margin:4px 8px}
-    .dd-footer{grid-column:1/-1;padding:6px 10px;display:flex;justify-content:space-between}
-    .dd-footer a{font-size:12px;color:var(--blue);font-weight:500}
+    
+    .nav-links>li:hover 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     .dd-footer a:hover{text-decoration:underline}
 
     /* MOBILE */
-    .nav-mobile-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text-secondary);padding:6px 11px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}
-    .nav-mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px;z-index:199;max-height:calc(100vh - 60px);overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-    .nav-mobile-menu.open{display:block}
-    .mob-section{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);padding:12px 8px 6px;display:block}
-    .mob-link{display:block;padding:10px 8px;font-size:14px;font-weight:500;color:var(--text-secondary);border-radius:6px}
-    .mob-link:hover{color:var(--text);background:var(--bg)}
-    .mob-cta{display:block;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:8px;text-align:center;margin-top:12px}
+    
+    
+    
+    
+    
+    
+    
 
     /* HERO */
     .hero{padding:120px 0 80px;background:var(--white)}
@@ -209,7 +209,7 @@
     .fade-up.visible{opacity:1;transform:translateY(0)}
 
     @media(max-width:960px){
-      .nav-links{display:none}.nav-mobile-toggle{display:block}
+      
       .hero-inner{grid-template-columns:1fr;gap:40px}
       .hero-visual{display:none}
       .platform-grid{grid-template-columns:1fr}
@@ -339,8 +339,8 @@
               </li>
             </ul>
             <div class="comp-result comp-result-good">
-              <span class="comp-result-num" style="color:#86EFAC;font-size:28px">72%+</span>
-              <span class="comp-result-label">predictions fail<br/>we profit from it</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;color:#86EFAC;line-height:1;flex-shrink:0">+72%</span>
+              <span class="comp-result-label">more outcomes to<br/>profit from daily</span>
             </div>
           </div>
 
@@ -418,11 +418,11 @@
         <p>Full walkthroughs, fees, legal status, and how to claim your signup bonuses.</p>
         <span class="chapter-meta">3 articles · Beginner</span>
       </a>
-      <a href="learn/index.html#ch3" class="chapter-card fade-up" style="transition-delay:0.1s">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 03</span><span class="badge badge-inter">Intermediate</span></div>
+      <a href="learn/expected-value.html" class="chapter-card fade-up" style="transition-delay:0.1s">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 03</span><span class="badge badge-live" style="background:#DCFCE7;color:#16A34A;border:1px solid rgba(22,163,74,0.2)">Live</span></div>
         <h3>The Math Foundation</h3>
         <p>Expected value, Favorite-Longshot Bias, and why 87.3% of traders are guaranteed to lose.</p>
-        <span class="chapter-meta">4 articles · Coming soon</span>
+        <span class="chapter-meta">4 articles · Live ✓</span>
       </a>
       <a href="learn/index.html#ch4" class="chapter-card fade-up" style="transition-delay:0.15s">
         <div style="display:flex;justify-content:space-between;align-items:center"><span class="chapter-card-num">Chapter 04</span><span class="badge badge-inter">Intermediate</span></div>

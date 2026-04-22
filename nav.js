@@ -105,8 +105,7 @@
         '<li><a href="' + r + 'index.html#videos">Videos</a></li>' +
         '<li><a href="' + r + 'about.html">About</a></li>' +
         '<li><a href="' + r + 'index.html#community">Community</a></li>' +
-        '<li><a href="' + r + 'index.html#platforms">Get Started</a></li>' +
-      '<li><a href="' + r + 'consultancy.html" style="color:#D97706;font-weight:600">Build a Bot &#8599;</a></li>' +
+        '<li><a href="' + r + 'consultancy.html" style="color:#D97706;font-weight:600">Build a Bot &#8599;</a></li>' +
       '</ul>' +
       '<div class="bp-nav-socials">' +
         '<a href="' + YT + '" class="bp-social-icon" target="_blank" rel="noopener" title="YouTube">' + ytSVG + '</a>' +
