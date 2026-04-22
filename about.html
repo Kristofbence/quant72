@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Beatpoly — The Anti-Casino</title>
+  <meta name="description" content="Beatpoly is a free prediction market education platform built on data, not hype. We trade the math. No financial advice. No upsells. Just the systematic edge."/>
+  <meta property="og:title" content="About Beatpoly — The Anti-Casino"/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://beatpoly.com/about.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#F7F8FA;--white:#fff;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--orange:#FF5A00;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif}
+    html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:0 24px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+    .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:var(--text)}
+    .nav-logo-mark{width:30px;height:30px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700}
+    .nav-cta{background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:7px;transition:opacity 0.15s}
+    .nav-cta:hover{opacity:0.88}
+    .page-wrap{max-width:720px;margin:0 auto;padding:120px 24px 80px}
+    .page-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+    h1{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin-bottom:24px;color:var(--text)}
+    h1 span{color:var(--blue)}
+    .lead{font-size:18px;color:var(--muted);line-height:1.7;margin-bottom:48px;border-bottom:1px solid var(--border);padding-bottom:48px}
+    h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:44px 0 14px;color:var(--text)}
+    p{font-size:16.5px;line-height:1.85;color:#374151;margin-bottom:20px}
+    p strong{color:var(--text);font-weight:600}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+    .stat-box{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+    .stat-num{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--blue);display:block;margin-bottom:4px}
+    .stat-label{font-size:12px;color:var(--muted);font-weight:500}
+    .principle-list{list-style:none;display:flex;flex-direction:column;gap:16px;margin:24px 0}
+    .principle-list li{display:flex;align-items:flex-start;gap:14px;font-size:16px;color:#374151;line-height:1.6}
+    .principle-list li::before{content:'→';font-family:var(--mono);color:var(--blue);font-size:12px;margin-top:3px;flex-shrink:0}
+    .principle-list li strong{color:var(--text)}
+    .cta-box{background:#1F2937;border-radius:14px;padding:40px;margin-top:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .cta-box h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-0.01em}
+    .cta-box p{font-size:14px;color:rgba(255,255,255,0.55);margin:0;max-width:340px;line-height:1.6}
+    .cta-btns{display:flex;flex-direction:column;gap:10px;flex-shrink:0;min-width:180px}
+    .btn-white{display:flex;align-items:center;justify-content:center;background:#fff;color:var(--blue);font-size:13px;font-weight:700;padding:11px 20px;border-radius:8px;font-family:var(--mono);letter-spacing:0.03em}
+    .btn-white:hover{opacity:0.9}
+    .btn-ghost{display:flex;align-items:center;justify-content:center;background:transparent;color:#fff;font-size:13px;font-weight:700;padding:11px 20px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.35);font-family:var(--mono);letter-spacing:0.03em}
+    .btn-ghost:hover{border-color:#fff}
+    footer{border-top:1px solid var(--border);padding:36px 0;background:#1F2937;margin-top:80px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-inner p{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.3)}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.15s}
+    .footer-links a:hover{color:#fff}
+    @media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr}.cta-box{flex-direction:column}.footer-inner{flex-direction:column;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">BP</div>BEATPOLY</a>
+    <div style="display:flex;gap:16px;align-items:center">
+      <a href="learn/index.html" style="font-size:14px;font-weight:500;color:#4B5563">Learn</a>
+      <a href="index.html#community" style="font-size:14px;font-weight:500;color:#4B5563">Community</a>
+      <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="nav-cta" target="_blank" rel="noopener">GET BONUS →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-eyebrow">About Beatpoly</p>
+  <h1>The anti-casino.<br/><span>We trade the math.</span></h1>
+  <p class="lead">Beatpoly is a free prediction market education platform. No financial advice. No upsells. No hype. Just the systematic edge that 87.3% of traders never find — because they are too busy chasing narratives.</p>
+
+  <h2>Why We Built This</h2>
+  <p>Prediction markets are the most interesting financial instruments in existence. They aggregate decentralized information into actionable probabilities. They outperform polls, expert panels, and institutional consensus on a documented basis. And the academic research on their microstructure is some of the richest in quantitative finance.</p>
+  <p>The problem: almost nobody who participates in them is using any of that research. They are buying 5¢ contracts on dramatic outcomes, executing with market orders, ignoring fees, and calling it trading. The data is brutal: <strong>87.3% of Polymarket wallets are unprofitable.</strong> Taker-order traders lose 32% on average.</p>
+  <p>Beatpoly exists to close that gap. Everything we publish is grounded in peer-reviewed research or empirical platform data. Every strategy is testable, reproducible, and explained without jargon.</p>
+
+  <div class="stat-row">
+    <div class="stat-box"><span class="stat-num">72%</span><div class="stat-label">Contracts resolve NO<br/>(161,000 analyzed)</div></div>
+    <div class="stat-box"><span class="stat-num">87.3%</span><div class="stat-label">Traders lose money<br/>(112,000 wallets)</div></div>
+    <div class="stat-box"><span class="stat-num">22pt</span><div class="stat-label">Taker vs Maker gap<br/>(Bürgi et al. 2026)</div></div>
+  </div>
+
+  <h2>Our Principles</h2>
+  <ul class="principle-list">
+    <li><strong>Data over narrative.</strong> Every claim is sourced. We cite the study, the sample size, and the methodology. If we cannot source it, we do not state it.</li>
+    <li><strong>Process over outcome.</strong> A losing trade with positive EV is correct process. A winning trade with negative EV is incorrect process. We evaluate decisions by the math, not the result.</li>
+    <li><strong>Survival first.</strong> No strategy works if you blow up. Kelly Criterion, fractional sizing, and category caps are not optional — they are the foundation everything else is built on.</li>
+    <li><strong>Maker, not Taker.</strong> post_only: true is not a setting, it is a philosophy. We are liquidity providers, not liquidity consumers. We do not chase prices.</li>
+    <li><strong>Free, always.</strong> The education is free because the business model is affiliate referrals and community — not selling you a course. The incentives are aligned: we only benefit when you actually start trading.</li>
+  </ul>
+
+  <h2>The Business Model (Transparency)</h2>
+  <p>Beatpoly earns commission through affiliate partnerships with Kalshi and Polymarket. When you sign up through our links, we receive a small referral fee — funded by the platforms, not by you. The signup bonuses you receive are also funded by the platforms.</p>
+  <p>We do not sell courses, subscriptions, signals, or any paid products. All education is free. All strategies are published publicly. The affiliate revenue is what makes the free model sustainable.</p>
+  <p>If that ever changes, we will disclose it clearly.</p>
+
+  <h2>The Research Behind Beatpoly</h2>
+  <p>Our strategies are built on primary academic sources, not secondhand summaries:</p>
+  <ul class="principle-list">
+    <li><strong>Bürgi, Deng &amp; Whelan (2026)</strong> — 313,972 Kalshi contracts, Maker/Taker performance gaps, Favorite-Longshot Bias analysis</li>
+    <li><strong>Reichenbach &amp; Walther (2025)</strong> — 124 million trades, profitability analysis across platforms</li>
+    <li><strong>Rasooly &amp; Rozzi (2025)</strong> — real-money vs. play-money market accuracy comparison</li>
+    <li><strong>Snowberg &amp; Wolfers (2010)</strong> — Favorite-Longshot Bias across 5 million horse races</li>
+    <li><strong>Sonnemann, Camerer, Fox &amp; Langer (2013)</strong> — Partition Dependence Bias in prediction markets</li>
+    <li><strong>Ali (1977)</strong> — original Favorite-Longshot Bias documentation in pari-mutuel betting</li>
+  </ul>
+
+  <div class="cta-box">
+    <div>
+      <h3>Start with Chapter 1.</h3>
+      <p>Everything is free. No email required to read. The signup bonus is there when you're ready to trade.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="learn/what-is-a-prediction-market.html" class="btn-white">Start Learning →</a>
+      <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-ghost" target="_blank" rel="noopener">Get Kalshi Bonus →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p>© 2026 Beatpoly. Not financial advice. Trading involves risk.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="learn/index.html">Learn</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
