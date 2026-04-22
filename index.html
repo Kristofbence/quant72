@@ -286,63 +286,61 @@
       <div class="hero-comparison">
         <div class="comp-card">
 
-          <!-- Left panel: The losing side -->
           <div class="comp-panel comp-lose">
             <div class="comp-header">
-              <span class="comp-badge comp-badge-lose">87% of traders</span>
-              <div class="comp-title">How most people play it</div>
+              <span class="comp-badge comp-badge-lose">Without Beatpoly</span>
+              <div class="comp-title">Gambling on predictions</div>
             </div>
             <ul class="comp-list">
               <li class="comp-item comp-item-bad">
-                <span class="comp-icon">&#8679;</span>
-                <span>Buy exciting 5&#162; contracts on headlines</span>
+                <span class="comp-icon">&#10005;</span>
+                <span>Bet on exciting news and hot takes</span>
               </li>
               <li class="comp-item comp-item-bad">
-                <span class="comp-icon">&#8679;</span>
-                <span>Market orders &#8212; pay maximum fees</span>
+                <span class="comp-icon">&#10005;</span>
+                <span>Pay full fees that eat your profits</span>
               </li>
               <li class="comp-item comp-item-bad">
-                <span class="comp-icon">&#8679;</span>
-                <span>Price the narrative, not the probability</span>
+                <span class="comp-icon">&#10005;</span>
+                <span>Follow the hype, ignore the data</span>
               </li>
               <li class="comp-item comp-item-bad">
-                <span class="comp-icon">&#8679;</span>
-                <span>No position sizing, no model, no edge</span>
+                <span class="comp-icon">&#10005;</span>
+                <span>No system, no sizing, no edge</span>
               </li>
             </ul>
             <div class="comp-result comp-result-bad">
-              <span class="comp-result-num">&#8722;32%</span>
-              <span class="comp-result-label">average return<br/>for taker traders</span>
+              <span class="comp-result-num">87%</span>
+              <span class="comp-result-label">of traders<br/>lose money</span>
             </div>
           </div>
 
-          <!-- Right panel: The Beatpoly way -->
           <div class="comp-panel comp-win">
             <div class="comp-header">
-              <span class="comp-badge comp-badge-win">Beatpoly edge</span>
-              <div class="comp-title">How we do it</div>
+              <span class="comp-badge comp-badge-win">With Beatpoly</span>
+              <div class="comp-title">Trading with an edge</div>
             </div>
             <ul class="comp-list">
               <li class="comp-item comp-item-good">
                 <span class="comp-icon">&#10003;</span>
-                <span>72% of contracts resolve NO &#8212; we harvest it</span>
+                <span>Most predictions fail &#8212; we profit from that</span>
               </li>
               <li class="comp-item comp-item-good">
                 <span class="comp-icon">&#10003;</span>
-                <span>Limit orders only &#8212; post_only: true</span>
+                <span>Zero-fee trades with the right order type</span>
               </li>
               <li class="comp-item comp-item-good">
                 <span class="comp-icon">&#10003;</span>
-                <span>EV formula: buy when math says yes</span>
+                <span>Statistics and probability, not guessing</span>
               </li>
               <li class="comp-item comp-item-good">
                 <span class="comp-icon">&#10003;</span>
-                <span>Kelly sizing &#8212; survive and compound</span>
+                <span>Small wins, every day, that compound</span>
               </li>
             </ul>
             <div class="comp-result comp-result-good">
               <span class="comp-result-num">+EV</span>
-              <span class="comp-result-label">systematic edge<br/>every trade</span>
+              <span class="comp-result-label">consistent<br/>profitable edge</span>
             </div>
           </div>
 
@@ -580,53 +578,8 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-logo"><div class="footer-brand-mark">BP</div>BEATPOLY</div>
-        <p>The anti-casino. Quantitative prediction market education and community. We trade the math, not the hype.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Learn</h4>
-        <ul>
-          <li><a href="learn/what-is-a-prediction-market.html">Markets 101</a></li>
-          <li><a href="learn/kalshi-explained.html">Platform Guides</a></li>
-          <li><a href="learn/kalshi-strategies.html">Kalshi Strategies</a></li>
-          <li><a href="learn/polymarket-strategies.html">Polymarket Strategies</a></li>
-          <li><a href="learn/risk-management.html">Risk Management</a></li>
-          <li><a href="learn/advanced-algorithmic.html">Advanced &amp; Algo</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Platforms</h4>
-        <ul>
-          <li><a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" target="_blank">Kalshi (+ Bonus)</a></li>
-          <li><a href="https://polymarket.com/?r=beatpoly" target="_blank">Polymarket (+ Bonus)</a></li>
-        </ul>
-        <h4 style="margin-top:24px">Media</h4>
-        <ul>
-          <li><a href="https://https://youtube.com/@beatpoly" target="_blank">YouTube</a></li>
-          <li><a href="https://https://www.instagram.com/beatpoly_com" target="_blank">Instagram</a></li>
-          <li><a href="https://https://www.tiktok.com/@beatpoly" target="_blank">TikTok</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Community</h4>
-        <ul>
-          <li><a href="#community">Email List</a></li>
-          <li><a href="#community">Discord (launching soon)</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Beatpoly. All rights reserved.</p>
-      <p>Not financial advice. Affiliate links may result in compensation. Trading involves risk.</p>
-    </div>
-  </div>
-</footer>
+<div id="footer-root"></div>
+<script src="footer.js"></script>
 
 <script>
   const observer = new IntersectionObserver(
