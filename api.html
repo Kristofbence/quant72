@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCNkZGOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+QlA8L3RleHQ+PC9zdmc+"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCNkZGOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+QlA8L3RleHQ+PC9zdmc+"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -85,6 +87,7 @@
     @media(max-width:960px){.hero-inner,.usecase-grid,.form-grid{grid-template-columns:1fr;gap:40px}.page-hero{padding:100px 0 60px}}
     @media(max-width:600px){.field-grid{grid-template-columns:1fr 1fr}}
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://beatpoly.com/"}, {"@type": "ListItem", "position": 2, "name": "API", "item": "https://beatpoly.com/api.html"}]}</script>
 </head>
 <body>
 <div id="nav-root"></div><script src="nav.js"></script>
@@ -101,6 +104,26 @@
     </div>
   </div>
 </section>
+
+<!-- API META -->
+<div style="background:#F7F8FA;border-bottom:1px solid #E5E8ED;padding:16px 0">
+  <div class="container">
+    <div style="display:flex;gap:48px;flex-wrap:wrap;align-items:center">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;display:block;margin-bottom:4px">Base URL</span>
+        <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0F1117">https://api.beatpoly.com/v1</code>
+      </div>
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;display:block;margin-bottom:4px">Authentication</span>
+        <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0F1117">Bearer token — issued on approved access request</code>
+      </div>
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#9CA3AF;display:block;margin-bottom:4px">Status</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:#FEF3C7;color:#D97706;padding:3px 8px;border-radius:3px">Pilot access — scoped per customer</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- NOT ANOTHER ODDS FEED -->
 <section class="section">
@@ -152,6 +175,17 @@
       <div class="endpoint"><span class="ep-method ep-get">GET</span><div><span class="ep-path">/v1/alerts/abnormal-flow</span><span class="ep-desc">Return current abnormal market movement and integrity-risk alerts across monitored markets.</span></div></div>
       <div class="endpoint"><span class="ep-method ep-post">POST</span><div><span class="ep-path">/v1/execution/simulate</span><span class="ep-desc">Estimate spread, slippage, fee impact, fill probability, and effective edge for a hypothetical order before placing it.</span></div></div>
     </div>
+
+      <div style="background:#0F1117;border-radius:10px;overflow:hidden;margin-top:24px">
+        <div style="padding:10px 18px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.05em">Quick start</div>
+        <pre style="padding:20px;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.8;color:rgba(255,255,255,0.7);overflow-x:auto;margin:0"><span style="color:#6b7280"># Get reliability profile for a market</span>
+curl https://api.beatpoly.com/v1/markets/{market_id}/reliability \
+  -H <span style="color:#86efac">"Authorization: Bearer YOUR_API_KEY"</span>
+
+<span style="color:#6b7280"># Get abnormal flow alerts</span>
+curl https://api.beatpoly.com/v1/alerts/abnormal-flow \
+  -H <span style="color:#86efac">"Authorization: Bearer YOUR_API_KEY"</span></pre>
+      </div>
   </div>
 </section>
 
@@ -292,6 +326,7 @@
           <button type="submit" class="btn-submit" id="api-btn">Request Access &#8594;</button>
           <p class="f-note">We use your information only to evaluate access and respond to your request. No spam.</p>
         </form>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);line-height:1.7;margin-top:12px">Reliability scores assess market quality and risk. They do not predict event outcomes and do not constitute investment advice.</p>
         <div id="api-success" class="success-box">
           <div class="check">&#10003;</div>
           <h4>Request received.</h4>
@@ -302,6 +337,32 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="section">
+  <div class="container" style="max-width:760px">
+    <span class="eyebrow">Access &amp; Pricing</span>
+    <h2>Access and pricing</h2>
+    <p>Beatpoly offers scoped pilot access for professional teams. Pricing depends on coverage requirements, update frequency, endpoint access, custom watchlists, and support needs.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px">
+      <div style="border:1.5px solid #E5E8ED;border-radius:10px;padding:22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#9CA3AF;margin-bottom:10px">Research Pilot</div>
+        <div style="font-size:14px;font-weight:600;color:#0F1117;margin-bottom:8px">Evaluate reliability data</div>
+        <div style="font-size:13px;color:#4B5563;line-height:1.6">For teams assessing prediction-market reliability intelligence before full integration.</div>
+      </div>
+      <div style="border:1.5px solid #1B6FF8;border-radius:10px;padding:22px;background:#EEF4FF">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#1B6FF8;margin-bottom:10px">API Access</div>
+        <div style="font-size:14px;font-weight:600;color:#0F1117;margin-bottom:8px">Integrate into your systems</div>
+        <div style="font-size:13px;color:#4B5563;line-height:1.6">For teams integrating Beatpoly reliability scores into internal tools, dashboards, or data pipelines.</div>
+      </div>
+      <div style="border:1.5px solid #E5E8ED;border-radius:10px;padding:22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#9CA3AF;margin-bottom:10px">Enterprise Monitoring</div>
+        <div style="font-size:14px;font-weight:600;color:#0F1117;margin-bottom:8px">Custom watchlists &amp; alerts</div>
+        <div style="font-size:13px;color:#4B5563;line-height:1.6">For teams needing custom watchlists, real-time alerts, dashboard access, and dedicated support.</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:#6B7280;margin-top:20px">Request access and we will recommend the appropriate plan for your use case. No public pricing — engagements are scoped to each team's requirements.</p>
+  </div>
+</section>
 <!-- FAQ -->
 <section class="section" style="background:var(--bg)">
   <div class="container" style="max-width:760px">

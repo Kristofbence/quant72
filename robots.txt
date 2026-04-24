@@ -2,6 +2,8 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://beatpoly.com/sitemap.xml
 
-# Block nothing — we want full indexing
+# Preferred domain (for crawl consistency)
+# Host: beatpoly.com

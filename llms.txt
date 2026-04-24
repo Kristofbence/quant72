@@ -1,64 +1,63 @@
 # Beatpoly — llms.txt
 # https://beatpoly.com
 
-## About
-Beatpoly is a free prediction market trading education platform focused on Kalshi and Polymarket.
-Tagline: "Stop guessing. Start harvesting."
-Core thesis: 72% of prediction market contracts resolve NO. 87.3% of traders lose money. Systematic edge exists for those who trade the math, not the narrative.
+## What Beatpoly Is
+Beatpoly is a prediction-market intelligence platform. We score prediction markets for resolution risk, liquidity quality, cross-venue equivalence, and abnormal information flow. The goal is to help professional teams know which prediction-market prices are trustworthy, distorted, or unsafe to use.
 
-## Brand Voice
-- Ruthlessly rational. Calm and authoritative. No hype.
-- Data-driven: every claim backed by academic research or platform data.
-- Plain language: no jargon without explanation.
-- The "anti-casino": we exploit crowd mispricings systematically.
+Tagline: "Know which prediction markets to trust."
+Previous tagline: "Stop guessing. Start harvesting." (retired — retail positioning)
 
-## Core Statistics (sourced, verified)
-- 72% of prediction market contracts resolve NO (161,000 contracts, Kalshi + Polymarket)
-- 87.3% of Polymarket wallets are unprofitable (112,000 wallet study)
-- Takers lose 32% on average vs Makers lose 10% (Bürgi, Deng & Whelan, 2026, 300K+ Kalshi contracts)
-- 5¢ contracts lose 60%+ of capital (Favorite-Longshot Bias, Bürgi et al.)
-- Kalshi exhibited 40.1% lower MAE than institutional consensus on inflation events
-- Polymarket 2025 volume: $21.5B
-- Kalshi taker fee formula: round_up(0.07 × contracts × price × (1 − price))
+## Core Product
+The Beatpoly Reliability Engine scores every monitored market across four dimensions:
+1. Resolution Risk — does the market resolve cleanly?
+2. Liquidity & Execution Quality — does the edge survive fees, spread, and slippage?
+3. Cross-Venue Equivalence — are two similar markets actually the same bet?
+4. Market Integrity & Abnormal Flow — is the market showing suspicious information movement?
 
-## Core Strategies
-1. The Free Donut — exploiting Kalshi's collateral return on MECE bracket markets (5x capital efficiency)
-2. The 88-Cent Rule — buying mispriced NO contracts at 88¢+ (true probability ~92%, +$0.04 EV)
-3. Maker Edge — using post_only:true to avoid taker fees (32% vs 10% loss gap)
-4. 72% NO Harvesting — systematic fading of overpriced YES on Polymarket
-5. EMOS Anchoring — using ensemble weather models vs single forecasts (30% better accuracy)
+Output: A–F reliability rating + machine-readable scores + evidence trail via REST API.
 
-## Platform Coverage
-- Kalshi: CFTC-regulated DCM, all 50 US states legal, USD settlement, NWS/BLS/FOMC resolution data
-- Polymarket: Offshore (Panama), USDC on Polygon, UMA oracle, $21.5B 2025 volume, US-restricted main platform
+## Who Beatpoly Serves
+- Funds and prop shops: execution-aware signal evaluation
+- Compliance and risk teams: insider-flow detection, audit trail
+- Media and research desks: citation-readiness assessment
+- Data platforms: reliability metadata for enrichment
 
-## Content Pages
-- / — Main landing page
-- /learn/ — 8-chapter curriculum hub
-- /learn/what-is-a-prediction-market.html — Ch.1.1: What is a prediction market
-- /learn/how-contracts-work.html — Ch.1.2: How contracts work
-- /learn/prediction-markets-vs-sports-betting.html — Ch.1.3: vs sports betting
-- /learn/why-traders-lose.html — Ch.1.4: Why 99% of traders lose
-- /learn/kalshi-explained.html — Ch.2.1: Kalshi explained
-- /learn/polymarket-explained.html — Ch.2.2: Polymarket explained
-- /learn/kalshi-vs-polymarket.html — Ch.2.3: Kalshi vs Polymarket
-- /learn/kalshi-strategies.html — Ch.5: Kalshi strategies (coming soon)
-- /learn/polymarket-strategies.html — Ch.6: Polymarket strategies (coming soon)
-- /learn/risk-management.html — Ch.7: Risk & bankroll management (coming soon)
-- /learn/advanced-algorithmic.html — Ch.8: Advanced & algorithmic trading (coming soon)
+## Enterprise API
+Base URL: https://api.beatpoly.com/v1
+Authentication: Bearer token
+Status: Pilot access — scoped per customer
+Key endpoints:
+  GET /v1/markets/{id}/reliability
+  GET /v1/markets/{id}/resolution-risk
+  GET /v1/markets/{id}/liquidity-quality
+  GET /v1/markets/{id}/cross-venue
+  GET /v1/alerts/abnormal-flow
+  POST /v1/execution/simulate
 
-## Key Academic Sources
-- Bürgi, Deng & Whelan (2026) — 313,972 Kalshi contracts, Maker/Taker performance, FLB analysis
-- Reichenbach & Walther (2025) — 124 million trades, profitability analysis
-- Rasooly & Rozzi (2025) — real-money vs play-money market accuracy
-- Snowberg & Wolfers (2010) — Favorite-Longshot Bias across 5 million horse races
-- Sonnemann, Camerer, Fox & Langer (2013) — Partition Dependence Bias
-- Ali (1977) — original FLB documentation in pari-mutuel horse racing
+## Research Library (free, public)
+The Learn library explains prediction-market mechanics: resolution criteria, execution friction, oracle risk, cross-venue differences, behavioral biases, and why similar markets can resolve differently.
+
+## Key Site Pages
+- / — Enterprise homepage
+- /platform.html — The reliability engine (4 dimensions)
+- /api.html — API reference and access request
+- /use-cases.html — Funds, compliance, media, data platforms
+- /methodology.html — Scoring logic and statistics audit
+- /about.html — Company, beliefs, operating principles
+- /learn/ — Research library (free, public)
+
+## Venues Covered
+Kalshi (CFTC-regulated, USD settlement) and Polymarket (offshore, USDC on Polygon). Coverage expanding.
+
+## Operating Principles
+1. Use public information only
+2. Document every material claim
+3. Separate market reliability from trade recommendation
+4. Flag uncertainty rather than hide it
+5. Do not encourage manipulation of outcomes or data sources
+
+## Not Investment Advice
+Beatpoly provides market reliability intelligence. Reliability scores do not predict event outcomes and do not constitute investment advice.
 
 ## Affiliate Disclosure
-Beatpoly earns commission through affiliate links to Kalshi and Polymarket.
-Kalshi affiliate link: https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af
-Polymarket affiliate link: https://polymarket.com/?r=beatpoly
-
-## Legal
-Not financial advice. Prediction market trading involves financial risk.
+Beatpoly uses affiliate links to Kalshi and Polymarket in its research library. This does not affect reliability scoring or editorial decisions.

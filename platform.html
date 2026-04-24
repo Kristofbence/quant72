@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCNkZGOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+QlA8L3RleHQ+PC9zdmc+"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCNkZGOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+QlA8L3RleHQ+PC9zdmc+"/>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
@@ -93,6 +95,7 @@
     @media(max-width:960px){.hero-inner,.example-grid,.why-inner{grid-template-columns:1fr;gap:40px}.dim-grid{grid-template-columns:1fr}.uc-grid{grid-template-columns:1fr 1fr}.page-hero{padding:100px 0 60px}}
     @media(max-width:600px){.uc-grid{grid-template-columns:1fr}.cta-box{padding:40px 24px}}
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://beatpoly.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://beatpoly.com/platform.html"}]}</script>
 </head>
 <body>
 <div id="nav-root"></div><script src="nav.js"></script>
@@ -151,6 +154,18 @@
     </div>
   </div>
 </section>
+
+<!-- SCORE DIRECTION -->
+<div style="background:#F7F8FA;border-bottom:1px solid #E5E8ED;padding:16px 0">
+  <div class="container">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9CA3AF;margin:0;line-height:1.8">
+      <strong style="color:#4B5563">Score convention:</strong> &nbsp;
+      Risk scores (resolution risk, abnormal flow) run 0–100 where higher = more risk. &nbsp;&nbsp;
+      Quality scores (liquidity quality) run 0–100 where higher = stronger quality. &nbsp;&nbsp;
+      The composite <strong style="color:#4B5563">A–F reliability rating</strong> converts all dimensions into one directional signal.
+    </p>
+  </div>
+</div>
 
 <!-- PROBLEM -->
 <section class="section">
@@ -240,7 +255,7 @@
           <span class="dim-output">Pre-Catalyst Alert</span>
           <span class="dim-output">Integrity Risk Summary</span>
         </div>
-        <div class="dim-example"><strong>Example:</strong> If a market moves sharply before a public announcement and the activity is concentrated in a small set of wallets, the price may contain private information — which carries both intelligence value and integrity risk.</div>
+        <div class="dim-example"><strong>Example:</strong> If a market moves sharply before a public announcement and the activity is concentrated in a small set of wallets, the price may reflect information that is not yet broadly public — which carries both intelligence value and integrity risk.</div>
         <a href="methodology.html#integrity" class="dim-link">Integrity methodology &#8594;</a>
       </div>
 
@@ -300,6 +315,14 @@
   </div>
 </section>
 
+
+<!-- COVERAGE -->
+<section style="padding:40px 0;border-bottom:1px solid #E5E8ED;background:#F7F8FA">
+  <div class="container" style="max-width:800px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#9CA3AF;display:block;margin-bottom:10px">Current Coverage</span>
+    <p style="font-size:14px;color:#4B5563;margin:0;line-height:1.7">Beatpoly currently focuses on <strong style="color:#0F1117">Kalshi</strong> and <strong style="color:#0F1117">Polymarket</strong> markets with sufficient public data, clear market identifiers, and active liquidity. Coverage depth varies by category and market type. Custom watchlists are available for selected enterprise users. <a href="api.html#request" style="color:#1B6FF8">Request access</a> to discuss coverage for your use case.</p>
+  </div>
+</section>
 <!-- USE CASES -->
 <section class="section" style="background:var(--bg)">
   <div class="container">
@@ -329,10 +352,10 @@
         </div>
       </div>
       <div class="event-list">
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">CNN + Kalshi integration</div><div class="event-desc">Prediction-market data is now embedded in mainstream media workflows via API. Reliability context is essential for responsible use.</div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">CFTC enforcement advisory</div><div class="event-desc">The CFTC has identified insider trading, manipulation, and abusive practices as active concerns in regulated prediction markets.</div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">Candidate self-betting suspensions</div><div class="event-desc">Congressional candidates were suspended by Kalshi for wagering on their own elections — a compliance case with direct institutional implications.</div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">Paris weather market incident</div><div class="event-desc">A Polymarket weather contract produced a large payout after an unusual temperature spike. A police complaint over suspected data source manipulation followed.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title"><a href="https://www.axios.com/2025/12/02/cnn-kalshi-prediction-market-data" target="_blank" rel="noopener" style="color:inherit">CNN + Kalshi integration &#8599;</a></div><div class="event-desc">Prediction-market data is now embedded in mainstream media workflows via API. Reliability context is essential for responsible use.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title"><a href="https://www.cftc.gov/PressRoom/PressReleases/9185-26" target="_blank" rel="noopener" style="color:inherit">CFTC enforcement advisory &#8599;</a></div><div class="event-desc">The CFTC has identified insider trading, manipulation, and abusive practices as active concerns in regulated prediction markets.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title"><a href="https://apnews.com/article/37766ee2922615be1bf6fa193dee1f43" target="_blank" rel="noopener" style="color:inherit">Candidate self-betting suspensions &#8599;</a></div><div class="event-desc">Congressional candidates were suspended by Kalshi for wagering on their own elections — a compliance case with direct institutional implications.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title"><a href="https://www.businessinsider.com/polymarket-paris-weather-bet-insider-trading-manipulation-2026-4" target="_blank" rel="noopener" style="color:inherit">Paris weather market incident &#8599;</a></div><div class="event-desc">A Polymarket weather contract produced a large payout after an unusual temperature spike. A police complaint over suspected data source manipulation followed.</div></div></div>
       </div>
     </div>
   </div>

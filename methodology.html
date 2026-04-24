@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCNkZGOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+QlA8L3RleHQ+PC9zdmc+"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFCNkZGOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+QlA8L3RleHQ+PC9zdmc+"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -55,6 +57,7 @@
     .limit-list li::before{content:'✕';color:var(--red);font-weight:700;flex-shrink:0}
     @media(max-width:768px){.input-grid{grid-template-columns:1fr}.page-hero{padding:100px 0 60px}}
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://beatpoly.com/"}, {"@type": "ListItem", "position": 2, "name": "Methodology", "item": "https://beatpoly.com/methodology.html"}]}</script>
 </head>
 <body>
 <div id="nav-root"></div><script src="nav.js"></script>
@@ -222,11 +225,11 @@
     <table class="audit-table">
       <thead><tr><th>Statistic</th><th>Use</th><th>Required documentation</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>72% of contracts resolve NO</td><td>Market-structure research / educational baseline</td><td>Venue list, date range, market count, binary vs. multi-outcome treatment, cancelled market treatment, category breakdown</td><td><span class="status-pending">Methodology pending</span></td></tr>
-        <tr><td>87.3% of traders lose money</td><td>Behavioral research / educational baseline</td><td>Wallet sample, PnL definition, realized vs. unrealized treatment, fees, wash-trading filters, minimum activity threshold</td><td><span class="status-pending">Methodology pending</span></td></tr>
-        <tr><td>22-point maker/taker execution gap</td><td>Execution-quality research</td><td>Source paper, exact sample, venue applicability, fee period, definition of maker and taker in context</td><td><span class="status-pending">External source verification required</span></td></tr>
-        <tr><td>161,000 contracts analyzed</td><td>Dataset credibility</td><td>Market IDs, source, date range, venue split, category split, exclusion criteria</td><td><span class="status-pending">Dataset card pending</span></td></tr>
-        <tr><td>$21.5B Polymarket 2025 volume</td><td>Market context</td><td>Source, platform-reported vs third-party measured, time period, methodology</td><td><span class="status-pending">Source citation required</span></td></tr>
+        <tr><td>72% of contracts resolve NO</td><td>Market-structure research / educational baseline</td><td>Venue list, date range, market count, binary vs. multi-outcome treatment, cancelled market treatment, category breakdown</td><td><span class="status-pending">Provisional &#8212; methodology card in progress</span></td></tr>
+        <tr><td>87.3% of traders lose money</td><td>Behavioral research / educational baseline</td><td>Wallet sample, PnL definition, realized vs. unrealized treatment, fees, wash-trading filters, minimum activity threshold</td><td><span class="status-pending">Provisional &#8212; not used in enterprise scoring</span></td></tr>
+        <tr><td>22-point maker/taker execution gap</td><td>Execution-quality research</td><td>Source paper, exact sample, venue applicability, fee period, definition of maker and taker in context</td><td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:#FEE2E2;color:#DC2626;padding:3px 8px;border-radius:3px;display:inline-block">External claim &#8212; not used in scoring</span></td></tr>
+        <tr><td>161,000 contracts analyzed</td><td>Dataset credibility</td><td>Market IDs, source, date range, venue split, category split, exclusion criteria</td><td><span class="status-pending">Dataset card required before homepage use</span></td></tr>
+        <tr><td>$21.5B Polymarket 2025 volume</td><td>Market context</td><td>Source, platform-reported vs third-party measured, time period, methodology</td><td><span class="status-pending">Source required &#8212; remove until cited</span></td></tr>
       </tbody>
     </table>
     <div style="background:#EEF4FF;border:1px solid rgba(27,111,248,0.15);border-radius:10px;padding:18px 22px;margin-top:24px;font-size:14px;color:var(--muted);line-height:1.65">
