@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Paris Weather Bet: A Case Study in Prediction Market Resolution Risk | Beatpoly</title>
+  <meta name="description" content="A professional analysis of the Paris Polymarket weather incident, alleged sensor tampering, and what it reveals about prediction market resolution risk, oracle risk, source fragility, and market integrity."/>
+  <meta name="keywords" content="prediction market resolution risk, Polymarket Paris weather, Paris weather Polymarket, weather market manipulation, prediction market oracle risk, Polymarket hairdryer incident, event contract risk, prediction market integrity"/>
+  <meta property="og:title" content="The Paris Weather Bet: A Case Study in Prediction Market Resolution Risk"/>
+  <meta property="og:description" content="How suspicious temperature spikes at a Paris airport sensor expose the structural weakness of single-source prediction market resolution."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://beatpoly.com/research/paris-weather-polymarket-resolution-risk.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://beatpoly.com/research/paris-weather-polymarket-resolution-risk.html"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../nav.css"/><link rel="stylesheet" href="../footer.css"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Paris Weather Bet: A Case Study in Prediction Market Resolution Risk","description":"A professional analysis of the Paris Polymarket weather incident, alleged sensor tampering, and what it reveals about prediction market resolution risk, oracle risk, source fragility, and market integrity.","author":{"@type":"Organization","name":"Beatpoly"},"publisher":{"@type":"Organization","name":"Beatpoly","url":"https://beatpoly.com"},"datePublished":"2026-04-24","dateModified":"2026-04-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://beatpoly.com/research/paris-weather-polymarket-resolution-risk.html"},"keywords":["prediction market resolution risk","Polymarket Paris weather","weather market manipulation","prediction market oracle risk","event contract risk","prediction market integrity"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://beatpoly.com/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://beatpoly.com/research.html"},{"@type":"ListItem","position":3,"name":"Paris Weather Case Study","item":"https://beatpoly.com/research/paris-weather-polymarket-resolution-risk.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What was the Paris Polymarket weather incident?","acceptedAnswer":{"@type":"Answer","text":"Suspicious temperature spikes at a Météo-France sensor near Charles de Gaulle Airport in April 2026 coincided with profitable Polymarket weather bets. Météo-France filed a police complaint, and French authorities are investigating possible interference with weather equipment."}},{"@type":"Question","name":"Did someone use a hairdryer to manipulate the weather market?","acceptedAnswer":{"@type":"Answer","text":"That has not been proven. The hairdryer or lighter claim circulated online and was reported as part of the public discussion, but the confirmed issue is that abnormal readings and possible equipment interference are under investigation."}},{"@type":"Question","name":"What is resolution risk in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Resolution risk is the risk that a prediction market's outcome depends on unclear wording, fragile data sources, subjective settlement rules, or mechanisms that may not match the public interpretation of the market title."}},{"@type":"Question","name":"What is oracle risk in prediction markets?","acceptedAnswer":{"@type":"Answer","text":"Oracle risk is the risk that the source used to determine a market outcome is wrong, delayed, manipulated, ambiguous, or disputed. In weather markets, the oracle may be a specific sensor or official weather feed."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--white:#fff;--bg:#F7F8FA;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--green:#16A34A;--amber:#D97706;--red:#DC2626;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif}
+    html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    /* ARTICLE LAYOUT */
+    .art-wrap{display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start;padding:64px 0 88px}
+    .art-body h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin-bottom:16px}
+    .art-body h2{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin:48px 0 14px;padding-top:8px;border-top:1px solid var(--border)}
+    .art-body h3{font-size:16px;font-weight:700;margin:28px 0 10px;color:var(--text)}
+    .art-body p{font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:18px}
+    .art-body p:last-child{margin-bottom:0}
+    .art-body p strong{color:var(--text);font-weight:600}
+    .art-body a{color:var(--blue);text-decoration:none}
+    .art-body a:hover{text-decoration:underline}
+    .art-body ul{margin:12px 0 18px 0;padding-left:0;list-style:none}
+    .art-body ul li{font-size:15.5px;color:var(--muted);line-height:1.7;padding:3px 0 3px 20px;position:relative}
+    .art-body ul li::before{content:'—';position:absolute;left:0;color:var(--dim);font-family:var(--mono);font-size:12px}
+    .art-body ol{margin:12px 0 18px 0;padding-left:20px}
+    .art-body ol li{font-size:15.5px;color:var(--muted);line-height:1.7;margin-bottom:6px}
+    .art-body blockquote{background:var(--bg);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:15px;color:var(--text);font-style:italic;line-height:1.7}
+    .art-body pre{background:#0F1117;border-radius:10px;padding:20px;overflow-x:auto;margin:20px 0}
+    .art-body pre code{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:rgba(255,255,255,0.75)}
+    .art-body code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 6px;color:var(--text)}
+    pre code{background:none;border:none;padding:0;color:inherit}
+    .code-k{color:#7dd3fc}.code-s{color:#86efac}.code-n{color:#fbbf24}.code-c{color:#6b7280}
+    /* ARTICLE META */
+    .art-header{padding:100px 0 0}
+    .art-breadcrumb{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:0.04em;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .art-breadcrumb a{color:var(--blue)}
+    .art-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;display:block}
+    .art-meta-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+    .art-meta-item{font-family:var(--mono);font-size:11px;color:var(--dim)}
+    .art-meta-item strong{color:var(--text);font-weight:600}
+    .art-tag{font-family:var(--mono);font-size:10px;background:var(--blue-light);border:1px solid rgba(27,111,248,0.15);border-radius:3px;padding:3px 8px;color:var(--blue)}
+    /* CALLOUT BOXES */
+    .callout{border-radius:10px;padding:18px 22px;margin:28px 0;font-size:15px;line-height:1.7}
+    .callout-blue{background:var(--blue-light);border:1px solid rgba(27,111,248,0.2);color:var(--text)}
+    .callout-amber{background:#FFFBEB;border:1px solid rgba(217,119,6,0.25);color:var(--text)}
+    .callout-red{background:#FEF2F2;border:1px solid rgba(220,38,38,0.2);color:var(--text)}
+    .callout-dark{background:#0F1117;border-radius:10px;padding:18px 22px;margin:28px 0;color:rgba(255,255,255,0.75);font-size:15px;line-height:1.7}
+    .callout strong{font-weight:700}
+    .callout-blue strong{color:var(--blue)}
+    .callout-amber strong{color:#D97706}
+    .callout-red strong{color:#DC2626}
+    /* SCORE CARD */
+    .score-card{background:#0F1117;border-radius:14px;overflow:hidden;margin:28px 0}
+    .score-card-header{padding:14px 20px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.06em;display:flex;align-items:center;justify-content:space-between}
+    .score-card-body{padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .score-row{background:rgba(255,255,255,0.04);border-radius:8px;padding:12px 14px}
+    .score-label{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:block}
+    .score-bar{height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;margin-bottom:5px}
+    .score-fill{height:100%;border-radius:3px}
+    .score-val{font-family:var(--mono);font-size:12px;font-weight:600}
+    /* SIDEBAR */
+    .art-sidebar{position:sticky;top:88px}
+    .sidebar-card{border:1.5px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+    .sidebar-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
+    .sidebar-link{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--text);padding:7px 0;border-bottom:1px solid var(--border)}
+    .sidebar-link:last-child{border-bottom:none}
+    .sidebar-link:hover{color:var(--blue)}
+    .sidebar-link-arrow{margin-left:auto;color:var(--dim);font-family:var(--mono);font-size:11px}
+    .cta-sidebar{background:var(--blue);border-radius:10px;padding:18px;text-align:center}
+    .cta-sidebar h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:6px}
+    .cta-sidebar p{color:rgba(255,255,255,0.65);font-size:12.5px;line-height:1.55;margin-bottom:14px}
+    .cta-sidebar a{display:block;background:#fff;color:var(--blue);font-size:13px;font-weight:700;padding:10px;border-radius:7px;text-align:center}
+    /* FAQ */
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px}
+    .faq-q-text{font-size:15px;font-weight:600;color:var(--text)}
+    .faq-toggle{font-family:var(--mono);font-size:18px;color:var(--dim);flex-shrink:0}
+    .faq-a{display:none;padding-top:10px}.faq-a.open{display:block}
+    .faq-a p{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
+    /* CHECKLIST */
+    .checklist{display:flex;flex-direction:column;gap:0;margin:20px 0}
+    .check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--muted)}
+    .check-item:last-child{border-bottom:none}
+    .check-icon{font-family:var(--mono);font-size:11px;color:var(--dim);flex-shrink:0;margin-top:2px;width:24px}
+    @media(max-width:900px){.art-wrap{grid-template-columns:1fr;gap:40px}.art-sidebar{position:static}.art-header{padding:80px 0 0}}
+  </style>
+</head>
+<body>
+<div id="nav-root"></div><script src="../nav.js"></script>
+
+<!-- ARTICLE HEADER -->
+<div class="art-header">
+  <div class="container">
+    <div class="art-breadcrumb">
+      <a href="../index.html">Beatpoly</a>
+      <span>&#8250;</span>
+      <a href="../research.html">Research</a>
+      <span>&#8250;</span>
+      <span>Paris Weather Case Study</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY + SIDEBAR -->
+<div class="container">
+  <div class="art-wrap">
+    <article class="art-body">
+      <span class="art-eyebrow">Research &mdash; Resolution Risk &middot; Source Fragility &middot; Market Integrity</span>
+      <h1>The Paris Weather Bet: A Case Study in Prediction Market Resolution Risk</h1>
+
+      <div class="art-meta-bar">
+        <div class="art-meta-item"><strong>Last updated:</strong> April 24, 2026</div>
+        <div class="art-meta-item"><strong>Venue:</strong> Polymarket</div>
+        <div class="art-meta-item"><strong>Category:</strong> Weather event contracts</div>
+        <span class="art-tag">Resolution Risk</span>
+        <span class="art-tag">Source Fragility</span>
+        <span class="art-tag">Market Integrity</span>
+      </div>
+
+      <div class="callout callout-blue" style="margin-top:32px">
+        <strong>Beatpoly relevance:</strong> This case shows why a prediction-market price is only as reliable as the source that resolves it. A market with high liquidity can still be unreliable if the resolver is fragile.
+      </div>
+
+      <h2>Executive summary</h2>
+      <p>In April 2026, unusual temperature spikes at a Météo-France sensor near Paris Charles de Gaulle Airport coincided with profitable Polymarket weather bets. French authorities are investigating possible interference with weather equipment after <a href="https://www.leparisien.fr/faits-divers/une-sonde-meteo-manipulee-pour-des-paris-sur-polymarket-meteo-france-porte-plainte-23-04-2026-QAVVU5Y2P5FDPKSXSSIUGM4ZQ4.php" target="_blank" rel="noopener">Météo-France filed a police complaint</a>. Reports describe abnormal temperature jumps on April 6 and April 15, including a sudden evening spike that helped determine the outcome of Paris temperature contracts.</p>
+      <p>The public story became the "hairdryer incident" because online claims and jokes suggested someone may have used a hairdryer or lighter to heat the sensor. That detail remains unverified. The more important lesson is structural: the market was not resolving against "the weather in Paris" in a broad common-sense way. It depended on a specific data source. When that source becomes fragile, the market becomes fragile.</p>
+      <p>For Beatpoly, this is a clear example of <strong>prediction market resolution risk</strong> — the risk that the rules, source, or settlement mechanism behind a market create vulnerabilities that are not visible in the headline price.</p>
+
+      <h2>What happened?</h2>
+      <p>Polymarket offered weather contracts tied to the daily high temperature in Paris. These markets appeared simple: traders were effectively pricing whether Paris would reach specific temperature thresholds on specific dates. The hidden detail was the resolver.</p>
+      <p>According to <a href="https://www.lemonde.fr/pixels/article/2026/04/21/des-capteurs-de-meteo-france-de-l-aeroport-de-roissy-au-c-ur-d-une-suspicion-de-manipulation-sur-polymarket_6682047_4408996.html" target="_blank" rel="noopener">reporting by Le Monde</a>, the relevant temperature readings came from a Météo-France sensor at Paris Charles de Gaulle Airport. On April 6 and April 15, that sensor recorded abnormal evening temperature movements. On April 15, the sensor reportedly reached around 22°C at approximately 9:30 p.m., despite earlier readings closer to 18°C.</p>
+      <p><a href="https://www.bloomberg.com/news/articles/2026-04-23/france-probes-weather-data-glitch-after-surge-in-polymarket-bets" target="_blank" rel="noopener">Bloomberg reported</a> unexpected 4°C and 5°C spikes at the Charles de Gaulle station on April 6 and April 15. <a href="https://www.leparisien.fr/faits-divers/une-sonde-meteo-manipulee-pour-des-paris-sur-polymarket-meteo-france-porte-plainte-23-04-2026-QAVVU5Y2P5FDPKSXSSIUGM4ZQ4.php" target="_blank" rel="noopener">Le Parisien, citing AFP and Météo-France</a>, reported unusually high temperature deviations on those dates and said Météo-France filed a complaint after physical observations and sensor-data analysis.</p>
+      <p>The financial stakes were material. <a href="https://www.businessinsider.com/polymarket-paris-weather-bet-insider-trading-manipulation-2026-4" target="_blank" rel="noopener">Business Insider reported</a> that one anonymous Polymarket user turned a $119 position into more than $21,000 after the April 15 temperature spike. <a href="https://www.marketwatch.com/story/french-weather-forecasting-office-files-police-complaint-following-suspicious-surge-in-polymarket-bets-fb72729d" target="_blank" rel="noopener">MarketWatch reported</a> a separate April 6 incident in which a new user made nearly $14,000 from a $30 wager after a rapid temperature rise at the Charles de Gaulle station.</p>
+      <p><a href="https://www.theguardian.com/world/2026/apr/23/hairdryer-or-lighter-french-police-look-at-claim-of-sensor-tampering-to-win-weather-bets" target="_blank" rel="noopener">The Guardian reported</a> that bets totaling more than $500,000 were placed on specific Paris temperature outcomes and that Polymarket later stopped using the Charles de Gaulle station for those contracts, switching to another source without cancelling existing contracts or refunding wagers.</p>
+
+      <h2>Why the "hairdryer" detail is not the point</h2>
+      <p>The most viral version of the story is that someone used a hairdryer or lighter to heat a weather sensor. That claim is not proven. The Guardian described it as an online claim or joke circulating around the investigation, alongside an AI-generated image. The confirmed issue is that French authorities are investigating possible tampering, Météo-France filed a complaint, and the relevant sensor showed abnormal readings around profitable prediction-market activity.</p>
+      <p>For market analysis, the exact tool matters less than the system design failure.</p>
+      <p>If a market resolves against a single physical sensor, then the integrity of that sensor becomes part of the market's risk profile. Traders are not only pricing weather. They are also implicitly pricing:</p>
+      <ul>
+        <li>sensor security,</li>
+        <li>data-feed reliability,</li>
+        <li>station selection,</li>
+        <li>settlement rules,</li>
+        <li>dispute handling,</li>
+        <li>and the possibility that the measurement source can be distorted.</li>
+      </ul>
+      <div class="callout callout-amber">
+        <strong>The real question:</strong> The trade was not simply "Will Paris reach 22°C?" The trade was closer to: "Will the specific source used by the contract report a qualifying temperature?" Those are not the same question.
+      </div>
+
+      <h2>The core issue: prediction market resolution risk</h2>
+      <p>A prediction-market price is often treated as a probability. But that is only partly true.</p>
+      <p>A market price is an <strong>implied probability before reliability risk</strong>.</p>
+      <p>The price does not automatically tell you whether:</p>
+      <ul>
+        <li>the contract wording is precise,</li>
+        <li>the source is robust,</li>
+        <li>the measurement point is representative,</li>
+        <li>the data can be influenced,</li>
+        <li>the settlement rule matches the public interpretation,</li>
+        <li>or the market can withstand an abnormal data event.</li>
+      </ul>
+      <p>In the Paris weather case, the headline market appeared to be about "Paris weather." But the actual settlement depended on a specific source — and that source had a single point of failure. This is the type of risk Beatpoly's Resolution Risk dimension is designed to identify.</p>
+
+      <h2>Beatpoly framework: how this market would be scored</h2>
+      <p>This is an illustrative scoring profile for this type of market. It is not a live score for a specific contract.</p>
+
+      <div class="score-card">
+        <div class="score-card-header"><span>Beatpoly illustrative reliability profile</span><span style="background:#FEE2E2;color:#DC2626;border-radius:4px;padding:2px 10px;font-size:12px;font-weight:700">D</span></div>
+        <div style="padding:16px 22px;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)">
+          <div style="font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6">Paris daily high temperature market &middot; Single-source resolution &middot; Polymarket &middot; Weather category<br/>
+          <strong style="color:rgba(255,255,255,0.75)">High information value but elevated reliability risk.</strong> Market outcome depended on a narrow physical data source and should not be cited or traded without explicit source review.</div>
+        </div>
+        <div class="score-card-body">
+          <div class="score-row">
+            <span class="score-label">Resolution Risk</span>
+            <div class="score-bar"><div class="score-fill" style="width:86%;background:#DC2626"></div></div>
+            <span class="score-val" style="color:#DC2626">86 — High</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Execution Risk</span>
+            <div class="score-bar"><div class="score-fill" style="width:34%;background:#16A34A"></div></div>
+            <span class="score-val" style="color:#16A34A">34 — Low</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Cross-Venue Basis Risk</span>
+            <div class="score-bar"><div class="score-fill" style="width:71%;background:#D97706"></div></div>
+            <span class="score-val" style="color:#D97706">71 — Elevated</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Abnormal Flow Risk</span>
+            <div class="score-bar"><div class="score-fill" style="width:82%;background:#DC2626"></div></div>
+            <span class="score-val" style="color:#DC2626">82 — High</span>
+          </div>
+        </div>
+        <div style="padding:14px 22px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-wrap:wrap;gap:7px">
+          <span style="font-family:var(--mono);font-size:10px;background:rgba(220,38,38,0.12);color:#f87171;border:1px solid rgba(220,38,38,0.25);border-radius:3px;padding:3px 8px">single_source_resolution</span>
+          <span style="font-family:var(--mono);font-size:10px;background:rgba(220,38,38,0.12);color:#f87171;border:1px solid rgba(220,38,38,0.25);border-radius:3px;padding:3px 8px">physical_sensor_dependency</span>
+          <span style="font-family:var(--mono);font-size:10px;background:rgba(217,119,6,0.15);color:#fbbf24;border:1px solid rgba(217,119,6,0.3);border-radius:3px;padding:3px 8px">reported_anomalous_reading</span>
+          <span style="font-family:var(--mono);font-size:10px;background:rgba(217,119,6,0.15);color:#fbbf24;border:1px solid rgba(217,119,6,0.3);border-radius:3px;padding:3px 8px">cross_venue_non_equivalence</span>
+        </div>
+      </div>
+
+      <h3>1. Resolution Risk: High</h3>
+      <p>The market depended on a specific data source rather than a broad weather outcome. The key questions any reliability system should ask: What exact station determines the result? Is the station physically accessible? Is the measurement representative of the market title? Are abnormal readings filtered, challenged, or reviewed? Does the platform have a documented fallback source?</p>
+
+      <h3>2. Source Fragility: High</h3>
+      <p>Single-source markets create single points of failure. Weather contracts are especially exposed because they often rely on one station, one timestamp, or one official feed. In this case, the Charles de Gaulle station became the effective settlement source. Reports later indicated that Polymarket switched away from that station after the incident — which is the definition of source fragility: the market outcome depended on a narrow measurement pathway.</p>
+
+      <h3>3. Market Integrity Risk: Elevated</h3>
+      <p>The suspicious pattern was not only the temperature spike. It was the combination of abnormal sensor data, timing near profitable bets, large payouts from small wagers, and a formal complaint by the national weather agency. Beatpoly should not conclude wrongdoing — that is for investigators. But the pattern is exactly the type of abnormal-flow signal a market-integrity system should flag.</p>
+
+      <h3>4. Cross-Venue Basis Risk: High</h3>
+      <p>A similar market on another venue might ask the same headline question but resolve differently. One contract may use Charles de Gaulle, another Le Bourget, another a city-center station, another a national meteorological summary, another a third-party weather API. Those markets are not equivalent even if the titles look similar. This matters because traders often mistake cross-venue price gaps for arbitrage. In reality, the gap may reflect basis risk: different contracts resolving against different sources.</p>
+
+      <h2>What this means for prediction-market data users</h2>
+      <p>The Paris weather incident matters beyond one Polymarket contract. Prediction-market data is increasingly used by traders, analysts, media organizations, and research teams as a real-time signal. But the reliability of that signal depends on more than volume or price.</p>
+      <ul>
+        <li>A market with high liquidity can still be unreliable if the resolver is fragile.</li>
+        <li>A market with a clean chart can still be dangerous if the settlement source is narrow.</li>
+        <li>A market with a high implied probability can still be unusable if source interference is relevant.</li>
+      </ul>
+      <div class="callout callout-dark">
+        The question is not only: <em>"What is the market price?"</em><br/><br/>
+        The better question is: <strong style="color:#fff">"Can this market price be trusted?"</strong>
+      </div>
+
+      <h2>Practical checklist: weather-market reliability</h2>
+      <p>Before trusting or citing a weather prediction market, professional users should ask:</p>
+      <div class="checklist">
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Resolution source</strong>Which exact station, API, or feed resolves the market?</div></div>
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Physical source risk</strong>Is the measurement source a single physical device or a distributed dataset?</div></div>
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Representativeness</strong>Does the station match the public interpretation of the market title?</div></div>
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Fallback process</strong>What happens if the source produces an anomalous reading?</div></div>
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Cross-source comparison</strong>Do nearby stations or independent feeds confirm the reading?</div></div>
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Market activity</strong>Did trading activity change before the abnormal data appeared?</div></div>
+        <div class="check-item"><span class="check-icon">&#9633;</span><div><strong style="color:var(--text);display:block;font-size:13px;margin-bottom:2px">Cross-venue comparison</strong>Do similar markets on other venues use the same resolver?</div></div>
+      </div>
+
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><strong>The resolver is the trade.</strong> Prediction markets do not settle on headlines. They settle on rules. If a contract resolves against one sensor, that sensor becomes part of the trade.</li>
+        <li><strong>Weather markets have source-fragility risk.</strong> A single station, feed, or measurement method can become a point of failure.</li>
+        <li><strong>"Same event" does not mean "same market."</strong> Two platforms can ask similar-looking weather questions while resolving against different stations or sources.</li>
+        <li><strong>Abnormal flow is not proof of wrongdoing.</strong> A suspicious trading pattern should be treated as a risk flag, not a legal conclusion.</li>
+        <li><strong>Market price is not market reliability.</strong> A price can be useful, liquid, and still structurally fragile.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>The Paris weather incident should not be remembered as a funny story about a hairdryer. It should be remembered as a warning about prediction-market infrastructure.</p>
+      <p>When a market depends on a narrow resolver, the market inherits every weakness of that resolver. In this case, the weakness appears to have been a specific weather measurement source. In other markets, it may be a government data release, a sports-stat feed, an exchange candle, an oracle vote, a court filing, or a subjective platform decision.</p>
+      <p>A prediction-market price is not automatically a probability. It is a signal filtered through rules, liquidity, source quality, and information flow. <strong>Before you trust the price, trust the resolver.</strong></p>
+
+      <!-- FAQ -->
+      <h2>Frequently asked questions</h2>
+      <div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What was the Paris Polymarket weather incident?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Suspicious temperature spikes at a Météo-France sensor near Charles de Gaulle Airport in April 2026 coincided with profitable Polymarket weather bets. Météo-France filed a police complaint, and French authorities are investigating possible interference with weather equipment. Reports indicate that bets exceeding $500,000 were placed on specific Paris temperature outcomes, with individual traders turning small positions into large payouts following the anomalous readings.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Did someone use a hairdryer to manipulate the weather market?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>That has not been proven. The "hairdryer or lighter" claim circulated online and was described by The Guardian as an online claim or joke alongside an AI-generated image. The confirmed issue is that abnormal sensor readings and possible equipment interference are under investigation. The exact method — if interference occurred — has not been established by investigators.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is resolution risk in prediction markets?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Resolution risk is the risk that a prediction market's outcome depends on unclear wording, fragile data sources, subjective settlement rules, or mechanisms that may not match the public interpretation of the market title. The Paris weather case is a clear example: the market appeared to be about "Paris weather" but resolved against a specific sensor at one airport. When that sensor showed anomalous readings, the market resolved in a way that may not have matched most traders' understanding of the bet.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is oracle risk in prediction markets?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Oracle risk is the risk that the source used to determine a market outcome is wrong, delayed, influenced, ambiguous, or disputed. In weather markets, the oracle may be a specific sensor or official weather feed. In political markets, it may be a certification process. In sports markets, it may be an official statistics provider. In macro markets, it may be a specific data release. Beatpoly evaluates oracle design as part of its Resolution Risk scoring.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How would Beatpoly classify this case?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Beatpoly would classify the Paris weather incident as a high-resolution-risk and high-source-fragility case, with elevated abnormal-flow risk because unusual market activity coincided with anomalous source data. The illustrative reliability profile above shows a D rating — primarily driven by single-source resolution dependency and abnormal flow patterns. This does not constitute a determination of wrongdoing; it is a reliability assessment.</p></div></div>
+      </div>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="art-sidebar">
+      <div class="cta-sidebar">
+        <h4>Reliability Engine</h4>
+        <p>Beatpoly scores resolution risk, source fragility, and abnormal flow across Kalshi and Polymarket markets.</p>
+        <a href="../api.html#request">Request API Access &#8594;</a>
+      </div>
+
+      <div class="sidebar-card" style="margin-top:14px">
+        <span class="sidebar-eyebrow">Research Categories</span>
+        <a href="../platform.html#resolution" class="sidebar-link">&#128203; Resolution Risk <span class="sidebar-link-arrow">&#8594;</span></a>
+        <a href="../platform.html#integrity" class="sidebar-link">&#128270; Market Integrity <span class="sidebar-link-arrow">&#8594;</span></a>
+        <a href="../platform.html#crossvenue" class="sidebar-link">&#8652; Cross-Venue Basis Risk <span class="sidebar-link-arrow">&#8594;</span></a>
+        <a href="../platform.html#execution" class="sidebar-link">&#128200; Execution Risk <span class="sidebar-link-arrow">&#8594;</span></a>
+      </div>
+
+      <div class="sidebar-card">
+        <span class="sidebar-eyebrow">Further reading</span>
+        <a href="../methodology.html" class="sidebar-link">Scoring Methodology <span class="sidebar-link-arrow">&#8594;</span></a>
+        <a href="../research.html" class="sidebar-link">Research Hub <span class="sidebar-link-arrow">&#8594;</span></a>
+        <a href="../learn/how-contracts-work.html" class="sidebar-link">How Contracts Work <span class="sidebar-link-arrow">&#8594;</span></a>
+        <a href="../platform.html" class="sidebar-link">Platform Overview <span class="sidebar-link-arrow">&#8594;</span></a>
+      </div>
+
+      <div class="sidebar-card" style="background:var(--bg);border:1.5px solid var(--border)">
+        <span class="sidebar-eyebrow">Score convention</span>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;margin:0">All Beatpoly scores are <strong style="color:var(--text)">risk scores</strong> from 0–100 where <strong style="color:var(--text)">higher = more risk</strong>. The A–F reliability rating converts all four dimensions into one signal.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="footer-root"></div><script src="../footer.js"></script>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'\u2212':'+'}</script>
+</body></html>
