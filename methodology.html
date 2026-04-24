@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Market Research Methodology | Beatpoly</title>
+  <meta name="description" content="Review Beatpoly's methodology for prediction-market reliability scores, resolution-risk analysis, liquidity-quality metrics, abnormal-flow alerts, and published research statistics."/>
+  <meta property="og:title" content="Research Methodology | Beatpoly"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://beatpoly.com/methodology.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://beatpoly.com/methodology.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="nav.css"/><link rel="stylesheet" href="footer.css"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--white:#fff;--bg:#F7F8FA;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--green:#16A34A;--amber:#D97706;--red:#DC2626;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif}
+    html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}.narrow{max-width:800px;margin:0 auto}
+    h1{font-size:clamp(34px,5vw,54px);font-weight:800;letter-spacing:-0.035em;line-height:1.06;margin-bottom:20px}
+    h2{font-size:clamp(20px,2.5vw,32px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;margin-bottom:14px}
+    h3{font-size:16px;font-weight:700;margin-bottom:8px}
+    p{font-size:15.5px;line-height:1.8;color:var(--muted);margin-bottom:16px}p:last-child{margin-bottom:0}p strong{color:var(--text);font-weight:600}
+    .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:14px}
+    .section{padding:72px 0;border-bottom:1px solid var(--border)}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:8px;transition:opacity 0.15s}
+    .btn-primary:hover{opacity:0.88}
+    .page-hero{padding:120px 0 72px;background:linear-gradient(160deg,#F0F5FF 0%,var(--white) 60%);border-bottom:1px solid var(--border)}
+    /* SCORING BANDS */
+    .rating-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+    .rating-row:last-child{border-bottom:none}
+    .r-badge{font-family:var(--mono);font-size:14px;font-weight:700;padding:5px 12px;border-radius:6px;width:40px;text-align:center;flex-shrink:0}
+    .r-label{font-size:14px;font-weight:600;color:var(--text);min-width:80px;flex-shrink:0}
+    .r-desc{font-size:13.5px;color:var(--muted);line-height:1.5}
+    /* DIMENSION SECTIONS */
+    .dim-section{padding:48px 0;border-bottom:1px solid var(--border)}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:16px}
+    .input-tag{font-family:var(--mono);font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:5px 10px;color:var(--muted)}
+    .risk-examples{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+    .risk-ex{font-size:13px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+    .risk-ex::before{content:'—';font-family:var(--mono);color:var(--red);flex-shrink:0}
+    /* AUDIT TABLE */
+    .audit-table{width:100%;border-collapse:collapse;margin-top:32px;font-size:13.5px}
+    .audit-table th{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);padding:12px 16px;border-bottom:2px solid var(--border);text-align:left;background:var(--bg)}
+    .audit-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;line-height:1.55}
+    .audit-table tr:last-child td{border-bottom:none}
+    .audit-table td:first-child{font-weight:600;color:var(--text)}
+    .status-pending{font-family:var(--mono);font-size:11px;background:#FEF3C7;color:#D97706;padding:3px 8px;border-radius:3px;display:inline-block}
+    .status-ok{font-family:var(--mono);font-size:11px;background:#DCFCE7;color:#16A34A;padding:3px 8px;border-radius:3px;display:inline-block}
+    /* LIMITATIONS */
+    .limit-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+    .limit-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);line-height:1.55}
+    .limit-list li::before{content:'✕';color:var(--red);font-weight:700;flex-shrink:0}
+    @media(max-width:768px){.input-grid{grid-template-columns:1fr}.page-hero{padding:100px 0 60px}}
+  </style>
+</head>
+<body>
+<div id="nav-root"></div><script src="nav.js"></script>
+
+<section class="page-hero">
+  <div class="container">
+    <div style="max-width:700px">
+      <span class="eyebrow" style="color:var(--blue)">Methodology</span>
+      <h1>Every claim needs an audit trail.</h1>
+      <p style="font-size:18px;color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:28px">Beatpoly is built for professional use. That means our scores, statistics, and market notes must be explainable, testable, and limited by clear assumptions. This page documents how we evaluate prediction markets, how we classify risk, and what evidence is required before a statistic appears in Beatpoly research.</p>
+      <a href="#scoring" class="btn-primary">Review Scoring Framework &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH STANDARD -->
+<section class="section">
+  <div class="container narrow">
+    <span class="eyebrow">Research Standard</span>
+    <h2>The Beatpoly Research Standard</h2>
+    <p>Every published metric should include enough information for a reader to understand where it came from, what it includes, what it excludes, and how much uncertainty remains.</p>
+    <p>For a statistic to be used in enterprise product decisions or cited as research, the following fields must be documented:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:24px">
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Data source</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Date range</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Venue coverage</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Sample size</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Inclusion rules</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Exclusion rules</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Cancelled / unresolved treatment</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Fee assumptions</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Slippage assumptions</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Known limitations</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Last updated date</div>
+      <div style="font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--muted)">Confidence intervals where applicable</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCORING -->
+<section class="section" style="background:var(--bg)" id="scoring">
+  <div class="container narrow">
+    <span class="eyebrow">Reliability Rating</span>
+    <h2>How Beatpoly scores market reliability</h2>
+    <p>Beatpoly's reliability rating is not a prediction of whether an event will happen. It is an assessment of whether the market price is clean, usable, and defensible for professional use.</p>
+    <div style="margin-top:32px">
+      <div class="rating-row"><div class="r-badge" style="background:#DCFCE7;color:#16A34A">A</div><div class="r-label">High</div><div class="r-desc">Clear resolution criteria, strong liquidity, low abnormal-flow risk, and low source fragility. Generally suitable for trading, citing, or monitoring without major caveats.</div></div>
+      <div class="rating-row"><div class="r-badge" style="background:#EEF4FF;color:#1B6FF8">B</div><div class="r-label">Usable</div><div class="r-desc">Some limitations present but generally suitable for professional use with appropriate context. Users should review the specific flags before acting.</div></div>
+      <div class="rating-row"><div class="r-badge" style="background:#FEF3C7;color:#D97706">C</div><div class="r-label">Caution</div><div class="r-desc">Meaningful weakness in at least one dimension — liquidity, resolution clarity, or information flow. Requires explicit context before use. Not recommended for citation without caveats.</div></div>
+      <div class="rating-row"><div class="r-badge" style="background:#FEE2E2;color:#DC2626">D</div><div class="r-label">High risk</div><div class="r-desc">Price may be significantly distorted, thin, ambiguous, or unsafe to use without major caveats. Professional users should treat with caution and document the risk explicitly.</div></div>
+      <div class="rating-row"><div class="r-badge" style="background:#1F2937;color:#fff">F</div><div class="r-label">Unreliable</div><div class="r-desc">Severe resolution, liquidity, manipulation, or integrity concerns. Price is not considered usable for professional monitoring, trading, or citation in current state.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSION 1 -->
+<section class="section" id="resolution">
+  <div class="container narrow">
+    <span class="eyebrow" style="color:var(--blue)">Dimension 01</span>
+    <h2>Resolution Risk Score</h2>
+    <p><strong>Measures:</strong> How likely the market is to settle cleanly and in line with the plain-English interpretation of the question.</p>
+    <p>A low resolution risk score means the market has clear, unambiguous rules, a reliable data source, and a well-defined settlement process. A high score means the market has risk of contested settlement, source failure, or wording ambiguity that could affect how the contract resolves.</p>
+    <h3 style="margin-top:28px">Scoring inputs</h3>
+    <div class="input-grid">
+      <span class="input-tag">Contract wording clarity</span><span class="input-tag">Resolution source defined</span>
+      <span class="input-tag">Source dependency (single vs multiple)</span><span class="input-tag">Oracle or adjudication mechanism</span>
+      <span class="input-tag">Settlement timing vs. data release</span><span class="input-tag">Ambiguous terms in contract</span>
+      <span class="input-tag">Subjective judgment required</span><span class="input-tag">Challenge / dispute process</span>
+      <span class="input-tag">Data source manipulability</span><span class="input-tag">Cross-venue wording differences</span>
+    </div>
+    <h3 style="margin-top:28px">High-risk examples</h3>
+    <div class="risk-examples">
+      <div class="risk-ex">Single-source weather markets where one weather station determines resolution</div>
+      <div class="risk-ex">Markets depending on subjective public statements or announcements</div>
+      <div class="risk-ex">Markets with undefined terms such as "major," "significant," or "official"</div>
+      <div class="risk-ex">Markets where two venues use different resolution sources for similar questions</div>
+      <div class="risk-ex">Markets involving events known by a small group before public release</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSION 2 -->
+<section class="section" style="background:var(--bg)" id="execution">
+  <div class="container narrow">
+    <span class="eyebrow" style="color:var(--blue)">Dimension 02</span>
+    <h2>Liquidity &amp; Execution Quality Score</h2>
+    <p><strong>Measures:</strong> Whether the displayed price is usable for trading, monitoring, or public citation without significant distortion.</p>
+    <p>A thin market may show a price that cannot be executed without moving it significantly. Beatpoly models what a professional-sized trade would actually cost after spread, fees, and slippage.</p>
+    <h3 style="margin-top:28px">Scoring inputs</h3>
+    <div class="input-grid">
+      <span class="input-tag">Bid/ask spread</span><span class="input-tag">Order-book depth</span>
+      <span class="input-tag">Depth near mid-price</span><span class="input-tag">Recent volume</span>
+      <span class="input-tag">Trade concentration</span><span class="input-tag">Estimated slippage</span>
+      <span class="input-tag">Taker &amp; maker fee impact</span><span class="input-tag">Fill probability</span>
+      <span class="input-tag">Market age &amp; maturity</span><span class="input-tag">Price jump frequency</span>
+    </div>
+    <h3 style="margin-top:28px">High-risk examples</h3>
+    <div class="risk-examples">
+      <div class="risk-ex">Wide spreads that exceed the apparent edge of a trade</div>
+      <div class="risk-ex">Thin top-of-book depth — displayed price disappears on any real-size order</div>
+      <div class="risk-ex">Volume concentrated in one wallet or a small set of wallets</div>
+      <div class="risk-ex">Large price changes on small absolute trade sizes</div>
+      <div class="risk-ex">Markets that appear liquid only at stale prices not refreshing in real time</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSION 3 -->
+<section class="section" id="crossvenue">
+  <div class="container narrow">
+    <span class="eyebrow" style="color:var(--blue)">Dimension 03</span>
+    <h2>Cross-Venue Equivalence Score</h2>
+    <p><strong>Measures:</strong> Whether two similar-looking markets across venues are actually equivalent — asking the same question, resolved under the same rules, using the same data source.</p>
+    <p>Most cross-venue "arbitrage" opportunities fail this test. A price gap between Kalshi and Polymarket is compensation for basis risk, not free money. Beatpoly quantifies how much the markets actually differ.</p>
+    <h3 style="margin-top:28px">Scoring inputs</h3>
+    <div class="input-grid">
+      <span class="input-tag">Question wording comparison</span><span class="input-tag">Resolution source comparison</span>
+      <span class="input-tag">Cutoff date and time</span><span class="input-tag">Settlement process</span>
+      <span class="input-tag">Dispute mechanism</span><span class="input-tag">Underlying data definition</span>
+      <span class="input-tag">Geographic definition</span><span class="input-tag">Time zone treatment</span>
+      <span class="input-tag">Edge-case handling</span><span class="input-tag">Historical resolution divergence</span>
+    </div>
+    <h3 style="margin-top:28px">High-risk examples</h3>
+    <div class="risk-examples">
+      <div class="risk-ex">Two weather markets using different stations (e.g. airport vs. city centre)</div>
+      <div class="risk-ex">Two political markets using different certification dates or vote-counting rules</div>
+      <div class="risk-ex">Two crypto markets using different exchange feeds or candle definitions</div>
+      <div class="risk-ex">Two macro markets using different data-release schedules or revision policies</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSION 4 -->
+<section class="section" style="background:var(--bg)" id="integrity">
+  <div class="container narrow">
+    <span class="eyebrow" style="color:var(--blue)">Dimension 04</span>
+    <h2>Market Integrity &amp; Abnormal Flow Score</h2>
+    <p><strong>Measures:</strong> Whether market movement looks unusual, concentrated, or potentially disconnected from public information flow.</p>
+    <p>Abnormal flow detection does not prove wrongdoing. It identifies patterns that warrant additional scrutiny — particularly useful for compliance teams and media researchers who need to understand what is driving a price before relying on it.</p>
+    <h3 style="margin-top:28px">Scoring inputs</h3>
+    <div class="input-grid">
+      <span class="input-tag">Large price moves over short windows</span><span class="input-tag">Movement before announcement times</span>
+      <span class="input-tag">New-wallet concentration</span><span class="input-tag">Repeated pre-catalyst behavior</span>
+      <span class="input-tag">Public news catalyst matching</span><span class="input-tag">Liquidity shocks</span>
+      <span class="input-tag">Order-book imbalance</span><span class="input-tag">Category insider-risk exposure</span>
+      <span class="input-tag">Wallet cluster detection</span><span class="input-tag">Volume-to-depth ratio</span>
+    </div>
+    <h3 style="margin-top:28px">High-risk examples</h3>
+    <div class="risk-examples">
+      <div class="risk-ex">Political decisions known before public filing or announcement</div>
+      <div class="risk-ex">Corporate events known to internal employees before disclosure</div>
+      <div class="risk-ex">Military or government actions known to officials before public reporting</div>
+      <div class="risk-ex">Market movement without any identifiable public catalyst</div>
+      <div class="risk-ex">Sports information known to teams or insiders before public release</div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT TABLE -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Published statistics</span>
+    <h2>Published statistics and audit status</h2>
+    <p style="max-width:700px">The following statistics appear in Beatpoly's research library. Enterprise product decisions rely only on statistics whose methodology has been fully documented. Research library content may cite statistics before full audit publication, but those statistics require the documentation fields described in the Research Standard above.</p>
+    <table class="audit-table">
+      <thead><tr><th>Statistic</th><th>Use</th><th>Required documentation</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>72% of contracts resolve NO</td><td>Market-structure research / educational baseline</td><td>Venue list, date range, market count, binary vs. multi-outcome treatment, cancelled market treatment, category breakdown</td><td><span class="status-pending">Methodology pending</span></td></tr>
+        <tr><td>87.3% of traders lose money</td><td>Behavioral research / educational baseline</td><td>Wallet sample, PnL definition, realized vs. unrealized treatment, fees, wash-trading filters, minimum activity threshold</td><td><span class="status-pending">Methodology pending</span></td></tr>
+        <tr><td>22-point maker/taker execution gap</td><td>Execution-quality research</td><td>Source paper, exact sample, venue applicability, fee period, definition of maker and taker in context</td><td><span class="status-pending">External source verification required</span></td></tr>
+        <tr><td>161,000 contracts analyzed</td><td>Dataset credibility</td><td>Market IDs, source, date range, venue split, category split, exclusion criteria</td><td><span class="status-pending">Dataset card pending</span></td></tr>
+        <tr><td>$21.5B Polymarket 2025 volume</td><td>Market context</td><td>Source, platform-reported vs third-party measured, time period, methodology</td><td><span class="status-pending">Source citation required</span></td></tr>
+      </tbody>
+    </table>
+    <div style="background:#EEF4FF;border:1px solid rgba(27,111,248,0.15);border-radius:10px;padding:18px 22px;margin-top:24px;font-size:14px;color:var(--muted);line-height:1.65">
+      <strong style="color:var(--blue)">Important:</strong> Beatpoly does not treat a statistic as enterprise-grade until the methodology is published. Research claims may appear in educational content before full audit publication, but enterprise product decisions rely only on documented datasets and defined scoring logic.
+    </div>
+  </div>
+</section>
+
+<!-- LIMITATIONS -->
+<section class="section" style="background:var(--bg)">
+  <div class="container narrow">
+    <span class="eyebrow">Limitations</span>
+    <h2>What Beatpoly does not claim</h2>
+    <ul class="limit-list">
+      <li>We do not claim that reliability scores predict the event outcome.</li>
+      <li>We do not provide personalized investment advice.</li>
+      <li>We do not claim that a high-reliability market is a profitable trade.</li>
+      <li>We do not claim that abnormal-flow alerts prove wrongdoing or insider trading.</li>
+      <li>We do not rely on private or non-public information to generate scores.</li>
+      <li>We do not encourage attempts to influence market outcomes, data sources, or resolution mechanisms.</li>
+      <li>We do not claim that all scoring inputs are comprehensive or free from error.</li>
+    </ul>
+    <div style="margin-top:32px">
+      <span class="eyebrow">Update cadence</span>
+      <h2>Update cadence</h2>
+      <p>Market data, liquidity metrics, and abnormal-flow alerts are designed for frequent updates as market conditions change. Methodology pages and research statistics are updated when datasets, scoring rules, or venue mechanics change materially. Last methodology review: April 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSIBLE USE -->
+<section class="section">
+  <div class="container narrow">
+    <span class="eyebrow">Responsible use</span>
+    <h2>Responsible use of prediction-market intelligence</h2>
+    <p>Prediction markets can be powerful information tools, but they can also be distorted by poor liquidity, ambiguous rules, insider information, and market manipulation. Beatpoly is designed to help professional users identify these risks before relying on market prices.</p>
+    <p>Using Beatpoly data responsibly means understanding what each score does and does not measure, acknowledging the limitations documented on this page, and applying appropriate judgment before making decisions based on market prices.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+      <a href="platform.html" class="btn-primary">View Platform &#8594;</a>
+      <a href="api.html#request" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-size:14px;font-weight:500;padding:12px 22px;border-radius:8px;border:1.5px solid var(--border);transition:all 0.15s">Request API Access</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div><script src="footer.js"></script>
+</body></html>

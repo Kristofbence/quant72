@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Market Reliability Engine | Beatpoly</title>
+  <meta name="description" content="Beatpoly scores prediction markets across resolution risk, liquidity quality, cross-venue equivalence, and abnormal information flow so professional teams know which market prices to trust."/>
+  <meta name="keywords" content="prediction market reliability, prediction market risk, event contract risk, prediction market data quality, market integrity monitoring"/>
+  <meta property="og:title" content="Prediction Market Reliability Engine | Beatpoly"/>
+  <meta property="og:description" content="Resolution risk scoring, execution cost analytics, cross-venue equivalence, and market integrity alerts for professional teams."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://beatpoly.com/platform.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://beatpoly.com/platform.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="nav.css"/>
+  <link rel="stylesheet" href="footer.css"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Beatpoly","url":"https://beatpoly.com","description":"Beatpoly provides prediction-market intelligence, reliability scoring, and risk analysis for professional teams."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is prediction-market reliability?","acceptedAnswer":{"@type":"Answer","text":"Prediction-market reliability measures whether a market price is useful and trustworthy. A reliable market has clear resolution rules, sufficient liquidity, low distortion, clean information flow, and limited settlement ambiguity."}},{"@type":"Question","name":"Does Beatpoly provide trading signals?","acceptedAnswer":{"@type":"Answer","text":"Beatpoly provides market reliability intelligence, risk scoring, and data-quality analysis. It is designed to help professional teams evaluate markets, not to provide personalized investment advice."}},{"@type":"Question","name":"Which platforms does Beatpoly monitor?","acceptedAnswer":{"@type":"Answer","text":"Beatpoly monitors major prediction-market venues, beginning with Polymarket and Kalshi, then expanding to additional event-contract platforms as coverage matures."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--white:#fff;--bg:#F7F8FA;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--green:#16A34A;--red:#DC2626;--amber:#D97706;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif}
+    html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    h1{font-size:clamp(36px,5vw,58px);font-weight:800;letter-spacing:-0.035em;line-height:1.06;margin-bottom:20px}
+    h2{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+    h3{font-size:17px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px}
+    p{font-size:15.5px;line-height:1.8;color:var(--muted);margin-bottom:16px}p:last-child{margin-bottom:0}p strong{color:var(--text);font-weight:600}
+    .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:14px}
+    .section{padding:88px 0;border-bottom:1px solid var(--border)}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:8px;transition:opacity 0.15s}
+    .btn-primary:hover{opacity:0.88}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-size:14px;font-weight:500;padding:12px 22px;border-radius:8px;border:1.5px solid var(--border);transition:border-color 0.15s,color 0.15s}
+    .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+    /* HERO */
+    .page-hero{padding:130px 0 80px;background:linear-gradient(160deg,#F0F5FF 0%,var(--white) 60%);border-bottom:1px solid var(--border)}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .hero-lead{font-size:18px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .trust-line{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:16px;line-height:1.6}
+    /* DIMENSION CARDS */
+    .dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+    .dim-card{border:1.5px solid var(--border);border-radius:14px;padding:32px;transition:border-color 0.15s,box-shadow 0.15s;cursor:default}
+    .dim-card:hover{border-color:var(--blue);box-shadow:0 4px 24px rgba(27,111,248,0.08)}
+    .dim-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+    .dim-num{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;display:block}
+    .dim-card h3{font-size:19px;margin-bottom:10px}
+    .dim-card p{font-size:13.5px;line-height:1.7;margin-bottom:16px}
+    .dim-outputs{display:flex;flex-direction:column;gap:5px}
+    .dim-output{font-family:var(--mono);font-size:11px;color:var(--blue);background:var(--blue-light);border:1px solid rgba(27,111,248,0.15);border-radius:4px;padding:3px 8px;display:inline-block;width:fit-content}
+    .dim-example{background:var(--bg);border-radius:8px;padding:14px 16px;margin-top:14px;font-size:12px;color:var(--muted);line-height:1.6;border-left:3px solid var(--blue)}
+    .dim-link{font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:600;letter-spacing:0.03em;margin-top:14px;display:inline-block}
+    /* EXAMPLE CARD */
+    .example-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;margin-top:48px}
+    .example-text h3{font-size:20px;margin-bottom:12px}
+    .code-block{background:#0F1117;border-radius:12px;overflow:hidden;font-family:var(--mono);font-size:12px}
+    .code-header{padding:12px 20px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.05em;text-transform:uppercase}
+    .code-body{padding:24px;line-height:1.9;color:rgba(255,255,255,0.7);overflow-x:auto;white-space:pre}
+    .code-body .k{color:#7dd3fc}.code-body .s{color:#86efac}.code-body .n{color:#fbbf24}.code-body .c{color:#6b7280;font-style:italic}
+    /* USE CASES */
+    .uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+    .uc-card{border:1.5px solid var(--border);border-radius:10px;padding:22px;transition:border-color 0.15s}
+    .uc-card:hover{border-color:var(--blue)}
+    .uc-icon{font-size:20px;margin-bottom:10px;display:block}
+    .uc-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+    .uc-desc{font-size:12.5px;color:var(--muted);line-height:1.6}
+    /* WHY NOW */
+    .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:40px}
+    .event-list{display:flex;flex-direction:column;gap:12px}
+    .event-item{border:1.5px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px}
+    .event-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px}
+    .event-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+    .event-desc{font-size:12px;color:var(--muted);line-height:1.5}
+    /* FAQ */
+    .faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px}
+    .faq-q-text{font-size:16px;font-weight:600;color:var(--text)}
+    .faq-toggle{font-family:var(--mono);font-size:18px;color:var(--dim);flex-shrink:0}
+    .faq-a{display:none;padding-top:12px}.faq-a.open{display:block}
+    .faq-a p{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
+    /* CTA BOX */
+    .cta-box{background:var(--blue);border-radius:16px;padding:64px;text-align:center;margin-top:64px}
+    .cta-box h2{color:#fff;margin-bottom:14px}
+    .cta-box p{color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 28px;font-size:17px}
+    .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-size:15px;font-weight:700;padding:14px 26px;border-radius:9px;transition:opacity 0.15s}
+    .btn-white:hover{opacity:0.9}
+    .btn-white-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:15px;font-weight:600;padding:14px 26px;border-radius:9px;border:2px solid rgba(255,255,255,0.35);transition:border-color 0.15s}
+    .btn-white-outline:hover{border-color:#fff}
+    @media(max-width:960px){.hero-inner,.example-grid,.why-inner{grid-template-columns:1fr;gap:40px}.dim-grid{grid-template-columns:1fr}.uc-grid{grid-template-columns:1fr 1fr}.page-hero{padding:100px 0 60px}}
+    @media(max-width:600px){.uc-grid{grid-template-columns:1fr}.cta-box{padding:40px 24px}}
+  </style>
+</head>
+<body>
+<div id="nav-root"></div><script src="nav.js"></script>
+
+<!-- HERO -->
+<section class="page-hero" id="top">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow" style="color:var(--blue)">The Reliability Layer for Prediction Markets</span>
+        <h1>Know which prediction markets to trust.</h1>
+        <p class="hero-lead">Prediction-market prices are becoming public signals — used by funds, journalists, analysts, and risk teams. But a market price is not automatically reliable. Beatpoly adds the missing layer: resolution risk, liquidity quality, cross-venue equivalence, and market integrity, scored per market.</p>
+        <div class="hero-actions">
+          <a href="api.html#request" class="btn-primary">Request API Access &#8594;</a>
+          <a href="methodology.html" class="btn-ghost">View Methodology</a>
+        </div>
+        <p class="trust-line">Built for funds, compliance teams, media desks, research firms, and data platforms using prediction-market signals professionally.</p>
+      </div>
+      <div>
+        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Reliability profile example</div>
+          <div style="background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--text)">Will X happen before June 30?</div>
+              <div style="font-size:11px;color:var(--dim);margin-top:2px">Polymarket &middot; Macro &middot; 64%</div>
+            </div>
+            <div style="background:#FEF3C7;color:#D97706;font-family:var(--mono);font-size:14px;font-weight:700;padding:5px 12px;border-radius:6px">C</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Resolution Risk</div>
+              <div style="height:5px;background:#E5E8ED;border-radius:3px;overflow:hidden"><div style="width:72%;height:100%;background:#D97706;border-radius:3px"></div></div>
+              <div style="font-family:var(--mono);font-size:10px;color:#D97706;margin-top:5px;font-weight:600">Elevated (72)</div>
+            </div>
+            <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Liquidity Quality</div>
+              <div style="height:5px;background:#E5E8ED;border-radius:3px;overflow:hidden"><div style="width:52%;height:100%;background:#D97706;border-radius:3px"></div></div>
+              <div style="font-family:var(--mono);font-size:10px;color:#D97706;margin-top:5px;font-weight:600">Medium (52)</div>
+            </div>
+            <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Cross-Venue</div>
+              <div style="height:5px;background:#E5E8ED;border-radius:3px;overflow:hidden"><div style="width:41%;height:100%;background:#DC2626;border-radius:3px"></div></div>
+              <div style="font-family:var(--mono);font-size:10px;color:#DC2626;margin-top:5px;font-weight:600">Not equiv. (41)</div>
+            </div>
+            <div style="background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">Abnormal Flow</div>
+              <div style="height:5px;background:#E5E8ED;border-radius:3px;overflow:hidden"><div style="width:69%;height:100%;background:#D97706;border-radius:3px"></div></div>
+              <div style="font-family:var(--mono);font-size:10px;color:#D97706;margin-top:5px;font-weight:600">Elevated (69)</div>
+            </div>
+          </div>
+          <div style="background:#EEF4FF;border:1px solid rgba(27,111,248,0.12);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--muted);line-height:1.5">
+            <strong style="color:var(--blue)">Key risk:</strong> Subjective resolution wording; large move without confirmed public catalyst; thin depth near mid-price.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <span class="eyebrow">The problem</span>
+        <h2>Raw odds are not enough.</h2>
+        <p>A market showing 64% does not necessarily mean the world has a reliable 64% probability of that outcome.</p>
+        <p>The price may reflect shallow liquidity. It may be moved by one wallet. It may depend on a single data source. It may resolve under wording that looks simple but creates edge-case risk. Or it may be reacting to information that is not yet public.</p>
+        <p><strong>Professional teams need to know more than the price. They need to know whether the price can be trusted.</strong></p>
+        <div style="margin-top:24px;background:var(--blue);border-radius:10px;padding:18px 22px;font-size:15px;font-weight:600;color:#fff;line-height:1.5">Beatpoly turns market prices into reliability intelligence.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="background:var(--red-light);border:1px solid rgba(220,38,38,0.12);border-radius:10px;padding:16px 20px"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Resolution ambiguity</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55">Vague wording, subjective criteria, or single-source dependency can make settlement contested regardless of the price.</div></div>
+        <div style="background:var(--red-light);border:1px solid rgba(220,38,38,0.12);border-radius:10px;padding:16px 20px"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Insider information flow</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55">Markets can move before public announcements. A price spike without a public catalyst is a signal — but not the one most users think it is.</div></div>
+        <div style="background:var(--red-light);border:1px solid rgba(220,38,38,0.12);border-radius:10px;padding:16px 20px"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Fake cross-venue arbitrage</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55">Similar markets on different platforms often resolve against different sources, dates, or criteria. Apparent arbitrage is usually not arbitrage.</div></div>
+        <div style="background:var(--red-light);border:1px solid rgba(220,38,38,0.12);border-radius:10px;padding:16px 20px"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Execution cost destruction</div><div style="font-size:12.5px;color:var(--muted);line-height:1.55">Taker fees, spread, and slippage can consume the entire edge. A 4-point opportunity with 5-point friction is a losing trade.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINE -->
+<section class="section" style="background:var(--bg)" id="engine">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px">
+      <span class="eyebrow">The Beatpoly Reliability Engine</span>
+      <h2>Four dimensions. One reliability rating.</h2>
+      <p style="font-size:16px">Every monitored market is evaluated across four practical dimensions. Each score is machine-readable, explainable, and API-accessible.</p>
+    </div>
+    <div class="dim-grid">
+
+      <div class="dim-card" id="resolution">
+        <div class="dim-icon" style="background:#FEE2E2">&#128203;</div>
+        <span class="dim-num">01 &mdash; Resolution Risk</span>
+        <h3>Does this market resolve cleanly?</h3>
+        <p>Measures whether the contract can settle without ambiguity, dispute, or source failure. We evaluate wording, oracle mechanism, settlement timing, source fragility, and the potential for data-source manipulation.</p>
+        <div class="dim-outputs">
+          <span class="dim-output">Resolution Risk Score</span>
+          <span class="dim-output">Source Fragility Flag</span>
+          <span class="dim-output">Ambiguity Flag</span>
+          <span class="dim-output">Oracle / Data Source Notes</span>
+        </div>
+        <div class="dim-example"><strong>Example:</strong> Two markets may both ask whether a city reaches a certain temperature. If one resolves against an airport station and the other against a city-centre station, they are not the same market — and the risk profiles differ significantly.</div>
+        <a href="methodology.html#resolution" class="dim-link">Resolution risk methodology &#8594;</a>
+      </div>
+
+      <div class="dim-card" id="execution">
+        <div class="dim-icon" style="background:#EEF4FF">&#128200;</div>
+        <span class="dim-num">02 &mdash; Liquidity &amp; Execution Quality</span>
+        <h3>Does the edge survive execution?</h3>
+        <p>Measures whether the displayed price is actually usable. We evaluate spreads, order-book depth, recent trade concentration, estimated slippage, fee sensitivity, and maker/taker friction at professional position sizes.</p>
+        <div class="dim-outputs">
+          <span class="dim-output">Liquidity Quality Score</span>
+          <span class="dim-output">Spread Risk</span>
+          <span class="dim-output">Estimated Slippage</span>
+          <span class="dim-output">Execution Cost Estimate</span>
+        </div>
+        <div class="dim-example"><strong>Example:</strong> A 62% market with a wide spread and shallow depth may be less useful than a 59% market with deep liquidity. The price is not the only input to usability.</div>
+        <a href="methodology.html#execution" class="dim-link">Execution cost methodology &#8594;</a>
+      </div>
+
+      <div class="dim-card" id="crossvenue">
+        <div class="dim-icon" style="background:#DCFCE7">&#8652;</div>
+        <span class="dim-num">03 &mdash; Cross-Venue Equivalence</span>
+        <h3>Are two similar markets the same bet?</h3>
+        <p>Measures whether similar-looking markets across Polymarket and Kalshi are actually equivalent. We compare wording, resolution source, cutoff date, dispute process, oracle design, and category-specific edge cases.</p>
+        <div class="dim-outputs">
+          <span class="dim-output">Equivalence Score</span>
+          <span class="dim-output">Arbitrage Safety Flag</span>
+          <span class="dim-output">Wording Differences</span>
+          <span class="dim-output">Source Differences</span>
+        </div>
+        <div class="dim-example"><strong>Example:</strong> A price gap between Kalshi and Polymarket is not automatically arbitrage. If the markets resolve under different rules, the gap is compensation for hidden basis risk — not free money.</div>
+        <a href="methodology.html#crossvenue" class="dim-link">Cross-venue methodology &#8594;</a>
+      </div>
+
+      <div class="dim-card" id="integrity">
+        <div class="dim-icon" style="background:#FEF3C7">&#128270;</div>
+        <span class="dim-num">04 &mdash; Market Integrity &amp; Abnormal Flow</span>
+        <h3>Is the market showing abnormal activity?</h3>
+        <p>Measures whether market movement looks unusual, concentrated, or disconnected from public information. We monitor sudden moves, new-wallet concentration, pre-announcement behavior, liquidity shocks, and clustered trades.</p>
+        <div class="dim-outputs">
+          <span class="dim-output">Abnormal Flow Score</span>
+          <span class="dim-output">Concentration Flag</span>
+          <span class="dim-output">Pre-Catalyst Alert</span>
+          <span class="dim-output">Integrity Risk Summary</span>
+        </div>
+        <div class="dim-example"><strong>Example:</strong> If a market moves sharply before a public announcement and the activity is concentrated in a small set of wallets, the price may contain private information — which carries both intelligence value and integrity risk.</div>
+        <a href="methodology.html#integrity" class="dim-link">Integrity methodology &#8594;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE RESPONSE -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Example output</span>
+    <h2>From raw market price to reliability intelligence.</h2>
+    <p style="max-width:560px;margin-bottom:0">Beatpoly does not just return the latest price. It explains whether the market is usable, risky, distorted, or worth monitoring.</p>
+    <div class="example-grid">
+      <div class="example-text">
+        <h3 style="margin-top:32px">The reliability rating answers</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)"><span style="background:#DCFCE7;color:#16A34A;font-family:var(--mono);font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px;flex-shrink:0">A</span>High reliability — clear rules, strong liquidity, clean flow</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)"><span style="background:#EEF4FF;color:#1B6FF8;font-family:var(--mono);font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px;flex-shrink:0">B</span>Usable with context — some limitations present</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)"><span style="background:#FEF3C7;color:#D97706;font-family:var(--mono);font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px;flex-shrink:0">C</span>Caution — meaningful weakness in one or more dimensions</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)"><span style="background:#FEE2E2;color:#DC2626;font-family:var(--mono);font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px;flex-shrink:0">D</span>High risk — price may be distorted, thin, or ambiguous</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)"><span style="background:#1F2937;color:#fff;font-family:var(--mono);font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px;flex-shrink:0">F</span>Unreliable — severe resolution, liquidity, or integrity risk</div>
+        </div>
+        <div class="dim-outputs" style="margin-top:28px;gap:6px">
+          <a href="api.html" class="dim-link">View full API schema &#8594;</a>
+          <a href="methodology.html" class="dim-link" style="display:inline-block;margin-top:4px">Read scoring methodology &#8594;</a>
+        </div>
+      </div>
+      <div class="code-block" style="margin-top:32px">
+        <div class="code-header">Beatpoly API &mdash; reliability response</div>
+        <div class="code-body"><span class="c">// GET /v1/markets/{id}/reliability</span>
+{
+  <span class="k">"market_id"</span>: <span class="s">"polymarket:example-market"</span>,
+  <span class="k">"title"</span>: <span class="s">"Will Event X happen before June 30?"</span>,
+  <span class="k">"venue"</span>: <span class="s">"polymarket"</span>,
+  <span class="k">"last_price"</span>: <span class="n">0.64</span>,
+
+  <span class="k">"reliability_rating"</span>: <span class="s">"C"</span>,
+  <span class="k">"resolution_risk_score"</span>: <span class="n">78</span>,
+  <span class="k">"liquidity_quality_score"</span>: <span class="n">52</span>,
+  <span class="k">"cross_venue_equivalence_score"</span>: <span class="n">41</span>,
+  <span class="k">"abnormal_flow_score"</span>: <span class="n">69</span>,
+
+  <span class="k">"summary"</span>: <span class="s">"High information value, but elevated
+    resolution and abnormal-flow risk."</span>,
+
+  <span class="k">"key_risks"</span>: [
+    <span class="s">"Subjective resolution wording"</span>,
+    <span class="s">"Large move without confirmed catalyst"</span>,
+    <span class="s">"Thin depth within 3 cents of mid-price"</span>
+  ],
+
+  <span class="k">"updated_at"</span>: <span class="s">"2026-04-24T12:00:00Z"</span>
+}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <span class="eyebrow">Built for professional use</span>
+    <h2>Built for teams that need market prices they can defend.</h2>
+    <div class="uc-grid">
+      <a href="use-cases.html#funds" class="uc-card"><span class="uc-icon">&#128200;</span><div class="uc-title">Funds &amp; Prop Shops</div><div class="uc-desc">Identify tradable signals that survive fees, slippage, depth constraints, and settlement risk.</div></a>
+      <a href="use-cases.html#compliance" class="uc-card"><span class="uc-icon">&#128272;</span><div class="uc-title">Compliance &amp; Risk</div><div class="uc-desc">Monitor event markets for suspicious movement, insider-risk exposure, and reputation-sensitive signals.</div></a>
+      <a href="use-cases.html#media" class="uc-card"><span class="uc-icon">&#128240;</span><div class="uc-title">Media &amp; Research</div><div class="uc-desc">Know which prediction-market prices are liquid, clean, and reliable enough to cite publicly.</div></a>
+      <a href="use-cases.html#operators" class="uc-card"><span class="uc-icon">&#128279;</span><div class="uc-title">Data Platforms</div><div class="uc-desc">Enrich raw market feeds with reliability, risk, and market-quality metadata for downstream products.</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Why now</span>
+    <h2>Prediction markets are becoming infrastructure.</h2>
+    <div class="why-inner">
+      <div>
+        <p>Prediction-market data is moving beyond retail trading. It is being used by journalists, analysts, investors, builders, and risk teams as a real-time signal for politics, macro events, culture, weather, and public decision-making.</p>
+        <p>As the category grows, the question is no longer only "What is the market price?" The more important question is: <strong>Can this market price be trusted?</strong></p>
+        <p>The regulatory surface is also expanding. Enforcement cases involving insider trading, candidate self-betting, and alleged classified-information use have made prediction-market integrity a live compliance issue.</p>
+        <div class="dim-outputs" style="margin-top:24px;gap:8px">
+          <a href="use-cases.html#compliance" class="dim-link">Compliance use cases &#8594;</a>
+        </div>
+      </div>
+      <div class="event-list">
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">CNN + Kalshi integration</div><div class="event-desc">Prediction-market data is now embedded in mainstream media workflows via API. Reliability context is essential for responsible use.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">CFTC enforcement advisory</div><div class="event-desc">The CFTC has identified insider trading, manipulation, and abusive practices as active concerns in regulated prediction markets.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">Candidate self-betting suspensions</div><div class="event-desc">Congressional candidates were suspended by Kalshi for wagering on their own elections — a compliance case with direct institutional implications.</div></div></div>
+        <div class="event-item"><div class="event-dot"></div><div><div class="event-title">Paris weather market incident</div><div class="event-desc">A Polymarket weather contract produced a large payout after an unusual temperature spike. A police complaint over suspected data source manipulation followed.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--bg)">
+  <div class="container" style="max-width:760px">
+    <span class="eyebrow">FAQ</span>
+    <h2>Common questions</h2>
+    <div style="margin-top:32px">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is prediction-market reliability?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Prediction-market reliability measures whether a market price is useful and trustworthy for professional use. A reliable market has clear resolution rules, sufficient liquidity, low distortion, clean information flow, and limited settlement ambiguity. Beatpoly scores each dimension separately so teams understand exactly where risk is concentrated.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does Beatpoly provide trading signals or investment advice?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>No. Beatpoly provides market reliability intelligence, risk scoring, and data-quality analysis. It is designed to help professional teams evaluate markets — not to provide personalized investment advice. A high-reliability rating does not mean a market is a profitable trade. It means the market's price is clean enough to use as a professional signal.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Which prediction-market platforms does Beatpoly cover?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>Beatpoly currently covers Polymarket and Kalshi, with additional venue coverage expanding as the platform matures. Cross-venue equivalence analysis requires at least two venues and is most useful where similar markets exist on both Polymarket and Kalshi simultaneously.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does a C or D rating mean the market is wrong?</span><span class="faq-toggle">+</span></div><div class="faq-a"><p>No. A lower reliability rating means the market price is harder to use or defend in a professional context — not that the market's directional information is necessarily incorrect. A thin, ambiguous, or abnormal market can still contain real information. The rating tells you how much caution to apply when relying on it.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:88px 0">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Build with prediction-market data you can trust.</h2>
+      <p>Request access to Beatpoly's reliability engine for market monitoring, risk scoring, cross-venue analysis, and enterprise data enrichment.</p>
+      <div class="cta-actions">
+        <a href="api.html#request" class="btn-white">Request API Access &#8594;</a>
+        <a href="methodology.html" class="btn-white-outline">View Methodology</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div><script src="footer.js"></script>
+<script>function toggleFaq(el){const a=el.nextElementSibling,t=el.querySelector('.faq-toggle');a.classList.toggle('open');t.textContent=a.classList.contains('open')?'\u2212':'+';}</script>
+</body></html>

@@ -39,6 +39,8 @@
         '</ul></div>' +
         '<div class="bp-footer-col"><h4>Platform</h4><ul>' +
           '<li><a href="' + r + 'platform.html">Platform Overview</a></li>' +
+          '<li><a href="' + r + 'platform.html#resolution">Resolution Risk</a></li>' +
+          '<li><a href="' + r + 'platform.html#integrity">Market Integrity</a></li>' +
           '<li><a href="' + r + 'api.html">API Reference</a></li>' +
           '<li><a href="' + r + 'methodology.html">Methodology</a></li>' +
           '<li><a href="' + r + 'use-cases.html">Use Cases</a></li>' +

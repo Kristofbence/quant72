@@ -1,131 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C178M6PKL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-7C178M6PKL');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7C178M6PKL');</script>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Beatpoly — The Anti-Casino</title>
-  <meta name="description" content="Beatpoly is a free prediction market education platform built on data, not hype. We trade the math. No financial advice. No upsells. Just the systematic edge."/>
-  <meta property="og:title" content="About Beatpoly — The Anti-Casino"/>
+  <title>About Beatpoly | Prediction Market Intelligence</title>
+  <meta name="description" content="Beatpoly is building the reliability layer for prediction markets, helping professional teams evaluate resolution risk, liquidity quality, cross-venue equivalence, and abnormal information flow."/>
+  <meta property="og:title" content="About Beatpoly | Prediction Market Intelligence"/>
   <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://beatpoly.com/about.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <link rel="canonical" href="https://beatpoly.com/about.html"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="nav.css"/><link rel="stylesheet" href="footer.css"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Beatpoly","url":"https://beatpoly.com","description":"Beatpoly provides prediction-market intelligence for professional teams — reliability scoring, resolution-risk analysis, liquidity quality, and abnormal-flow monitoring."}</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#F7F8FA;--white:#fff;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--orange:#FF5A00;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif}
-    html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:0 24px}
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
-    .nav-inner{max-width:1120px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.04em;color:var(--text)}
-    .nav-logo-mark{width:30px;height:30px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700}
-    .nav-cta{background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:7px;transition:opacity 0.15s}
-    .nav-cta:hover{opacity:0.88}
-    .page-wrap{max-width:720px;margin:0 auto;padding:100px 24px 80px}
-    .page-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
-    h1{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin-bottom:24px;color:var(--text)}
-    h1 span{color:var(--blue)}
-    .lead{font-size:18px;color:var(--muted);line-height:1.7;margin-bottom:48px;border-bottom:1px solid var(--border);padding-bottom:48px}
-    h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:44px 0 14px;color:var(--text)}
-    p{font-size:16.5px;line-height:1.85;color:#374151;margin-bottom:20px}
-    p strong{color:var(--text);font-weight:600}
-    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-    .stat-box{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:20px;text-align:center}
-    .stat-num{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--blue);display:block;margin-bottom:4px}
-    .stat-label{font-size:12px;color:var(--muted);font-weight:500}
-    .principle-list{list-style:none;display:flex;flex-direction:column;gap:16px;margin:24px 0}
-    .principle-list li{display:flex;align-items:flex-start;gap:14px;font-size:16px;color:#374151;line-height:1.6}
-    .principle-list li::before{content:'→';font-family:var(--mono);color:var(--blue);font-size:12px;margin-top:3px;flex-shrink:0}
-    .principle-list li strong{color:var(--text)}
-    .cta-box{background:#1F2937;border-radius:14px;padding:40px;margin-top:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-    .cta-box h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-0.01em}
-    .cta-box p{font-size:14px;color:rgba(255,255,255,0.55);margin:0;max-width:340px;line-height:1.6}
-    .cta-btns{display:flex;flex-direction:column;gap:10px;flex-shrink:0;min-width:180px}
-    .btn-white{display:flex;align-items:center;justify-content:center;background:#fff;color:var(--blue);font-size:13px;font-weight:700;padding:11px 20px;border-radius:8px;font-family:var(--mono);letter-spacing:0.03em}
+    :root{--white:#fff;--bg:#F7F8FA;--border:#E5E8ED;--text:#0F1117;--muted:#4B5563;--dim:#9CA3AF;--blue:#1B6FF8;--blue-light:#EEF4FF;--green:#16A34A;--amber:#D97706;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif}
+    html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}.narrow{max-width:760px;margin:0 auto}
+    h1{font-size:clamp(36px,5vw,56px);font-weight:800;letter-spacing:-0.035em;line-height:1.06;margin-bottom:20px}
+    h2{font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-0.025em;line-height:1.12;margin-bottom:14px}
+    h3{font-size:17px;font-weight:700;margin-bottom:8px}
+    p{font-size:15.5px;line-height:1.8;color:var(--muted);margin-bottom:16px}p:last-child{margin-bottom:0}p strong{color:var(--text);font-weight:600}
+    .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:14px}
+    .section{padding:80px 0;border-bottom:1px solid var(--border)}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:8px;transition:opacity 0.15s}
+    .btn-primary:hover{opacity:0.88}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-size:14px;font-weight:500;padding:12px 22px;border-radius:8px;border:1.5px solid var(--border);transition:all 0.15s}
+    .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+    .page-hero{padding:130px 0 80px;background:#0F1117;border-bottom:1px solid rgba(255,255,255,0.06)}
+    /* BELIEF CARDS */
+    .belief-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+    .belief-card{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:28px}
+    .belief-num{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;display:block}
+    .belief-card h3{font-size:16px;margin-bottom:10px}
+    .belief-card p{font-size:13.5px;line-height:1.65;color:var(--muted);margin:0}
+    /* WHO WE SERVE */
+    .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+    .serve-card{border:1.5px solid var(--border);border-radius:10px;padding:20px;transition:border-color 0.15s}
+    .serve-card:hover{border-color:var(--blue)}
+    .serve-icon{font-size:20px;margin-bottom:8px;display:block}
+    .serve-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .serve-desc{font-size:13px;color:var(--muted);line-height:1.55}
+    /* NOT SECTION */
+    .not-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+    .not-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);line-height:1.5}
+    .not-list li::before{content:'—';font-family:var(--mono);color:var(--dim);flex-shrink:0}
+    /* CTA */
+    .cta-box{background:var(--blue);border-radius:16px;padding:64px;text-align:center;margin-top:64px}
+    .cta-box h2{color:#fff;margin-bottom:14px}
+    .cta-box p{color:rgba(255,255,255,0.65);max-width:460px;margin:0 auto 28px;font-size:17px}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-size:15px;font-weight:700;padding:14px 26px;border-radius:9px;transition:opacity 0.15s}
     .btn-white:hover{opacity:0.9}
-    .btn-ghost{display:flex;align-items:center;justify-content:center;background:transparent;color:#fff;font-size:13px;font-weight:700;padding:11px 20px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.35);font-family:var(--mono);letter-spacing:0.03em}
-    .btn-ghost:hover{border-color:#fff}
-    footer{border-top:1px solid var(--border);padding:36px 0;background:#1F2937;margin-top:80px}
-    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-    .footer-inner p{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.3)}
-    .footer-links{display:flex;gap:20px}
-    .footer-links a{font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.15s}
-    .footer-links a:hover{color:#fff}
-    @media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr}.cta-box{flex-direction:column}.footer-inner{flex-direction:column;text-align:center}}
-  
-    </style>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="About Beatpoly — The Anti-Casino"/>
-  <meta name="twitter:description" content="Beatpoly is a free prediction market education platform. We teach the math that 87.3% of traders never learn. Data-driven, transparent, research-backed."/>
-  <meta property="og:url" content="https://beatpoly.com/about.html"/>
-  <link rel="stylesheet" href="nav.css"/>
-  <link rel="stylesheet" href="footer.css"/>
+    .btn-white-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:15px;font-weight:600;padding:14px 26px;border-radius:9px;border:2px solid rgba(255,255,255,0.35);transition:border-color 0.15s}
+    .btn-white-outline:hover{border-color:#fff}
+    @media(max-width:900px){.belief-grid{grid-template-columns:1fr}.serve-grid{grid-template-columns:1fr 1fr}.page-hero{padding:100px 0 60px}.cta-box{padding:40px 24px}}
+    @media(max-width:560px){.serve-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-<div id="nav-root"></div>
-<script src="nav.js"></script>
+<div id="nav-root"></div><script src="nav.js"></script>
 
-<div class="page-wrap">
-  <p class="page-eyebrow">About Beatpoly</p>
-  <h1>The anti-casino.<br/><span>We trade the math.</span></h1>
-  <p class="lead">Beatpoly is a free prediction market education platform. No financial advice. No upsells. No hype. Just the systematic edge that 87.3% of traders never find — because they are too busy chasing narratives.</p>
-
-  <h2>Why We Built This</h2>
-  <p>Prediction markets are the most interesting financial instruments in existence. They aggregate decentralized information into actionable probabilities. They outperform polls, expert panels, and institutional consensus on a documented basis. And the academic research on their microstructure is some of the richest in quantitative finance.</p>
-  <p>The problem: almost nobody who participates in them is using any of that research. They are buying 5¢ contracts on dramatic outcomes, executing with market orders, ignoring fees, and calling it trading. The data is brutal: <strong>87.3% of Polymarket wallets are unprofitable.</strong> Taker-order traders lose 32% on average.</p>
-  <p>Beatpoly exists to close that gap. Everything we publish is grounded in peer-reviewed research or empirical platform data. Every strategy is testable, reproducible, and explained without jargon.</p>
-
-  <div class="stat-row">
-    <div class="stat-box"><span class="stat-num">72%</span><div class="stat-label">Contracts resolve NO<br/>(161,000 analyzed)</div></div>
-    <div class="stat-box"><span class="stat-num">87.3%</span><div class="stat-label">Traders lose money<br/>(112,000 wallets)</div></div>
-    <div class="stat-box"><span class="stat-num">22pt</span><div class="stat-label">Taker vs Maker gap<br/>(Bürgi et al. 2026)</div></div>
-  </div>
-
-  <h2>Our Principles</h2>
-  <ul class="principle-list">
-    <li><strong>Data over narrative.</strong> Every claim is sourced. We cite the study, the sample size, and the methodology. If we cannot source it, we do not state it.</li>
-    <li><strong>Process over outcome.</strong> A losing trade with positive EV is correct process. A winning trade with negative EV is incorrect process. We evaluate decisions by the math, not the result.</li>
-    <li><strong>Survival first.</strong> No strategy works if you blow up. Kelly Criterion, fractional sizing, and category caps are not optional — they are the foundation everything else is built on.</li>
-    <li><strong>Maker, not Taker.</strong> post_only: true is not a setting, it is a philosophy. We are liquidity providers, not liquidity consumers. We do not chase prices.</li>
-    <li><strong>Free, always.</strong> The education is free because the business model is affiliate referrals and community — not selling you a course. The incentives are aligned: we only benefit when you actually start trading.</li>
-  </ul>
-
-  <h2>The Business Model (Transparency)</h2>
-  <p>Beatpoly earns commission through affiliate partnerships with Kalshi and Polymarket. When you sign up through our links, we receive a small referral fee — funded by the platforms, not by you. The signup bonuses you receive are also funded by the platforms.</p>
-  <p>We do not sell courses, subscriptions, signals, or any paid products. All education is free. All strategies are published publicly. The affiliate revenue is what makes the free model sustainable.</p>
-  <p>If that ever changes, we will disclose it clearly.</p>
-
-  <h2>The Research Behind Beatpoly</h2>
-  <p>Our strategies are built on primary academic sources, not secondhand summaries:</p>
-  <ul class="principle-list">
-    <li><strong>Bürgi, Deng &amp; Whelan (2026)</strong> — 313,972 Kalshi contracts, Maker/Taker performance gaps, Favorite-Longshot Bias analysis</li>
-    <li><strong>Reichenbach &amp; Walther (2025)</strong> — 124 million trades, profitability analysis across platforms</li>
-    <li><strong>Rasooly &amp; Rozzi (2025)</strong> — real-money vs. play-money market accuracy comparison</li>
-    <li><strong>Snowberg &amp; Wolfers (2010)</strong> — Favorite-Longshot Bias across 5 million horse races</li>
-    <li><strong>Sonnemann, Camerer, Fox &amp; Langer (2013)</strong> — Partition Dependence Bias in prediction markets</li>
-    <li><strong>Ali (1977)</strong> — original Favorite-Longshot Bias documentation in pari-mutuel betting</li>
-  </ul>
-
-  <div class="cta-box">
-    <div>
-      <h3>Start with Chapter 1.</h3>
-      <p>Everything is free. No email required to read. The signup bonus is there when you're ready to trade.</p>
-    </div>
-    <div class="cta-btns">
-      <a href="learn/what-is-a-prediction-market.html" class="btn-white">Start Learning →</a>
-      <a href="https://kalshi.com/sign-up/?referral=534cc285-9ffd-4cb4-9314-3e0d892e21af" class="btn-ghost" target="_blank" rel="noopener">Get Kalshi Bonus →</a>
+<section class="page-hero">
+  <div class="container" style="max-width:720px">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.3)">About Beatpoly</span>
+    <h1 style="color:#fff">We build intelligence for markets that predict the world.</h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.5);max-width:580px;line-height:1.7;margin-bottom:32px">Prediction markets are becoming a new layer of public information. They turn expectations about elections, macro events, weather, culture, policy, and global risk into live prices. But not every price is trustworthy. Beatpoly exists to help professional teams understand which prediction-market signals are reliable, which are distorted, and which should be treated with caution.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="api.html#request" class="btn-primary">Request API Access &#8594;</a>
+      <a href="platform.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,0.6);font-size:14px;font-weight:500;padding:12px 22px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.15)">View Platform</a>
     </div>
   </div>
-</div>
+</section>
 
-<div id="footer-root"></div>
-<script src="footer.js"></script>
-</body>
-</html>
+<!-- MISSION -->
+<section class="section">
+  <div class="container narrow">
+    <span class="eyebrow">Mission</span>
+    <h2>Our mission</h2>
+    <p>Beatpoly's mission is to make prediction-market data more reliable, explainable, and useful for professional decision-making.</p>
+    <p>We do this by scoring markets across <a href="platform.html#resolution" style="color:var(--blue)">resolution risk</a>, <a href="platform.html#execution" style="color:var(--blue)">liquidity quality</a>, <a href="platform.html#crossvenue" style="color:var(--blue)">cross-venue equivalence</a>, and <a href="platform.html#integrity" style="color:var(--blue)">abnormal information flow</a> — and making those scores available through an <a href="api.html" style="color:var(--blue)">enterprise API</a>.</p>
+    <p>The public <a href="learn/index.html" style="color:var(--blue)">research library</a> is the open layer of this work — explaining prediction-market mechanics for analysts, traders, and researchers who want to understand the structure behind the scores.</p>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div style="max-width:560px">
+      <span class="eyebrow">What we believe</span>
+      <h2>The principles behind the product.</h2>
+    </div>
+    <div class="belief-grid">
+      <div class="belief-card">
+        <span class="belief-num">Belief 01</span>
+        <h3>A market price is not automatically a probability.</h3>
+        <p>Prices can be distorted by liquidity, fees, shallow order books, ambiguity, and concentrated traders. Professional users need context — not just the number — before acting on a prediction-market price.</p>
+      </div>
+      <div class="belief-card">
+        <span class="belief-num">Belief 02</span>
+        <h3>The contract rules matter as much as the price.</h3>
+        <p>A prediction market is only as useful as its resolution criteria. Wording, data sources, settlement timing, and dispute mechanisms can change the meaning of a market — sometimes dramatically.</p>
+      </div>
+      <div class="belief-card">
+        <span class="belief-num">Belief 03</span>
+        <h3>Reliability is more valuable than hype.</h3>
+        <p>We are not building a trading influencer brand. We are building infrastructure for people who need defensible prediction-market intelligence — and who will be asked to justify the signals they act on.</p>
+      </div>
+      <div class="belief-card">
+        <span class="belief-num">Belief 04</span>
+        <h3>Transparency builds trust.</h3>
+        <p>Every score, statistic, and research claim should be backed by a visible methodology, an evidence trail, and clear limitations. The <a href="methodology.html" style="color:var(--blue)">methodology page</a> exists because we take this seriously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section">
+  <div class="container narrow">
+    <span class="eyebrow">What Beatpoly does</span>
+    <h2>What Beatpoly does</h2>
+    <p>Beatpoly monitors prediction markets and transforms raw market activity into structured reliability intelligence.</p>
+    <div style="display:flex;flex-direction:column;gap:9px;margin-top:20px">
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:14.5px;color:var(--muted)"><span style="color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px">→</span>Scores markets for resolution and settlement risk using contract wording, source analysis, and historical patterns</div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:14.5px;color:var(--muted)"><span style="color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px">→</span>Evaluates liquidity and execution quality using order-book depth, spread, and slippage models</div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:14.5px;color:var(--muted)"><span style="color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px">→</span>Compares similar markets across venues to identify genuine equivalence vs. hidden basis risk</div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:14.5px;color:var(--muted)"><span style="color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px">→</span>Detects abnormal information flow, concentration signals, and pre-announcement movement</div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:14.5px;color:var(--muted)"><span style="color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px">→</span>Publishes market-structure research explaining prediction-market mechanics for the broader ecosystem</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <span class="eyebrow">Who we serve</span>
+    <h2>Who we serve</h2>
+    <div class="serve-grid">
+      <a href="use-cases.html#funds" class="serve-card"><span class="serve-icon">&#128200;</span><div class="serve-title">Funds &amp; Prop Shops</div><div class="serve-desc">Using event-contract markets as tradable signals with execution and settlement risk intelligence.</div></a>
+      <a href="use-cases.html#compliance" class="serve-card"><span class="serve-icon">&#128272;</span><div class="serve-title">Compliance &amp; Risk Teams</div><div class="serve-desc">Monitoring new information-risk surfaces created by event-contract markets.</div></a>
+      <a href="use-cases.html#media" class="serve-card"><span class="serve-icon">&#128240;</span><div class="serve-title">Media &amp; Research</div><div class="serve-desc">Citing prediction-market odds with the liquidity and reliability context required for responsible publication.</div></a>
+      <a href="use-cases.html#operators" class="serve-card"><span class="serve-icon">&#128279;</span><div class="serve-title">Data Platforms</div><div class="serve-desc">Enriching market data feeds with reliability metadata for downstream enterprise products.</div></a>
+      <a href="learn/index.html" class="serve-card"><span class="serve-icon">&#128218;</span><div class="serve-title">Researchers &amp; Analysts</div><div class="serve-desc">Understanding prediction-market microstructure through open research library content.</div></a>
+      <a href="api.html" class="serve-card"><span class="serve-icon">&#9881;</span><div class="serve-title">Developers</div><div class="serve-desc">Building tools and products on top of prediction-market reliability intelligence.</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ARE NOT -->
+<section class="section">
+  <div class="container narrow">
+    <span class="eyebrow">What we are not</span>
+    <h2>What we are not</h2>
+    <p>Beatpoly is not a gambling brand, not a trading signals service, and not a promise of guaranteed returns. We do not sell predictions. We score the reliability of other people's markets.</p>
+    <ul class="not-list">
+      <li>No personalized investment advice</li>
+      <li>No guaranteed-return claims</li>
+      <li>No insider information use</li>
+      <li>No market manipulation</li>
+      <li>No attempts to influence outcomes, data sources, or resolution mechanisms</li>
+      <li>No paid signals, managed accounts, or performance-based trading products</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section class="section" style="background:var(--bg)">
+  <div class="container narrow">
+    <span class="eyebrow">Research Library</span>
+    <h2>Why we still publish Learn content</h2>
+    <p>Prediction markets are still early. Many people who use them — and many professionals who monitor them — do not fully understand order books, resolution criteria, slippage, oracle risk, or why similar-looking markets can resolve differently.</p>
+    <p>The Learn library exists to explain those mechanics. It is the public research layer behind the enterprise product — the same market-structure analysis that informs the reliability engine, made readable for anyone who wants to understand how prediction markets actually work.</p>
+    <a href="learn/index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--blue);letter-spacing:0.04em;margin-top:8px">Explore Research Library &#8594;</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:80px 0">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Build with prediction-market intelligence you can defend.</h2>
+      <p>If your team uses prediction-market prices for trading, monitoring, reporting, compliance, or product development, Beatpoly helps you understand which signals are reliable enough to use.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="api.html#request" class="btn-white">Request API Access &#8594;</a>
+        <a href="platform.html" class="btn-white-outline">View Platform</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div><script src="footer.js"></script>
+</body></html>
