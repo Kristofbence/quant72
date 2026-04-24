@@ -37,15 +37,17 @@
           '<li><a href="' + r+lp + 'the-72-percent-rule.html">The 72% Rule</a></li>' +
           '<li><a href="' + r+lp + 'crowd-psychology.html">Crowd Psychology</a></li>' +
         '</ul></div>' +
-        '<div class="bp-footer-col"><h4>Platforms</h4><ul>' +
-          '<li><a href="' + KALSHI + '" target="_blank" rel="noopener">Kalshi (+ Bonus)</a></li>' +
-          '<li><a href="' + POLY + '" target="_blank" rel="noopener">Polymarket (+ Bonus)</a></li>' +
+        '<div class="bp-footer-col"><h4>Platform</h4><ul>' +
+          '<li><a href="' + r + 'platform.html">Platform Overview</a></li>' +
+          '<li><a href="' + r + 'api.html">API Reference</a></li>' +
+          '<li><a href="' + r + 'methodology.html">Methodology</a></li>' +
+          '<li><a href="' + r + 'use-cases.html">Use Cases</a></li>' +
         '</ul>' +
-        '<h4 style="margin-top:24px">Site</h4><ul>' +
+        '<h4 style="margin-top:24px">Company</h4><ul>' +
           '<li><a href="' + r + 'index.html">Home</a></li>' +
           '<li><a href="' + r+lp + 'index.html">Curriculum</a></li>' +
           '<li><a href="' + r + 'about.html">About</a></li>' +
-          '<li><a href="' + r + 'consultancy.html">Build a Bot</a></li>' +
+          '<li><a href="' + r + 'consultancy.html">Premium Access</a></li>' +
           '<li><a href="' + r + 'privacy.html">Privacy</a></li>' +
         '</ul></div>' +
         '<div class="bp-footer-col"><h4>Follow Us</h4><ul>' +
