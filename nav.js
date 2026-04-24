@@ -73,7 +73,23 @@
           '<li><a href="' + r + 'research.html">Research</a></li>' +
 
           /* Learn */
-          '<li><a href="' + r + lp + 'index.html">Learn</a></li>' +
+          '<li><a href="' + r + lp + 'index.html">Learn <span class="bp-caret">&#9660;</span></a>' +
+            '<div class="bp-dropdown" style="width:500px">' +
+              '<div class="bp-dd-section">' +
+                '<span class="bp-dd-heading">Research Tracks</span>' +
+                dd(r+lp+'index.html#track1','Contract Mechanics &amp; Resolution','Resolution risk, oracle design, why markets resolve differently') +
+                dd(r+lp+'index.html#track2','Execution Cost &amp; Liquidity','Spread, depth, fees, slippage, and market usability') +
+                dd(r+lp+'index.html#track3','Market Reliability','Reliability scoring, price accuracy, when to trust a price') +
+                dd(r+lp+'index.html#track4','Market Integrity &amp; Compliance','Abnormal flow, insider-risk categories, compliance surface') +
+              '</div>' +
+              '<div class="bp-dd-section">' +
+                '<span class="bp-dd-heading">Resources</span>' +
+                dd(r+lp+'index.html','Research Library','All articles and tracks') +
+                dd(r+'research.html','Research Hub','Reports, case studies, methodology') +
+                dd(r+lp+'index.html#devlab','Developer Lab','API integration and automation') +
+              '</div>' +
+            '</div>' +
+          '</li>' +
 
           /* Company */
           '<li><a href="' + r + 'about.html">Company</a></li>' +
@@ -99,10 +115,12 @@
       '<a href="' + r + 'use-cases.html#funds" class="bp-mob-link">Funds &amp; Prop Shops</a>' +
       '<a href="' + r + 'use-cases.html#compliance" class="bp-mob-link">Compliance &amp; Risk</a>' +
       '<a href="' + r + 'use-cases.html#media" class="bp-mob-link">Media &amp; Research</a>' +
-      '<span class="bp-mob-section">Learn</span>' +
-      '<a href="' + r + lp + 'index.html" class="bp-mob-link">Research Library</a>' +
-      '<a href="' + r + lp + 'what-is-a-prediction-market.html" class="bp-mob-link">Prediction Markets 101</a>' +
-      '<a href="' + r + lp + 'expected-value.html" class="bp-mob-link">Math Foundation</a>' +
+      '<span class="bp-mob-section">Research Library</span>' +
+      '<a href="' + r + lp + 'index.html" class="bp-mob-link">All Tracks</a>' +
+      '<a href="' + r + 'research.html" class="bp-mob-link">Research Hub</a>' +
+      '<a href="' + r + lp + 'how-contracts-work.html" class="bp-mob-link">How Contracts Work</a>' +
+      '<a href="' + r + lp + 'kalshi-vs-polymarket.html" class="bp-mob-link">Kalshi vs. Polymarket</a>' +
+      '<a href="' + r + lp + 'crowd-psychology.html" class="bp-mob-link">Market Biases</a>' +
       '<span class="bp-mob-section">Company</span>' +
       '<a href="' + r + 'about.html" class="bp-mob-link">About</a>' +
       '<a href="' + r + 'methodology.html" class="bp-mob-link">Methodology</a>' +
